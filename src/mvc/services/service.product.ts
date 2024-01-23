@@ -1,9 +1,8 @@
-import { ResponseDto, ProductDto } from '@/mvc/models/dto';
 import { ProductController } from '@/mvc/controllers';
-import { ProductModel } from '@/mvc/models';
+
+import { Search } from '@/types';
 import { AxiosResponse } from 'axios';
 import { Http } from './http/http';
-import { Search } from '@/types';
 
 class ServiceProduct implements ProductController {
  public create = async (

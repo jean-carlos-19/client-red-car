@@ -1,10 +1,8 @@
 import { CustomButton, CustomInput } from '@/atomic/elements';
+import { data, types } from '@/constants';
 import { CustomLaboratoryFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { LaboratoryModel } from '@/mvc/models';
-import { types, data } from '@/constants';
 import { CustomLoading } from '.';
-import React from 'react';
 
 const { laboratory } = data.screens.dashboard.forms;
 

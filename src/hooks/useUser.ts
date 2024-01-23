@@ -1,7 +1,5 @@
-import { LoginModel, RegisterModel } from '@/mvc/models';
-import { AxiosError, AxiosResponse } from 'axios';
-import { LoginDto, ResponseDto } from '@/mvc/models/dto';
 import { ServiceUser } from '@/mvc/services';
+import { AxiosError, AxiosResponse } from 'axios';
 import { useState } from 'react';
 
 const service: ServiceUser = ServiceUser.getService();

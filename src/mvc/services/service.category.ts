@@ -1,9 +1,8 @@
-import { ResponseDto, CategoryDto } from '@/mvc/models/dto';
-import { CategoryModel } from '@/mvc/models';
 import { CategoryController } from '@/mvc/controllers';
+
+import { Search } from '@/types';
 import { AxiosResponse } from 'axios';
 import { Http } from './http/http';
-import { Search } from '@/types';
 
 class ServiceCategory implements CategoryController {
  public create = async (

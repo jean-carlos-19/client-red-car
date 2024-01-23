@@ -1,5 +1,4 @@
-import { LoginModel, RegisterModel } from '@/mvc/models';
-import { LoginDto, ResponseDto } from '@/mvc/models/dto';
+
 import { AxiosResponse } from 'axios';
 
 interface UserController {

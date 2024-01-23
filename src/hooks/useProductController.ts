@@ -1,11 +1,10 @@
-import { Item, Search, statusDialog } from '@/types';
 import { messageDialog, types } from '@/constants';
-import { ProductDto } from '@/mvc/models/dto';
+
+import { Item, Search, statusDialog } from '@/types';
 import { useSession } from 'next-auth/react';
-import { ProductModel } from '@/mvc/models';
 import { useEffect, useState } from 'react';
-import { useProduct } from './useProduct';
 import { useDialog, useModal } from '.';
+import { useProduct } from './useProduct';
 
 const useProductController = (
  category: string,

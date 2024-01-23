@@ -12,4 +12,3 @@ interface ProductDto {
  photo?: string;
  id_image?: string;
 }
-export type { ProductDto };

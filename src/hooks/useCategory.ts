@@ -1,8 +1,7 @@
-import { CategoryDto, ResponseDto } from '@/mvc/models/dto';
+
 import { ServiceCategory } from '@/mvc/services';
-import { CategoryModel } from '@/mvc/models';
-import { AxiosError, AxiosResponse } from 'axios';
 import { Search } from '@/types';
+import { AxiosError, AxiosResponse } from 'axios';
 import { useState } from 'react';
 
 const service: ServiceCategory = ServiceCategory.getService();

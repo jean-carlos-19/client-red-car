@@ -1,11 +1,10 @@
-import { LoginModel, RegisterModel } from '@/mvc/models';
+import { data } from '@/constants';
+import { statusDialog } from '@/types';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { statusDialog } from '@/types';
 import { useModal } from './useModal';
 import { useUser } from './useUser';
-import { data } from '@/constants';
 
 const { secctions } = data.screens.login;
 

@@ -5,4 +5,3 @@ interface RegisterModel {
  names: string | undefined;
  user: string | undefined;
 }
-export type { RegisterModel };

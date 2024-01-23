@@ -1,9 +1,7 @@
 import { CustomButton, CustomInput, CustomPassword } from '@/atomic/elements';
-import { Formik, FormikHelpers } from 'formik';
+import { data, images, types } from '@/constants';
 import { CustomLoginFormProps } from '@/types';
-import { types, data, images } from '@/constants';
-import { LoginModel } from '@/mvc/models';
-import React from 'react';
+import { Formik, FormikHelpers } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 

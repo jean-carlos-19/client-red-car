@@ -1,6 +1,4 @@
 import { UserController } from '@/mvc/controllers';
-import { LoginDto, ResponseDto } from '@/mvc/models/dto';
-import { LoginModel, RegisterModel } from '@/mvc/models';
 import { AxiosResponse } from 'axios';
 import { Http } from './http/http';
 class ServiceUser implements UserController {

@@ -1,9 +1,8 @@
-import { ResponseDto, LaboratoryDto } from '@/mvc/models/dto';
 import { LaboratoryController } from '@/mvc/controllers';
-import { LaboratoryModel } from '@/mvc/models';
+
+import { Search } from '@/types';
 import { AxiosResponse } from 'axios';
 import { Http } from './http/http';
-import { Search } from '@/types';
 
 class ServiceLaboratory implements LaboratoryController {
  public create = async (

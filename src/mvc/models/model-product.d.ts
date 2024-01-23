@@ -12,4 +12,3 @@ interface ProductModel {
  photo?: File | undefined;
  idimage?: string | undefined;
 }
-export type { ProductModel };

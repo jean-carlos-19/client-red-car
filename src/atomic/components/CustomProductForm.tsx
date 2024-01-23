@@ -1,11 +1,9 @@
-import { useProgressBar, useCategoryController, useLaboratoryController, usePoster } from '@/hooks';
 import { CustomButton, CustomInput, CustomPoster, CustomTextArea } from '@/atomic/elements';
-import { CustomDetailsProduct, CustomLoading, CustomProgressBar, CustomSelect } from '.';
+import { data, types } from '@/constants';
+import { useCategoryController, useLaboratoryController, usePoster, useProgressBar } from '@/hooks';
 import { CustomProductFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { ProductModel } from '@/mvc/models';
-import { types, data } from '@/constants';
-import React from 'react';
+import { CustomDetailsProduct, CustomLoading, CustomProgressBar, CustomSelect } from '.';
 
 const { products } = data.screens.dashboard.forms;
 

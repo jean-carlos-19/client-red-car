@@ -4,4 +4,3 @@ interface CategoryDto {
  photo: string;
  idphoto?: string;
 }
-export type { CategoryDto };

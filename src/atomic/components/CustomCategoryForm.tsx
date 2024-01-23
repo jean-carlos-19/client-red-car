@@ -1,11 +1,9 @@
 import { CustomButton, CustomInput, CustomPoster } from '@/atomic/elements';
-import { CustomDetailsCategory, CustomLoading } from '.';
+import { data, types } from '@/constants';
+import { usePoster } from '@/hooks';
 import { CustomCategoryFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { CategoryModel } from '@/mvc/models';
-import { types, data } from '@/constants';
-import { usePoster } from '@/hooks';
-import React from 'react';
+import { CustomDetailsCategory, CustomLoading } from '.';
 
 const { category } = data.screens.dashboard.forms;
 

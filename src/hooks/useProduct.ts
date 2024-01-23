@@ -1,8 +1,7 @@
-import { ResponseDto, ProductDto } from '@/mvc/models/dto';
+
 import { ServiceProduct } from '@/mvc/services';
-import { ProductModel } from '@/mvc/models';
-import { AxiosError, AxiosResponse } from 'axios';
 import { Search } from '@/types';
+import { AxiosError, AxiosResponse } from 'axios';
 import { useState } from 'react';
 
 const service: ServiceProduct = ServiceProduct.getService();

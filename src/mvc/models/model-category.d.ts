@@ -4,4 +4,3 @@ interface CategoryModel {
  photo?: File | undefined;
  idphoto?: string | undefined | null;
 }
-export type { CategoryModel };

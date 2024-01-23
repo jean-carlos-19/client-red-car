@@ -1,8 +1,7 @@
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { AdapterUser } from 'next-auth/adapters';
 import { ServiceUser } from '@/mvc/services';
-import { LoginModel } from '@/mvc/models';
 import NextAuth from 'next-auth';
+import { AdapterUser } from 'next-auth/adapters';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 const service: ServiceUser = ServiceUser.getService();
 

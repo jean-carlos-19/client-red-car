@@ -8,4 +8,3 @@ interface LoginDto {
  };
  token: string;
 }
-export type { LoginDto };

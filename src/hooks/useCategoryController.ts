@@ -1,11 +1,9 @@
-import { Item, Search, statusDialog } from '@/types';
 import { messageDialog, types } from '@/constants';
-import { CategoryDto } from '@/mvc/models/dto';
-import { CategoryModel } from '@/mvc/models';
+import { Item, Search, statusDialog } from '@/types';
 import { useSession } from 'next-auth/react';
-import { useCategory } from './useCategory';
 import { useEffect, useState } from 'react';
 import { useDialog, useModal } from '.';
+import { useCategory } from './useCategory';
 
 const useCategoryController = (searchTarget?: Search) => {
  const session = useSession();

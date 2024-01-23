@@ -1,9 +1,7 @@
 import { CustomButton, CustomInput, CustomPassword } from '@/atomic/elements';
+import { data, types } from '@/constants';
 import { CustomRegisterFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { RegisterModel } from '@/mvc/models';
-import { types, data } from '@/constants';
-import React from 'react';
 
 const { forms } = data.screens.register;
 

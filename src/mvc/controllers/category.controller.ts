@@ -1,7 +1,6 @@
-import { ResponseDto, CategoryDto } from '@/mvc/models/dto';
-import { CategoryModel } from '@/mvc/models';
-import { AxiosResponse } from 'axios';
+
 import { Search } from '@/types';
+import { AxiosResponse } from 'axios';
 interface CategoryController {
  create: (category: CategoryModel, token: string) => Promise<AxiosResponse<ResponseDto>>;
  edit: (category: CategoryModel, token: string) => Promise<AxiosResponse<ResponseDto>>;

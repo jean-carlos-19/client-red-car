@@ -1,8 +1,7 @@
-import { ResponseDto, LaboratoryDto } from '@/mvc/models/dto';
+
 import { ServiceLaboratory } from '@/mvc/services';
-import { LaboratoryModel } from '@/mvc/models';
-import { AxiosError, AxiosResponse } from 'axios';
 import { Search } from '@/types';
+import { AxiosError, AxiosResponse } from 'axios';
 import { useState } from 'react';
 
 const service: ServiceLaboratory = ServiceLaboratory.getService();

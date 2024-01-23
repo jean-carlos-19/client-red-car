@@ -3,4 +3,3 @@ interface UserModel {
  fulla: string;
  image: string | undefined;
 }
-export type { UserModel };

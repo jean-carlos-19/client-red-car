@@ -1,7 +1,6 @@
-import { ResponseDto, LaboratoryDto } from '@/mvc/models/dto';
-import { LaboratoryModel } from '@/mvc/models';
-import { AxiosResponse } from 'axios';
+
 import { Search } from '@/types';
+import { AxiosResponse } from 'axios';
 
 interface LaboratoryController {
  showEnable: () => Promise<AxiosResponse<{ data: LaboratoryDto[] }>>;

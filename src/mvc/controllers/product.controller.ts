@@ -1,7 +1,6 @@
-import { ResponseDto, ProductDto } from '@/mvc/models/dto';
-import { ProductModel } from '@/mvc/models';
-import { AxiosResponse } from 'axios';
+
 import { Search } from '@/types';
+import { AxiosResponse } from 'axios';
 
 interface ProductController {
  showEnable: () => Promise<AxiosResponse<{ data: ProductDto[] }>>;
