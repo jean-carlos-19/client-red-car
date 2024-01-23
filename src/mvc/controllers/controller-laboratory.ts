@@ -1,4 +1,3 @@
-
 import { Search } from '@/types';
 import { AxiosResponse } from 'axios';
 

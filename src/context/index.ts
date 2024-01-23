@@ -1,1 +1,1 @@
-export { SessionAuth } from './SessionAuth';
+export { SessionAuth } from './session-auth';

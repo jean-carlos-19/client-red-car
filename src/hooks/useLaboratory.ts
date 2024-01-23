@@ -1,4 +1,3 @@
-
 import { ServiceLaboratory } from '@/mvc/services';
 import { Search } from '@/types';
 import { AxiosError, AxiosResponse } from 'axios';

@@ -1,4 +1,3 @@
-
 import { AxiosResponse } from 'axios';
 
 interface UserController {

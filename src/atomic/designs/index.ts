@@ -1,4 +1,5 @@
-export { CustomHeaderUser } from './CustomHeaderUser';
-export { CustomDialog } from './CustomDialog';
-export { CustomHeader } from './CustomHeader';
-export { CustomModal } from './CustomModal';
+export { CustomDialog } from './custom-dialog';
+export { CustomHeader } from './custom-header';
+export { CustomHeaderUser } from './custom-header-user';
+export { CustomModal } from './custom-modal';
+

@@ -1,9 +1,9 @@
-import { validationLaboratory } from './laboratory.validate';
-import { validationCategory } from './category.validate';
-import { validationProduct } from './product.validate';
-import { validateRegister } from './register.validate';
-import { validationSearch } from './search.validate';
-import { validateLogin } from './login.validate';
+import { validationCategory } from './validate-category';
+import { validationLaboratory } from './validate-laboratory';
+import { validateLogin } from './validate-login';
+import { validationProduct } from './validate-product';
+import { validateRegister } from './validate-register';
+import { validationSearch } from './validate-search';
 
 const validate = Object.freeze({
  login: validateLogin,

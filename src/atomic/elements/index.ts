@@ -1,9 +1,10 @@
-export { CustomTextArea } from './CustomTextArea';
-export { CustomPassword } from './CustomPassword';
-export { CustomItemTab } from './CustomItemTab';
-export { CustomPoster } from './CustomPoster';
-export { CustomButton } from './CustomButton';
-export { CustomInput } from './CustomInput';
-export { CustomPhoto } from './CustomPhoto';
-export { CustomItem } from './CustomItem';
-export { CustomIcon } from './CustomIcon';
+export { CustomButton } from './custom-buttom';
+export { CustomIcon } from './custom-icon';
+export { CustomInput } from './custom-input';
+export { CustomItem } from './custom-item';
+export { CustomItemTab } from './custom-item-tab';
+export { CustomPassword } from './custom-password';
+export { CustomPhoto } from './custom-photo';
+export { CustomPoster } from './custom-poster';
+export { CustomTextArea } from './custom-text-area';
+
