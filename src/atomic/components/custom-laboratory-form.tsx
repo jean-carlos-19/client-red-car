@@ -1,8 +1,8 @@
+import { CustomLoading } from '@/atomic/components';
 import { CustomButton, CustomInput } from '@/atomic/elements';
 import { data, types } from '@/constants';
 import { CustomLaboratoryFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { CustomLoading } from '.';
 
 const { laboratory } = data.screens.dashboard.forms;
 

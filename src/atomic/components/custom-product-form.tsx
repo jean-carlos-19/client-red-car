@@ -1,9 +1,14 @@
+import {
+ CustomDetailsProduct,
+ CustomLoading,
+ CustomProgressBar,
+ CustomSelect,
+} from '@/atomic/components';
 import { CustomButton, CustomInput, CustomPoster, CustomTextArea } from '@/atomic/elements';
 import { data, types } from '@/constants';
 import { useCategoryController, useLaboratoryController, usePoster, useProgressBar } from '@/hooks';
 import { CustomProductFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { CustomDetailsProduct, CustomLoading, CustomProgressBar, CustomSelect } from '.';
 
 const { products } = data.screens.dashboard.forms;
 

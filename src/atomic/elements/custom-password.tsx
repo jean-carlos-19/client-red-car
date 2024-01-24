@@ -1,7 +1,7 @@
+import { CustomButton } from '@/atomic/elements';
 import { types } from '@/constants';
-import { CustomButton } from './CustomButton';
 import { CustomInputProps } from '@/types';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CustomPassword = (props: CustomInputProps) => {
  const [isVisible, setIsVisible] = useState<boolean>(false);

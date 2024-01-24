@@ -1,7 +1,6 @@
-import { CustomButtonProps, variantButton } from '@/types';
+import { CustomIcon } from '@/atomic/elements';
 import { types } from '@/constants';
-import React from 'react';
-import { CustomIcon } from '.';
+import { CustomButtonProps, variantButton } from '@/types';
 
 const getVariantButton = (
  variant: variantButton | undefined,

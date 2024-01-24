@@ -1,5 +1,4 @@
 import { CustomTextAreaProps } from '@/types';
-import React from 'react';
 
 const CustomTextArea = (props: CustomTextAreaProps) => {
  return (

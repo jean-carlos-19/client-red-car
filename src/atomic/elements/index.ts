@@ -7,4 +7,3 @@ export { CustomPassword } from './custom-password';
 export { CustomPhoto } from './custom-photo';
 export { CustomPoster } from './custom-poster';
 export { CustomTextArea } from './custom-text-area';
-

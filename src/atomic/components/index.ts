@@ -14,4 +14,3 @@ export { CustomRegisterForm } from './custom-register-form';
 export { CustomSearch } from './custom-search';
 export { CustomSelect } from './custom-select';
 export { CustomTabs } from './custom-tabs';
-

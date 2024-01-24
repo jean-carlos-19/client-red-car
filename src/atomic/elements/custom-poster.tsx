@@ -1,7 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import { PosterProps } from '@/types';
 import { types } from '@/constants';
+import { PosterProps } from '@/types';
+import Image from 'next/image';
 
 const CustomPoster = (props: PosterProps) => {
  return (

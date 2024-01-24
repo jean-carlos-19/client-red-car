@@ -1,9 +1,9 @@
-import { CustomDetailsProductProps } from '@/types';
 import { CustomButton } from '@/atomic/elements';
-import { types, data } from '@/constants';
 import { styles } from '@/atomic/theme';
-import React, { useState } from 'react';
+import { data, types } from '@/constants';
+import { CustomDetailsProductProps } from '@/types';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const { product } = data.screens.dashboard.details;
 

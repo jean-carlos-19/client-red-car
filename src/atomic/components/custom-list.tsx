@@ -1,9 +1,8 @@
+import { CustomEmpty, CustomLoading } from '@/atomic/components';
 import { CustomButton, CustomPhoto } from '@/atomic/elements';
-import { CustomEmpty, CustomLoading } from '.';
-import { types, data } from '@/constants';
-import { CustomListProps } from '@/types';
+import { data, types } from '@/constants';
 import { usePhoto } from '@/hooks';
-import React from 'react';
+import { CustomListProps } from '@/types';
 
 const { list } = data.screens.dashboard;
 

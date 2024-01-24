@@ -2,7 +2,6 @@ import { CustomButton } from '@/atomic/elements';
 import { images, types } from '@/constants';
 import { CustomModalProps } from '@/types';
 import Image from 'next/image';
-import React from 'react';
 
 {
  /* body modal */

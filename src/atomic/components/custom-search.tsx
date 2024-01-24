@@ -1,6 +1,5 @@
 import { CustomSearchFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import React from 'react';
 
 const CustomSearch = (props: CustomSearchFormProps) => {
  const { placeholder, handlerSubmit } = props;

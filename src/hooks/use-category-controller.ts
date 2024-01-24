@@ -1,9 +1,9 @@
 import { messageDialog, types } from '@/constants';
+import { useDialog, useModal } from '@/hooks';
+import { useCategory } from '@/hooks/use-category';
 import { Item, Search, statusDialog } from '@/types';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useDialog, useModal } from '.';
-import { useCategory } from './useCategory';
 
 const useCategoryController = (searchTarget?: Search) => {
  const session = useSession();

@@ -1,6 +1,6 @@
 import { CustomPhotoProps } from '@/types';
-import React, { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const CustomPhoto = (props: CustomPhotoProps) => {
  const [isLoading, setIsLoading] = useState<boolean>(true);

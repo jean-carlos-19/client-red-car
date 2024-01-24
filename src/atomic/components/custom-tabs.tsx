@@ -1,8 +1,7 @@
+import { CustomLoading } from '@/atomic/components';
 import { CustomItemTab } from '@/atomic/elements';
-import { CustomTabsProps } from '@/types';
 import { types } from '@/constants';
-import { CustomLoading } from '.';
-import React from 'react';
+import { CustomTabsProps } from '@/types';
 
 const CustomTabs = (props: CustomTabsProps) => {
  props.items.push('Todos');

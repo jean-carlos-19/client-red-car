@@ -30,8 +30,7 @@
   "build": "next build",
   "start": "next start",
   "lint": "next lint",
-  "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettier.json",
-  "prettier": "prettier \"**/*.+(json|ts|tsx)\" --config ./.prettier.json",
+  "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettier.json",
   "format:check": "yarn run prettier -- --check",
   "format:fix": "yarn run prettier -- --write"
  },

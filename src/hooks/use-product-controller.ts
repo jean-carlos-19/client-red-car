@@ -1,10 +1,10 @@
 import { messageDialog, types } from '@/constants';
 
+import { useDialog, useModal } from '@/hooks';
+import { useProduct } from '@/hooks/use-product';
 import { Item, Search, statusDialog } from '@/types';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { useDialog, useModal } from '.';
-import { useProduct } from './useProduct';
 
 const useProductController = (
  category: string,

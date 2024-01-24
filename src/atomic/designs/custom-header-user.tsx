@@ -1,9 +1,8 @@
 import { CustomButton } from '@/atomic/elements';
+import { images, types } from '@/constants';
 import { CustomHeaderUserProps } from '@/types';
 import { signOut } from 'next-auth/react';
-import { images, types } from '@/constants';
 import Image from 'next/image';
-import React from 'react';
 
 const CustomHeaderUser = (props: CustomHeaderUserProps) => {
  return (

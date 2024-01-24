@@ -1,7 +1,6 @@
-import { CustomItemTabsProps } from '@/types';
-import { CustomButton } from '.';
-import React from 'react';
+import { CustomButton } from '@/atomic/elements';
 import { types } from '@/constants';
+import { CustomItemTabsProps } from '@/types';
 
 const CustomItemTab = (props: CustomItemTabsProps) => {
  return props.isActive ? (

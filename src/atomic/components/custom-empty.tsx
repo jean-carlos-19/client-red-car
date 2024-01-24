@@ -1,6 +1,5 @@
-import { images, data } from '@/constants';
+import { data, images } from '@/constants';
 import Image from 'next/image';
-import React from 'react';
 
 const { globals } = data;
 const CustomEmpty = () => {

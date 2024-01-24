@@ -1,7 +1,6 @@
 import { CustomButton } from '@/atomic/elements';
+import { data, types } from '@/constants';
 import { CustomDialogProps } from '@/types';
-import { types, data } from '@/constants';
-import React from 'react';
 
 const { dialog } = data.screens.dashboard;
 

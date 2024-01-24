@@ -10,7 +10,6 @@
   </h3>
 </div>
 
-
 <!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
@@ -23,7 +22,6 @@
 ## Overview
 
 ![screenshot](https://res.cloudinary.com/dlwusojw2/image/upload/v1698171267/projects/Cover-github_2_cnmlql.png)
-
 
 ### Built With
 

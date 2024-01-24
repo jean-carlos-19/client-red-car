@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { ModalSetting, statusDialog } from '@/types';
+import { useState } from 'react';
 
 const useModal = (isOpen: boolean) => {
  const [isActivate, setIsActivate] = useState<boolean>(isOpen);

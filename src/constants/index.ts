@@ -1,13 +1,13 @@
-import data from './data.json';
-import { images } from './images';
-import { typesIcon } from './icon';
-import { typesForm } from './form';
-import { response } from './response';
-import { typesAction } from './action';
-import { messageDialog } from './message';
-import { typesStatusDialog } from './dialog';
-import { typesButton, typesVariantButton } from './button';
-import { variant } from './loading';
+import { typesAction } from '@/constants/action';
+import { typesButton, typesVariantButton } from '@/constants/button';
+import data from '@/constants/data.json';
+import { typesStatusDialog } from '@/constants/dialog';
+import { typesForm } from '@/constants/form';
+import { typesIcon } from '@/constants/icon';
+import { images } from '@/constants/images';
+import { variant } from '@/constants/loading';
+import { messageDialog } from '@/constants/message';
+import { response } from '@/constants/response';
 
 const types = Object.freeze({
  icon: typesIcon,
@@ -22,4 +22,4 @@ const types = Object.freeze({
  loading: variant,
 });
 
-export { types, images, messageDialog, data };
+export { data, images, messageDialog, types };

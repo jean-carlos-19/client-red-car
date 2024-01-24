@@ -1,7 +1,6 @@
 import { CustomButton } from '@/atomic/elements';
-import { CustomHeaderProps } from '@/types';
 import { types } from '@/constants';
-import React from 'react';
+import { CustomHeaderProps } from '@/types';
 
 const CustomHeader = (props: CustomHeaderProps) => {
  return (

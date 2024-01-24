@@ -1,9 +1,8 @@
-import { CustomDetailsCategoryProps } from '@/types';
 import { CustomButton } from '@/atomic/elements';
 import { styles } from '@/atomic/theme';
 import { types } from '@/constants';
+import { CustomDetailsCategoryProps } from '@/types';
 import Image from 'next/image';
-import React from 'react';
 
 const CustomDetailsCategory = (props: CustomDetailsCategoryProps) => {
  return (

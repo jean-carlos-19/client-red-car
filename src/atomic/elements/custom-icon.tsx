@@ -1,22 +1,21 @@
-import React from 'react';
-import { IconProps } from '@/types';
-import { types } from '@/constants';
-import {
- HiEye,
- HiTrash,
- HiMenu,
- HiCheck,
- HiEyeOff,
- HiPencil,
- HiRefresh,
- HiXCircle,
- HiArrowLeft,
- HiPlusCircle,
- HiInformationCircle,
- HiOutlinePlusCircle,
-} from 'react-icons/hi';
-import { FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { theme } from '@/atomic/theme';
+import { types } from '@/constants';
+import { IconProps } from '@/types';
+import { FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import {
+ HiArrowLeft,
+ HiCheck,
+ HiEye,
+ HiEyeOff,
+ HiInformationCircle,
+ HiMenu,
+ HiOutlinePlusCircle,
+ HiPencil,
+ HiPlusCircle,
+ HiRefresh,
+ HiTrash,
+ HiXCircle,
+} from 'react-icons/hi';
 
 const CustomIcon = (props: IconProps) => {
  if (props.type === types.icon.menu) return <HiMenu size={30} color={theme.gray} />;

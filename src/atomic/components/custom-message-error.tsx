@@ -1,8 +1,7 @@
-import { CustomMessageErrorProps } from '@/types';
 import { styles } from '@/atomic/theme';
 import { images } from '@/constants';
+import { CustomMessageErrorProps } from '@/types';
 import Image from 'next/image';
-import React from 'react';
 
 const CustomMessageError = (props: CustomMessageErrorProps) => {
  return (

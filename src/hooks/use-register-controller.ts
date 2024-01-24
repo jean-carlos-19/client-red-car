@@ -1,10 +1,10 @@
 import { data } from '@/constants';
+import { useModal } from '@/hooks';
+import { useUser } from '@/hooks/use-user';
 import { statusDialog } from '@/types';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useModal } from './useModal';
-import { useUser } from './useUser';
 
 const { secctions } = data.screens.login;
 

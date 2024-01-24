@@ -1,5 +1,4 @@
 import { CustomInputProps } from '@/types';
-import React from 'react';
 
 const CustomInput = (props: CustomInputProps) => {
  return (

@@ -1,7 +1,6 @@
+import { types } from '@/constants';
 import { CustomLoadingProps } from '@/types';
 import { Oval } from 'react-loader-spinner';
-import React from 'react';
-import { types } from '@/constants';
 
 /*  */
 

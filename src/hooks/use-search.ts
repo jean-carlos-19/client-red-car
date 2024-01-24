@@ -1,6 +1,6 @@
-import { useCallback, useState } from 'react';
-import { debounce } from 'lodash';
 import { Search } from '@/types';
+import { debounce } from 'lodash';
+import { useCallback, useState } from 'react';
 
 const useSearch = () => {
  const [search, setSearch] = useState<Search>({ search: '' });

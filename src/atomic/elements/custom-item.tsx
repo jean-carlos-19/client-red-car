@@ -1,6 +1,5 @@
-import { CustomItemProps } from '@/types';
 import { data } from '@/constants';
-import React from 'react';
+import { CustomItemProps } from '@/types';
 
 const { card } = data.screens.product;
 

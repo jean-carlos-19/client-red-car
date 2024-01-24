@@ -1,7 +1,6 @@
-import React from 'react';
 import { CustomButton } from '@/atomic/elements';
-import { CustomProgressBarProps } from '@/types';
 import { types } from '@/constants';
+import { CustomProgressBarProps } from '@/types';
 
 const CustomProgressBar = (props: CustomProgressBarProps) => {
  return (
