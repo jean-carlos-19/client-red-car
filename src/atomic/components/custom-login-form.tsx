@@ -10,7 +10,7 @@ const { forms } = data.screens.login;
 const CustomLoginForm = (props: CustomLoginFormProps) => {
  const route = useRouter();
  const handlerPage = () => {
-  route.push('/register');
+  route.push('/admin/register');
  };
  return (
   <Formik

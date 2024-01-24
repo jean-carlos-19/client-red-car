@@ -27,7 +27,8 @@ const useRegisterController = (seccion: string) => {
  });
 
  useEffect(() => {
-  if (session.status === 'authenticated' && seccion === secctions.login) router.push('/dashboard');
+  if (session.status === 'authenticated' && seccion === secctions.login)
+   router.push('/admin/dashboard');
   if (session.status === 'loading' && seccion === secctions.login) setIsLoading(true);
   if (session.status === 'unauthenticated' && seccion === secctions.login) setIsLoading(false);
  }, [session.status]);
