@@ -7,7 +7,7 @@ import { Http } from './http/http';
 class ServiceLaboratory implements LaboratoryController {
  public create = async (
   laboratory: LaboratoryModel,
-  token?: string,
+  token: string,
  ): Promise<AxiosResponse<ResponseDto>> => {
   return await this.http.post<ResponseDto>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/create/laboratory`,
@@ -17,7 +17,7 @@ class ServiceLaboratory implements LaboratoryController {
  };
  public edit = async (
   laboratory: LaboratoryModel,
-  token?: string,
+  token: string,
  ): Promise<AxiosResponse<ResponseDto>> => {
   return await this.http.put<ResponseDto>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/edit/laboratory`,
@@ -27,7 +27,7 @@ class ServiceLaboratory implements LaboratoryController {
  };
  public enable = async (
   laboratory: LaboratoryModel,
-  token?: string,
+  token: string,
  ): Promise<AxiosResponse<ResponseDto>> => {
   return await this.http.put<ResponseDto>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/enable/laboratory`,
@@ -37,7 +37,7 @@ class ServiceLaboratory implements LaboratoryController {
  };
  public disable = async (
   laboratory: LaboratoryModel,
-  token?: string,
+  token: string,
  ): Promise<AxiosResponse<ResponseDto>> => {
   return await this.http.put<ResponseDto>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/disable/laboratory`,

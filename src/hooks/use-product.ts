@@ -1,6 +1,7 @@
 import { ServiceProduct } from '@/mvc/services';
 import { Search } from '@/types';
 import { AxiosError, AxiosResponse } from 'axios';
+import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 const service: ServiceProduct = ServiceProduct.getService();
@@ -8,14 +9,12 @@ const service: ServiceProduct = ServiceProduct.getService();
 const useProduct = () => {
  const [existError, setExistError] = useState<boolean>(false);
  const [messageError, setMessageError] = useState<string>('');
+ const session = useSession();
 
  /* create */
- const create = async (
-  values: ProductModel,
-  token: string,
- ): Promise<AxiosResponse<ResponseDto> | undefined> => {
+ const create = async (values: ProductModel): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.create(values, token);
+   return await service.create(values, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;
@@ -27,12 +26,9 @@ const useProduct = () => {
   return undefined;
  };
  /* edit */
- const edit = async (
-  values: ProductModel,
-  token: string,
- ): Promise<AxiosResponse<ResponseDto> | undefined> => {
+ const edit = async (values: ProductModel): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.edit(values, token);
+   return await service.edit(values, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;
@@ -48,10 +44,9 @@ const useProduct = () => {
  const enable = async (
   idProduct: string,
   product: string,
-  token: string,
  ): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.enable(idProduct, product, token);
+   return await service.enable(idProduct, product, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;
@@ -66,10 +61,9 @@ const useProduct = () => {
  const disable = async (
   idProduct: string,
   product: string,
-  token: string,
  ): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.disable(idProduct, product, token);
+   return await service.disable(idProduct, product, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;

@@ -1,20 +1,18 @@
 import { ServiceCategory } from '@/mvc/services';
 import { Search } from '@/types';
 import { AxiosError, AxiosResponse } from 'axios';
+import { useSession } from 'next-auth/react';
 import { useState } from 'react';
 
 const service: ServiceCategory = ServiceCategory.getService();
 const useCategory = () => {
  const [existError, setExistError] = useState<boolean>(false);
  const [messageError, setMessageError] = useState<string>('');
-
+ const session = useSession();
  /* create category */
- const create = async (
-  values: CategoryModel,
-  token: string,
- ): Promise<AxiosResponse<ResponseDto> | undefined> => {
+ const create = async (values: CategoryModel): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.create(values, token);
+   return await service.create(values, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;
@@ -26,12 +24,9 @@ const useCategory = () => {
   return undefined;
  };
  /* edit category */
- const edit = async (
-  values: CategoryModel,
-  token: string,
- ): Promise<AxiosResponse<ResponseDto> | undefined> => {
+ const edit = async (values: CategoryModel): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.edit(values, token);
+   return await service.edit(values, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;
@@ -43,12 +38,9 @@ const useCategory = () => {
   return undefined;
  };
  /* disable category */
- const disable = async (
-  values: CategoryModel,
-  token: string,
- ): Promise<AxiosResponse<ResponseDto> | undefined> => {
+ const disable = async (values: CategoryModel): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.disable(values, token);
+   return await service.disable(values, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;
@@ -59,12 +51,9 @@ const useCategory = () => {
   }
  };
  /* enable category */
- const enable = async (
-  values: CategoryModel,
-  token: string,
- ): Promise<AxiosResponse<ResponseDto> | undefined> => {
+ const enable = async (values: CategoryModel): Promise<AxiosResponse<ResponseDto> | undefined> => {
   try {
-   return await service.enable(values, token);
+   return await service.enable(values, String(session.data?.user.token));
   } catch (error) {
    const e: AxiosError<{ error: string }> = error as AxiosError<{
     error: string;

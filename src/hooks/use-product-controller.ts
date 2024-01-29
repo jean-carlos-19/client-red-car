@@ -3,7 +3,6 @@ import { messageDialog, types } from '@/constants';
 import { useDialog } from '@/hooks';
 import { useProduct } from '@/hooks/use-product';
 import { Item, Search, statusDialog } from '@/types';
-import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useToastMessage } from './use-toast-message';
 
@@ -13,7 +12,6 @@ const useProductController = (
  searchTarget: Search,
 ) => {
  const { toastMessage } = useToastMessage();
- const session = useSession();
  const {
   edit,
   find,
@@ -141,7 +139,7 @@ const useProductController = (
  /* create */
  const handlerCreate = async (values: ProductModel) => {
   setIsLoading(true);
-  const rs = await create(values, session.data?.user.token as string);
+  const rs = await create(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   setIsLoading(false);
   handlerUpdateAll();
@@ -149,7 +147,7 @@ const useProductController = (
  /* edit */
  const handlerEdit = async (values: ProductModel) => {
   setIsLoading(true);
-  const rs = await edit(values, session.data?.user.token as string);
+  const rs = await edit(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   setIsLoading(false);
   handlerUpdateAll();
@@ -158,14 +156,14 @@ const useProductController = (
 
  /* enable */
  const handlerEnable = async (idProduct: string, product: string) => {
-  const rs = await enable(idProduct, product, session.data?.user.token as string);
+  const rs = await enable(idProduct, product);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
  /* disable */
  const handlerDisable = async (idProduct: string, product: string) => {
-  const rs = await disable(idProduct, product, session.data?.user.token as string);
+  const rs = await disable(idProduct, product);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();

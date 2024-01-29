@@ -2,12 +2,10 @@ import { messageDialog, types } from '@/constants';
 import { useDialog } from '@/hooks';
 import { useCategory } from '@/hooks/use-category';
 import { Item, Search, statusDialog } from '@/types';
-import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useToastMessage } from './use-toast-message';
 
 const useCategoryController = (searchTarget?: Search) => {
- const session = useSession();
  const { toastMessage } = useToastMessage();
  const {
   edit,
@@ -44,10 +42,6 @@ const useCategoryController = (searchTarget?: Search) => {
  const [isLoading, setIsLoading] = useState<boolean>(true);
  const [isLoadingSearch, setIsLoadingSearch] = useState<boolean>(true);
  const [disabledCategories, setDisabledCategories] = useState<Item[]>([]);
-
- useEffect(() => {
-  if (session.status === 'authenticated') console.log(session);
- }, [session.status]);
 
  useEffect(() => {
   if (searchTarget) handlerSearch(searchTarget);
@@ -105,7 +99,7 @@ const useCategoryController = (searchTarget?: Search) => {
  /* create category */
  const handlerCreate = async (values: CategoryModel) => {
   setIsLoading(true);
-  const rs = await create(values, session.data?.user.token as string);
+  const rs = await create(values);
   if (rs?.data) {
    toastMessage(rs.data.id as statusDialog, rs.data.message);
   }
@@ -115,21 +109,21 @@ const useCategoryController = (searchTarget?: Search) => {
  /* edit category */
  const handlerEdit = async (values: CategoryModel) => {
   setIsLoading(true);
-  const rs = await edit(values, session.data?.user.token as string);
+  const rs = await edit(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   setIsLoading(false);
   handlerHiddeEdit();
  };
  /* disable category */
  const handlerDisable = async (values: CategoryModel) => {
-  const rs = await disable(values, session.data?.user.token as string);
+  const rs = await disable(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
  /* enable category */
  const handlerEnable = async (values: CategoryModel) => {
-  const rs = await enable(values, session.data?.user.token as string);
+  const rs = await enable(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();

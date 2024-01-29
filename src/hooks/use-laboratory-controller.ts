@@ -2,7 +2,6 @@ import { messageDialog, types } from '@/constants';
 import { useDialog } from '@/hooks';
 import { useLaboratory } from '@/hooks/use-laboratory';
 import { Item, Search, statusDialog } from '@/types';
-import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useToastMessage } from './use-toast-message';
 
@@ -11,7 +10,6 @@ const useLaboratoryController = (
  targetSearch: Search | undefined,
 ) => {
  const { toastMessage } = useToastMessage();
- const session = useSession();
  const {
   edit,
   find,
@@ -45,10 +43,6 @@ const useLaboratoryController = (
   handlerAppear,
   handlerVerify,
  } = useDialog();
-
- useEffect(() => {
-  if (session.status === 'authenticated') console.log(session);
- }, [session.status]);
  useEffect(() => {
   if (targetSearch) handlerSearch(targetSearch);
  }, [targetSearch?.search]);
@@ -104,7 +98,7 @@ const useLaboratoryController = (
  const handlerCreate = async (values: LaboratoryModel) => {
   setIsLoading(true);
   try {
-   const rs = await create(values, session.data?.user.token as string);
+   const rs = await create(values);
    if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   } catch (error) {
    //  console.log(error);
@@ -118,7 +112,7 @@ const useLaboratoryController = (
  };
  /* edit laboratory */
  const handlerEdit = async (values: LaboratoryModel) => {
-  const rs = await edit(values, session.data?.user.token as string);
+  const rs = await edit(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHiddeEdit();
   handlerUpdateAll();
@@ -126,7 +120,7 @@ const useLaboratoryController = (
 
  /* disable laboratory */
  const handlerDisable = async (values: LaboratoryModel) => {
-  const rs = await disable(values, session.data?.user.token as string);
+  const rs = await disable(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
@@ -134,7 +128,7 @@ const useLaboratoryController = (
 
  /* enable laboratory */
  const handlerEnable = async (values: LaboratoryModel) => {
-  const rs = await enable(values, session.data?.user.token as string);
+  const rs = await enable(values);
   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
