@@ -1,5 +1,5 @@
 interface ProductDto {
- id_product: number;
+ id_product: string;
  category: string;
  laboratory: string;
  barcode?: string;

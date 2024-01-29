@@ -1,4 +1,4 @@
 interface LaboratoryModel {
- id?: number | undefined;
+ id?: string | undefined;
  laboratory: string | undefined;
 }

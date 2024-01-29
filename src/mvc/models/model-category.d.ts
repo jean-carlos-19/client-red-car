@@ -1,5 +1,5 @@
 interface CategoryModel {
- id?: number | undefined;
+ id?: string | undefined;
  category: string | undefined;
  photo?: File | undefined;
  idphoto?: string | undefined | null;

@@ -1,4 +1,4 @@
 interface LaboratoryDto {
- id_laboratory: number;
+ id_laboratory: string;
  laboratory: string;
 }

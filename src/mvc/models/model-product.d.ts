@@ -1,5 +1,5 @@
 interface ProductModel {
- id?: number | undefined;
+ id?: string | undefined;
  category: string | undefined;
  laboratory: string | undefined;
  barcode?: string | undefined;
