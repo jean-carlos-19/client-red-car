@@ -1,5 +1,4 @@
 'use client';
-import { useLaboratoryController, useProductController, useSearch, useTab } from '@/hooks';
 import {
  CustomEmpty,
  CustomLoading,
@@ -8,12 +7,12 @@ import {
  CustomTabs,
 } from '@/atomic/components';
 import { CustomButton, CustomItem } from '@/atomic/elements';
-import { types, data, images } from '@/constants';
-import { useRouter } from 'next/navigation';
-import { validate } from '@/validations';
 import { theme } from '@/atomic/theme';
+import { data, images, types } from '@/constants';
+import { useLaboratoryController, useProductController, useSearch, useTab } from '@/hooks';
+import { validate } from '@/validations';
 import Image from 'next/image';
-import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const { header, card } = data.screens.product;
 const { forms, list } = data.screens.dashboard;
@@ -144,7 +143,7 @@ export default function Category({ params: { name } }: { params: { name: string 
       <button
        key={i}
        title={product.name}
-       onClick={() => handlerDetail(product.id as number)}
+       onClick={() => handlerDetail(String(product.id))}
        className="bg-slate-200 p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer"
        style={{ height: '100%' }}
       >

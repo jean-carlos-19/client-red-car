@@ -28,10 +28,10 @@ interface CustomProgressBarProps {
 interface CustomListProps {
  data: Item[];
  isLoading: boolean;
- handlerEdit?: (id: number, name: string) => void;
- handlerDelete?: (id: number, name: string) => void;
- handlerEnable?: (id: number, name: string) => void;
- handlerDetail?: (id: number) => void;
+ handlerEdit?: (id: string, name: string) => void;
+ handlerDelete?: (id: string, name: string) => void;
+ handlerEnable?: (id: string, name: string) => void;
+ handlerDetail?: (id: string) => void;
 }
 interface CustomHeaderProps {
  list: string[];

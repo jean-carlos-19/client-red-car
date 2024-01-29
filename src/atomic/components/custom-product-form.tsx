@@ -234,7 +234,7 @@ const CustomProductForm = (props: CustomProductFormProps) => {
           summary: String(props.values.summary),
           category: String(props.values.category),
           features: String(props.values.features),
-          id_product: Number(props.values.id),
+          id_product: String(props.values.id),
           laboratory: String(props.values.laboratory),
          }}
          isLoading={false}

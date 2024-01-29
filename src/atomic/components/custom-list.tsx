@@ -84,7 +84,7 @@ const CustomList = (props: CustomListProps) => {
          icon={types.icon.detail}
          variant={types.variant.button.secondary}
          handlerPress={() => {
-          props.handlerDetail && props.handlerDetail(Number(item.id));
+          props.handlerDetail && props.handlerDetail(String(item.id));
          }}
         />
        )}
