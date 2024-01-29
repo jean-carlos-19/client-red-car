@@ -4,7 +4,7 @@ import { AxiosResponse } from 'axios';
 interface ProductController {
  showEnable: () => Promise<AxiosResponse<{ data: ProductDto[] }>>;
  showDisable: () => Promise<AxiosResponse<{ data: ProductDto[] }>>;
- find: (id: number) => Promise<AxiosResponse<{ data: ProductDto }>>;
+ find: (id: string) => Promise<AxiosResponse<{ data: ProductDto }>>;
  edit: (product: ProductModel, token: string) => Promise<AxiosResponse<ResponseDto>>;
  create: (product: ProductModel, token: string) => Promise<AxiosResponse<ResponseDto>>;
  search: (search: Search) => Promise<AxiosResponse<{ data: ProductDto[] }>>;
@@ -13,8 +13,8 @@ interface ProductController {
   laboratory: string,
   search: Search,
  ) => Promise<AxiosResponse<{ data: ProductDto[] }>>;
- enable: (id: number, product: string, token: string) => Promise<AxiosResponse<ResponseDto>>;
- disable: (id: number, product: string, token: string) => Promise<AxiosResponse<ResponseDto>>;
+ enable: (id: string, product: string, token: string) => Promise<AxiosResponse<ResponseDto>>;
+ disable: (id: string, product: string, token: string) => Promise<AxiosResponse<ResponseDto>>;
  showCategory: (category: string) => Promise<AxiosResponse<{ data: ProductDto[] }>>;
  searchCategory: (
   product: string,

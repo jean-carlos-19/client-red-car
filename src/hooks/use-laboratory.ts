@@ -97,7 +97,7 @@ const useLaboratory = () => {
  };
 
  const find = async (
-  id: number,
+  id: string,
  ): Promise<
   | AxiosResponse<{
      data: LaboratoryDto;

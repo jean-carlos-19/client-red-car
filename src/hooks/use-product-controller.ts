@@ -94,19 +94,19 @@ const useProductController = (
  };
 
  /* handler to disable one category */
- const handlerActionDisable = (id: number, product: string) => {
+ const handlerActionDisable = (id: string, product: string) => {
   handlerAppear(product, types.action.eliminate, messageDialog.product.disable);
   setTarget({ id, name: product });
  };
 
  /* handler to enable one product */
- const handlerActionEnable = (id: number, product: string) => {
+ const handlerActionEnable = (id: string, product: string) => {
   handlerAppear(product, types.action.enable, messageDialog.product.enable);
   setTarget({ id, name: product });
  };
 
  /* handler to display the screen edition */
- const handlerShowEdit = (id: number, name: string) => {
+ const handlerShowEdit = (id: string, name: string) => {
   setEdition(!isEdition);
   console.log(name);
   handlerFind(id);
@@ -128,7 +128,7 @@ const useProductController = (
   });
  };
 
- const handlerDetail = async (id: number) => {
+ const handlerDetail = async (id: string) => {
   await handlerFindDetail(id);
  };
  const handlerCloseDetail = () => {
@@ -156,14 +156,14 @@ const useProductController = (
  };
 
  /* enable */
- const handlerEnable = async (idProduct: number, product: string) => {
+ const handlerEnable = async (idProduct: string, product: string) => {
   const rs = await enable(idProduct, product, session.data?.user.token as string);
   if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
  /* disable */
- const handlerDisable = async (idProduct: number, product: string) => {
+ const handlerDisable = async (idProduct: string, product: string) => {
   const rs = await disable(idProduct, product, session.data?.user.token as string);
   if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
@@ -184,7 +184,7 @@ const useProductController = (
   setIsLoadingSearch(false);
  };
 
- const handlerFind = async (id: number) => {
+ const handlerFind = async (id: string) => {
   setIsLoading(true);
 
   const rs = await find(id);
@@ -211,7 +211,7 @@ const useProductController = (
   setIsLoading(false);
  };
 
- const handlerFindDetail = async (id: number) => {
+ const handlerFindDetail = async (id: string) => {
   setIsLoadingSearch(true);
   const rs = await find(id);
   if (rs?.data) {

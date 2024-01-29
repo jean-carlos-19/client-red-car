@@ -72,13 +72,13 @@ const useLaboratoryController = (
   setIsEnable(false);
  };
  /* handler to enable one laboratory */
- const handlerActionEnable = (id: number, laboratory: string) => {
+ const handlerActionEnable = (id: string, laboratory: string) => {
   handlerAppear(laboratory, types.action.enable, messageDialog.laboratory.enable);
   setLaboratory({ id: id, laboratory });
  };
 
  /* handler to disable one laboratory */
- const handlerActionDisable = (id: number, laboratory: string) => {
+ const handlerActionDisable = (id: string, laboratory: string) => {
   handlerAppear(laboratory, types.action.eliminate, messageDialog.laboratory.disable);
   setLaboratory({ id: id, laboratory });
  };
@@ -92,7 +92,7 @@ const useLaboratoryController = (
  };
 
  /* handler to display the screen edition */
- const handlerShowEdit = (id: number, name: string) => {
+ const handlerShowEdit = (id: string, name: string) => {
   setEdition(!isEdition);
   console.log(name);
   handlerFind(id);
@@ -161,7 +161,7 @@ const useLaboratoryController = (
   setIsLoadingSearch(false);
  };
 
- const handlerFind = async (id: number) => {
+ const handlerFind = async (id: string) => {
   setIsLoading(true);
   const rs = await find(id);
   if (rs?.data) {

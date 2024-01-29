@@ -6,7 +6,7 @@ interface CategoryController {
  enable: (category: CategoryModel, token: string) => Promise<AxiosResponse<ResponseDto>>;
  disable: (category: CategoryModel, token: string) => Promise<AxiosResponse<ResponseDto>>;
  search: (search: Search) => Promise<AxiosResponse<{ data: CategoryDto[] }>>;
- find: (id: number) => Promise<AxiosResponse<{ data: CategoryDto }>>;
+ find: (id: string) => Promise<AxiosResponse<{ data: CategoryDto }>>;
  showDisable: () => Promise<AxiosResponse<{ data: CategoryDto[] }>>;
  showEnable: () => Promise<AxiosResponse<{ data: CategoryDto[] }>>;
 }

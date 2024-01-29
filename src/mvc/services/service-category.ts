@@ -64,7 +64,7 @@ class ServiceCategory implements CategoryController {
   );
  };
 
- public find = async (id: number): Promise<AxiosResponse<{ data: CategoryDto }>> => {
+ public find = async (id: string): Promise<AxiosResponse<{ data: CategoryDto }>> => {
   return await this.http.get<CategoryDto>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/find/category?id=${id}`,
   );

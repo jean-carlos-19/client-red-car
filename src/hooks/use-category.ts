@@ -98,7 +98,7 @@ const useCategory = () => {
  };
 
  const find = async (
-  id: number,
+  id: string,
  ): Promise<
   | AxiosResponse<{
      data: CategoryDto;

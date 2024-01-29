@@ -46,7 +46,7 @@ const useProduct = () => {
 
  /* enable */
  const enable = async (
-  idProduct: number,
+  idProduct: string,
   product: string,
   token: string,
  ): Promise<AxiosResponse<ResponseDto> | undefined> => {
@@ -64,7 +64,7 @@ const useProduct = () => {
  };
  /* disable */
  const disable = async (
-  idProduct: number,
+  idProduct: string,
   product: string,
   token: string,
  ): Promise<AxiosResponse<ResponseDto> | undefined> => {
@@ -103,7 +103,7 @@ const useProduct = () => {
  };
 
  const find = async (
-  id: number,
+  id: string,
  ): Promise<
   | AxiosResponse<{
      data: ProductDto;

@@ -50,7 +50,7 @@ class ServiceLaboratory implements LaboratoryController {
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/search/laboratory?search=${search.search}`,
   );
  };
- public find = async (id: number): Promise<AxiosResponse<{ data: LaboratoryDto }>> => {
+ public find = async (id: string): Promise<AxiosResponse<{ data: LaboratoryDto }>> => {
   return await this.http.get<LaboratoryModel>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/find/laboratory?id=${id}`,
   );

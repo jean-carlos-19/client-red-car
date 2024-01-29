@@ -39,7 +39,7 @@ class ServiceProduct implements ProductController {
   );
  };
  public enable = async (
-  idProduct: number,
+  idProduct: string,
   product: string,
   token: string,
  ): Promise<AxiosResponse<ResponseDto>> => {
@@ -50,7 +50,7 @@ class ServiceProduct implements ProductController {
   );
  };
  public disable = async (
-  idProduct: number,
+  idProduct: string,
   product: string,
   token: string,
  ): Promise<AxiosResponse<ResponseDto>> => {
@@ -96,7 +96,7 @@ class ServiceProduct implements ProductController {
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/search/laboratory/product?laboratory=${laboratory}&search=${search.search}&category=${category}`,
   );
  };
- public find = async (id: number): Promise<AxiosResponse<{ data: ProductDto }>> => {
+ public find = async (id: string): Promise<AxiosResponse<{ data: ProductDto }>> => {
   return await this.http.get<ProductDto>(
    `${process.env.NEXT_PUBLIC_BACKEND_URL}/find/product?id=${id}`,
   );
@@ -119,9 +119,9 @@ class ServiceProduct implements ProductController {
   return formData;
  };
 
- public getSearchParams = (id: number, product: string): URLSearchParams => {
+ public getSearchParams = (id: string, product: string): URLSearchParams => {
   const formData: URLSearchParams = new URLSearchParams();
-  formData.append('idProduct', `${id}`);
+  formData.append('idProduct', id);
   formData.append('product', product);
   return formData;
  };

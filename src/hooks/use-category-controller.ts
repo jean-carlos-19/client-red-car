@@ -66,13 +66,13 @@ const useCategoryController = (searchTarget?: Search) => {
  };
 
  /* handler to disable one category */
- const handlerActionEnable = (id: number, category: string) => {
+ const handlerActionEnable = (id: string, category: string) => {
   handlerAppear(category, types.action.enable, messageDialog.category.enable);
   setCategory({ id, category });
  };
 
  /* handler to enable one category */
- const handlerActionDisable = (id: number, category: string) => {
+ const handlerActionDisable = (id: string, category: string) => {
   handlerAppear(category, types.action.eliminate, messageDialog.category.disable);
   setCategory({ id, category });
  };
@@ -87,7 +87,7 @@ const useCategoryController = (searchTarget?: Search) => {
  };
 
  /* handler to display the screen edition */
- const handlerShowEdit = (id: number, name: string) => {
+ const handlerShowEdit = (id: string, name: string) => {
   setEdition(!isEdition);
   console.log(name);
   handlerFind(id);
@@ -149,7 +149,7 @@ const useCategoryController = (searchTarget?: Search) => {
   setIsLoadingSearch(false);
  };
 
- const handlerFind = async (id: number) => {
+ const handlerFind = async (id: string) => {
   setIsLoading(true);
   const rs = await find(id);
   if (rs?.data) {
@@ -166,7 +166,7 @@ const useCategoryController = (searchTarget?: Search) => {
   setIsLoading(false);
  };
 
- const handlerFindDetail = async (id: number) => {
+ const handlerFindDetail = async (id: string) => {
   setIsLoadingSearch(true);
   const rs = await find(id);
   if (rs?.data) {
@@ -203,7 +203,7 @@ const useCategoryController = (searchTarget?: Search) => {
   }
   setIsLoadingSearch(false);
  };
- const handlerDeatil = async (id: number) => {
+ const handlerDeatil = async (id: string) => {
   await handlerFindDetail(id);
   setDetail(target);
  };

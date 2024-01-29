@@ -93,7 +93,7 @@ const CustomCategoryForm = (props: CustomCategoryFormProps) => {
         <CustomDetailsCategory
          data={{
           photo: String(urlImage),
-          id_category: Number(props.values.id),
+          id_category: String(props.values.id),
           idphoto: String(props.values.idphoto),
           category: String(props.values.category),
          }}
