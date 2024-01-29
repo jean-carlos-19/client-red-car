@@ -1,14 +1,16 @@
 import { messageDialog, types } from '@/constants';
-import { useDialog, useModal } from '@/hooks';
+import { useDialog } from '@/hooks';
 import { useLaboratory } from '@/hooks/use-laboratory';
 import { Item, Search, statusDialog } from '@/types';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import { useToastMessage } from './use-toast-message';
 
 const useLaboratoryController = (
  category: string | undefined,
  targetSearch: Search | undefined,
 ) => {
+ const { toastMessage } = useToastMessage();
  const session = useSession();
  const {
   edit,
@@ -43,8 +45,6 @@ const useLaboratoryController = (
   handlerAppear,
   handlerVerify,
  } = useDialog();
-
- const { modalSetting, handlerStatus } = useModal(false);
 
  useEffect(() => {
   if (session.status === 'authenticated') console.log(session);
@@ -105,11 +105,10 @@ const useLaboratoryController = (
   setIsLoading(true);
   try {
    const rs = await create(values, session.data?.user.token as string);
-   if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+   if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   } catch (error) {
    //  console.log(error);
-   handlerStatus(
-    true,
+   toastMessage(
     types.dialog.error,
     'Ha ocurido un error en el servidor, por favor recargue la pagina',
    );
@@ -120,7 +119,7 @@ const useLaboratoryController = (
  /* edit laboratory */
  const handlerEdit = async (values: LaboratoryModel) => {
   const rs = await edit(values, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHiddeEdit();
   handlerUpdateAll();
  };
@@ -128,7 +127,7 @@ const useLaboratoryController = (
  /* disable laboratory */
  const handlerDisable = async (values: LaboratoryModel) => {
   const rs = await disable(values, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
@@ -136,7 +135,7 @@ const useLaboratoryController = (
  /* enable laboratory */
  const handlerEnable = async (values: LaboratoryModel) => {
   const rs = await enable(values, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
@@ -152,8 +151,7 @@ const useLaboratoryController = (
    }
   } catch (error) {
    //  console.log(error);
-   handlerStatus(
-    true,
+   toastMessage(
     types.dialog.error,
     'Ha ocurido un error en el servidor, por favor recargue la pagina',
    );
@@ -235,7 +233,6 @@ const useLaboratoryController = (
   existError,
   laboratories,
   messageError,
-  modalSetting,
   isLoadingSearch,
   disabledLaboratories,
   handlerEdit,

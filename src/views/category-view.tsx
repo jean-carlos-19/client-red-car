@@ -5,12 +5,11 @@ import {
  CustomMessageError,
  CustomSearch,
 } from '@/atomic/components';
-import { CustomDialog, CustomModal } from '@/atomic/designs';
-import { useCategoryController, useSearch } from '@/hooks';
+import { CustomDialog } from '@/atomic/designs';
 import { CustomButton } from '@/atomic/elements';
+import { data, types } from '@/constants';
+import { useCategoryController, useSearch } from '@/hooks';
 import { validate } from '@/validations';
-import { types, data } from '@/constants';
-import React from 'react';
 
 const { pages } = data.screens.dashboard;
 const { forms } = data.screens.dashboard;
@@ -27,7 +26,6 @@ const CategoryView = () => {
   categories,
   existError,
   messageError,
-  modalSetting,
   isLoadingSearch,
   disabledCategories,
   handlerEdit,
@@ -52,17 +50,6 @@ const CategoryView = () => {
     </div>
    </div>
   );
-
- /* modal */
- if (modalSetting.isActivate) {
-  return (
-   <div className="windowSecundary">
-    <div className="w-[50%]">
-     <CustomModal setting={modalSetting} />
-    </div>
-   </div>
-  );
- }
 
  /* enabling */
  if (isEnable) {

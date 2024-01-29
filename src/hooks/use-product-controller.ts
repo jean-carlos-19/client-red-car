@@ -1,16 +1,18 @@
 import { messageDialog, types } from '@/constants';
 
-import { useDialog, useModal } from '@/hooks';
+import { useDialog } from '@/hooks';
 import { useProduct } from '@/hooks/use-product';
 import { Item, Search, statusDialog } from '@/types';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import { useToastMessage } from './use-toast-message';
 
 const useProductController = (
  category: string,
  laboratory: string | undefined,
  searchTarget: Search,
 ) => {
+ const { toastMessage } = useToastMessage();
  const session = useSession();
  const {
   edit,
@@ -49,7 +51,6 @@ const useProductController = (
  const [isEdition, setEdition] = useState<boolean>(false);
  const [disabledProducts, setDisabledProducts] = useState<Item[]>([]);
  const [isLoadingSearch, setIsLoadingSearch] = useState<boolean>(true);
- const { modalSetting, handlerStatus } = useModal(false);
  const {
   type,
   content,
@@ -141,7 +142,7 @@ const useProductController = (
  const handlerCreate = async (values: ProductModel) => {
   setIsLoading(true);
   const rs = await create(values, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   setIsLoading(false);
   handlerUpdateAll();
  };
@@ -149,7 +150,7 @@ const useProductController = (
  const handlerEdit = async (values: ProductModel) => {
   setIsLoading(true);
   const rs = await edit(values, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   setIsLoading(false);
   handlerUpdateAll();
   handlerHiddeEdit();
@@ -158,14 +159,14 @@ const useProductController = (
  /* enable */
  const handlerEnable = async (idProduct: string, product: string) => {
   const rs = await enable(idProduct, product, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
  /* disable */
  const handlerDisable = async (idProduct: string, product: string) => {
   const rs = await disable(idProduct, product, session.data?.user.token as string);
-  if (rs?.data) handlerStatus(true, rs.data.id as statusDialog, rs.data.message);
+  if (rs?.data) toastMessage(rs.data.id as statusDialog, rs.data.message);
   handlerHidde();
   handlerUpdateAll();
  };
@@ -344,7 +345,6 @@ const useProductController = (
   isLoading,
   existError,
   messageError,
-  modalSetting,
   isLoadingSearch,
   disabledProducts,
   handlerEdit,

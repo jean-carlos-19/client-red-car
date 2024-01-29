@@ -1,16 +1,15 @@
-import React from 'react';
-import { CustomButton } from '@/atomic/elements';
 import {
- CustomList,
- CustomTabs,
- CustomSearch,
- CustomProductForm,
  CustomDetailsProduct,
+ CustomList,
  CustomMessageError,
+ CustomProductForm,
+ CustomSearch,
+ CustomTabs,
 } from '@/atomic/components';
-import { useProductController, useSearch, useTab, useCategoryController } from '@/hooks';
-import { CustomModal, CustomDialog } from '@/atomic/designs';
-import { types, data } from '@/constants';
+import { CustomDialog } from '@/atomic/designs';
+import { CustomButton } from '@/atomic/elements';
+import { data, types } from '@/constants';
+import { useCategoryController, useProductController, useSearch, useTab } from '@/hooks';
 import { validate } from '@/validations';
 
 const { pages } = data.screens.dashboard;
@@ -29,7 +28,6 @@ const ProductView = () => {
   isLoading,
   existError,
   messageError,
-  modalSetting,
   isLoadingSearch,
   disabledProducts,
   handlerEdit,
@@ -54,17 +52,6 @@ const ProductView = () => {
     </div>
    </div>
   );
-
- /* modal */
- if (modalSetting.isActivate) {
-  return (
-   <div className="windowSecundary">
-    <div className="w-[50%]">
-     <CustomModal setting={modalSetting} />
-    </div>
-   </div>
-  );
- }
 
  /* enabling */
  if (isEnable) {
