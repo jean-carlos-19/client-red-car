@@ -72,18 +72,17 @@ type variantButton = 'primary' | 'secondary' | 'disabled';
 
 type variantLoading = 'normal' | 'list-vertical' | 'list-horizontal' | 'grid' | 'image-rounded';
 export type {
-  Item,
-  Message,
-  ModalSetting,
-  Photo,
-  Search,
-  dialogSetting,
-  statusAction,
-  statusButton,
-  statusDialog,
-  statusForm,
-  statusIcon,
-  variantButton,
-  variantLoading
+ Item,
+ Message,
+ ModalSetting,
+ Photo,
+ Search,
+ dialogSetting,
+ statusAction,
+ statusButton,
+ statusDialog,
+ statusForm,
+ statusIcon,
+ variantButton,
+ variantLoading,
 };
-
