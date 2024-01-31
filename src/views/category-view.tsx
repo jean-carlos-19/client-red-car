@@ -101,9 +101,9 @@ const CategoryView = () => {
  if (existError) return <CustomMessageError message={messageError} />;
 
  return (
-  <div className="overflow-scroll flex-row-start-stretch">
+  <div className="flex-row-start-stretch overflow-y-auto">
    {/* category form  */}
-   <div className="flex-1 p-8 overflow-scroll">
+   <div className="flex-1 p-8">
     <CustomCategoryForm
      isLoading={isLoading}
      entity={category}

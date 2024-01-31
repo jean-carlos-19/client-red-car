@@ -11,7 +11,7 @@ const CustomList = (props: CustomListProps) => {
 
  if (isOpen)
   return (
-   <figure className="flex-col-start-center bg-helper px-4 py-8 rounded-lg">
+   <figure className="f-c-s-c bg-helper px-4 py-8 rounded-lg">
     <CustomButton
      title={list.buttons.close}
      type={types.button.icon}

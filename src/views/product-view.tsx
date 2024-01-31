@@ -102,9 +102,9 @@ const ProductView = () => {
  if (existError) return <CustomMessageError message={messageError} />;
 
  return (
-  <div className="overflow-scroll flex-row-start-stretch">
+  <div className=" flex-row-start-stretch overflow-y-auto">
    {/* product form */}
-   <div className="flex-1 w-[50%] p-8 overflow-scroll">
+   <div className="flex-1 w-[50%] p-8">
     <CustomProductForm
      isLoading={isLoading}
      entity={product}

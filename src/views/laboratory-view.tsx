@@ -98,9 +98,9 @@ const LaboratoryView = () => {
   );
 
  return (
-  <div className="overflow-scroll flex-row-start-stretch">
+  <div className=" flex-row-start-stretch overflow-y-auto">
    {/* laboratory form  */}
-   <div className="flex-1 p-8 overflow-scroll">
+   <div className="flex-1 p-8">
     <CustomLaboratoryForm
      isLoading={isLoading}
      entity={laboratory}

@@ -56,7 +56,7 @@ const CustomDetailsProduct = (props: CustomDetailsProductProps) => {
       />
      ))}
     </ul>
-    <p className="p-4 w-full rounded-xl text-xl bg-secondary  text-slate-700 flex-row-between-start">
+    <p className="p-4 w-full rounded-xl text-xl bg-secondary  text-slate-700 f-r-b-s">
      {links[position]}
     </p>
    </section>
