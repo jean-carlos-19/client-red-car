@@ -6,9 +6,8 @@ import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
 const { forms } = data.screens.register;
 
-
 const CustomRegisterForm = () => {
-    const {registerEntity} = useAuth()
+ const { registerEntity } = useAuth();
  return (
   <Formik
    enableReinitialize={true}
@@ -20,7 +19,6 @@ const CustomRegisterForm = () => {
    ) => {
     formikHelpers.resetForm();
     await Actions.user.register(values);
-
    }}
   >
    {(props) => {

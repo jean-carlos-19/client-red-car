@@ -11,4 +11,3 @@ export { useProductController } from './use-product-controller';
 export { useProgressBar } from './use-progress-bar';
 export { useSearch } from './use-search';
 export { useTab } from './use-tab';
-

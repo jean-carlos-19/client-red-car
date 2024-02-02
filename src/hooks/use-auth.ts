@@ -7,12 +7,12 @@ const useAuth = () => {
  });
 
  const [registerEntity] = useState<RegisterModel>({
-    password: undefined,
-    user: undefined,
-    email: undefined,
-    cedula  : undefined,
-    names   : undefined,
-   });
+  password: undefined,
+  user: undefined,
+  email: undefined,
+  cedula: undefined,
+  names: undefined,
+ });
 
  return { loginEntity, registerEntity };
 };

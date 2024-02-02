@@ -39,9 +39,8 @@ interface CustomHeaderProps {
  hanlderTarget: (target: number) => void;
 }
 interface CustomDetailsCategoryProps {
- isLoading: boolean;
- data: CategoryDto;
- handlerClose?: () => void;
+ id: string;
+ handlerClose: () => void;
 }
 interface CustomDetailsProductProps {
  isLoading: boolean;
@@ -80,11 +79,8 @@ interface PosterProps {
  hanhandlerBlur: React.FocusEventHandler<HTMLInputElement> | undefined;
 }
 interface CustomCategoryFormProps {
- isLoading: boolean;
- entity: CategoryModel;
  type: statusForm;
- handlerSubmit: (values: CategoryModel) => void;
- validationSchema: AnyObjectSchema;
+ send: (values: CategoryModel) => Promise<ResponseSA<ResponseDto>>;
 }
 interface CustomProductFormProps {
  isLoading: boolean;
@@ -142,6 +138,17 @@ interface CustomButtonProps {
  variant?: variantButton;
  handlerPress?: () => void;
 }
+
+interface CustomViewDisabledProps {
+    title: string;
+    text?: string;
+    icon?: statusIcon;
+    type: statusButton;
+    className?: string;
+    variant?: variantButton;
+    href: string;
+   }
+
 interface CustomTextAreaProps {
  id: string;
  label?: string;
@@ -208,8 +215,7 @@ export type {
     CustomSearchFormProps,
     CustomSelectProps,
     CustomTabsProps,
-    CustomTextAreaProps,
-    IconProps,
+    CustomTextAreaProps, CustomViewDisabledProps, IconProps,
     PosterProps
 };
 

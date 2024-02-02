@@ -1,26 +1,31 @@
 import { CustomButton, CustomInput, CustomPoster } from '@/atomic/elements';
 import { data, types } from '@/constants';
 import { usePoster } from '@/hooks';
+import { useCategory } from '@/hooks/use-category';
 import { CustomCategoryFormProps } from '@/types';
+import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
-import { CustomDetailsCategory, CustomLoading } from '..';
+import toast from 'react-hot-toast';
+import { CustomDetailsCategory } from '..';
 
 const { category } = data.screens.dashboard.forms;
 
 const CustomCategoryForm = (props: CustomCategoryFormProps) => {
  const { type } = props;
  const { urlImage, handlerPoster } = usePoster();
- if (props.isLoading && props.type === types.form.edit) {
-  return <CustomLoading variant={types.loading.normal} />;
- }
+ const { categoryEntity } = useCategory();
  return (
   <Formik
    enableReinitialize={true}
-   validationSchema={props.validationSchema}
-   initialValues={props.entity}
-   onSubmit={(values: CategoryModel, formikHelpers: FormikHelpers<CategoryModel>) => {
-    props.handlerSubmit(values);
+   validationSchema={validate.category}
+   initialValues={categoryEntity}
+   onSubmit={async (values: CategoryModel, formikHelpers: FormikHelpers<CategoryModel>) => {
     formikHelpers.resetForm();
+    const { data, error } = await props.send(values);
+    if (error) toast.error(error);
+    if (data?.id === types.respone.error) toast.error(data.message);
+    if (data?.id === types.respone.notFound) toast.error(data.message);
+    if (data?.id === types.respone.success) toast.success(data.message);
    }}
   >
    {(props) => {

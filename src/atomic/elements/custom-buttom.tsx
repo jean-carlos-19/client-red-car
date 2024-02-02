@@ -1,3 +1,4 @@
+'use client';
 import { CustomIcon } from '@/atomic/elements';
 import { types } from '@/constants';
 import { CustomButtonProps, variantButton } from '@/types';

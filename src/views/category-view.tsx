@@ -1,162 +1,43 @@
-import {
- CustomCategoryForm,
- CustomDetailsCategory,
- CustomList,
- CustomMessageError,
- CustomSearch,
-} from '@/atomic/components';
-import { CustomDialog } from '@/atomic/designs';
-import { CustomButton } from '@/atomic/elements';
+import { Actions } from '@/actions';
+import { CustomCategoryForm } from '@/atomic/components';
+import ListCategory from '@/atomic/components/category/list-Category';
+import SearchCategory from '@/atomic/components/category/search-category';
+import CustomViewDisabled from '@/atomic/components/shared/custom-view-disabled';
 import { data, types } from '@/constants';
-import { useCategoryController, useSearch } from '@/hooks';
-import { validate } from '@/validations';
 
-const { pages } = data.screens.dashboard;
-const { forms } = data.screens.dashboard;
-
-const CategoryView = () => {
- const { search, hanlderSearch } = useSearch();
- const {
-  dialog,
-  detail,
-  category,
-  isEnable,
-  isEdition,
-  isLoading,
-  categories,
-  existError,
-  messageError,
-  isLoadingSearch,
-  disabledCategories,
-  handlerEdit,
-  handlerDeatil,
-  handlerCreate,
-  handlerShowEdit,
-  handlerHiddeEdit,
-  handlerUpdateAll,
-  handlerOpenEnable,
-  handlerCloseDetail,
-  handlerCloseEnable,
-  handlerActionEnable,
-  handlerActionDisable,
- } = useCategoryController(search);
-
- /* dialog */
- if (dialog.isActivate)
-  return (
-   <div className="windowSecundary">
-    <div className="w-[50%]">
-     <CustomDialog setting={dialog} />
-    </div>
-   </div>
-  );
-
- /* enabling */
- if (isEnable) {
-  return (
-   <div className="windowSecundary">
-    <CustomButton
-     type={types.button.icon}
-     className="self-center"
-     title={pages.category.buttons.close}
-     icon={types.icon.close}
-     handlerPress={handlerCloseEnable}
-    />
-    <div className="flex-1  w-[50%]">
-     <CustomList
-      data={disabledCategories}
-      handlerEnable={handlerActionEnable}
-      isLoading={isLoadingSearch}
-     />
-    </div>
-   </div>
-  );
- }
-
- /* editing  */
- if (isEdition) {
-  return (
-   <div className="windowSecundary">
-    <CustomButton
-     title={pages.category.buttons.load}
-     type={types.button.icon}
-     className="self-center"
-     icon={types.icon.close}
-     handlerPress={handlerHiddeEdit}
-    />
-    <div className="w-full">
-     <CustomCategoryForm
-      isLoading={isLoading}
-      entity={category}
-      type={types.form.edit}
-      handlerSubmit={handlerEdit}
-      validationSchema={validate.category}
-     />
-    </div>
-   </div>
-  );
- }
-
- /* error */
- if (existError) return <CustomMessageError message={messageError} />;
-
+const {pages} = data.screens.dashboard;
+const CategoryView = async ({ categories, disabled }: { categories: CategoryDto[], disabled:CategoryDto[] }) => {
  return (
   <div className="flex-row-start-stretch overflow-y-auto">
    {/* category form  */}
    <div className="flex-1 p-8">
-    <CustomCategoryForm
-     isLoading={isLoading}
-     entity={category}
-     type={types.form.create}
-     handlerSubmit={handlerCreate}
-     validationSchema={validate.category}
-    />
+    <CustomCategoryForm type={types.form.create} send={Actions.category.create} />
    </div>
-
    <div className="flex-1 p-8 flex-col-start-stretch">
     {/*header search */}
     <div className="flex-row-center-center flex-initial">
      {/* button loading */}
-     <CustomButton
+     <CustomViewDisabled
       variant={types.variant.button.secondary}
       title={pages.category.buttons.load}
       type={types.button.icon}
-      handlerPress={handlerUpdateAll}
+      href={'/dashboard/category/disabled'}
       icon={types.icon.refresh}
      />
      {/* Search Form  */}
-     <CustomSearch
-      placeholder={forms.category.search.placeholder}
-      entity={search}
-      handlerSubmit={hanlderSearch}
-      validationSchema={validate.search}
-     />
+     <SearchCategory />
      {/*button show categories eliminated*/}
-     <CustomButton
-      title={pages.category.buttons.eliminate}
-      text={'' + disabledCategories.length}
-      type={types.button.iconText}
+     <CustomViewDisabled
       variant={types.variant.button.secondary}
-      handlerPress={handlerOpenEnable}
+      title={pages.category.buttons.load}
+      type={types.button.icon}
+      href={'/dashboard/category/disabled'}
       icon={types.icon.elimited}
+      text={String(disabled.length)}
      />
     </div>
     {/* list categories and detail one category  */}
-    {!detail ? (
-     <CustomList
-      data={categories}
-      handlerDelete={handlerActionDisable}
-      isLoading={isLoadingSearch}
-      handlerEdit={handlerShowEdit}
-      handlerDetail={handlerDeatil}
-     />
-    ) : (
-     <CustomDetailsCategory
-      data={detail}
-      handlerClose={handlerCloseDetail}
-      isLoading={isLoadingSearch}
-     />
-    )}
+    <ListCategory data={categories} />
    </div>
   </div>
  );
