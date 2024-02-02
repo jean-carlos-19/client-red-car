@@ -1,12 +1,12 @@
 import { Actions } from '@/actions';
-import { CustomLaboratoryForm } from '@/atomic/components';
+import { CustomLaboratoryForm, CustomLoading } from '@/atomic/components';
 import ListLaboratory from '@/atomic/components/laboratory/list-laboratory';
 import SearchLaboratory from '@/atomic/components/laboratory/search-laboratory';
 import CustomViewDisabled from '@/atomic/components/shared/custom-view-disabled';
 import { data, types } from '@/constants';
+import { Suspense } from 'react';
 
 const { pages } = data.screens.dashboard;
-const { forms } = data.screens.dashboard;
 
 const LaboratoryView = ({
  laboratories,
@@ -47,7 +47,9 @@ const LaboratoryView = ({
      />
     </div>
     {/*laboratories list*/}
-    <ListLaboratory data={laboratories} />
+    <Suspense fallback={<CustomLoading variant="list-vertical" />}>
+     <ListLaboratory />
+    </Suspense>
    </div>
   </div>
  );

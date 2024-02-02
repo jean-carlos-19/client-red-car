@@ -49,9 +49,8 @@ interface CustomDetailsProductProps {
 }
 interface CustomTabsProps {
  items: string[];
- isLoading?: boolean;
  className?: string;
- itemFocus: string;
+ focus: string;
  returnItem: (item: string) => void;
 }
 interface CustomItemTabsProps {
@@ -80,13 +79,13 @@ interface PosterProps {
 }
 interface CustomCategoryFormProps {
  type: statusForm;
- send: (values: CategoryModel) => Promise<ResponseSA<ResponseDto>>;
+ send: (values: CategoryModel) => Promise<ResponseDto>;
 }
 interface CustomProductFormProps {
  type: statusForm;
  categories: CategoryDto[];
  laboratories: LaboratoryDto[];
- send: (values: ProductModel) => Promise<ResponseSA<ResponseDto>>;
+ send: (values: ProductModel) => Promise<ResponseDto>;
 }
 interface CustomSearchFormProps {
  entity: Search;
@@ -97,7 +96,7 @@ interface CustomSearchFormProps {
 
 interface CustomLaboratoryFormProps {
  type: statusForm;
- send: (values: LaboratoryModel) => Promise<ResponseSA<ResponseDto>>;
+ send: (values: LaboratoryModel) => Promise<ResponseDto>;
 }
 
 interface CustomButtonIconProps {

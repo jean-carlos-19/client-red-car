@@ -1,6 +1,6 @@
 'use client';
 import { CustomButton, CustomInput, CustomPoster } from '@/atomic/elements';
-import { data, types } from '@/constants';
+import { types } from '@/constants';
 import { usePoster } from '@/hooks';
 import { useCategory } from '@/hooks/use-category';
 import { CustomCategoryFormProps } from '@/types';
@@ -9,7 +9,7 @@ import { Formik, FormikHelpers } from 'formik';
 import toast from 'react-hot-toast';
 import { CustomDetailsCategory } from '..';
 
-const { category } = data.screens.dashboard.forms;
+const { category } = screens.dashboard.forms;
 
 const CustomCategoryForm = (props: CustomCategoryFormProps) => {
  const { type } = props;
@@ -22,11 +22,10 @@ const CustomCategoryForm = (props: CustomCategoryFormProps) => {
    initialValues={categoryEntity}
    onSubmit={async (values: CategoryModel, formikHelpers: FormikHelpers<CategoryModel>) => {
     formikHelpers.resetForm();
-    const { data, error } = await props.send(values);
-    if (error) toast.error(error);
-    if (data?.id === types.respone.error) toast.error(data.message);
-    if (data?.id === types.respone.notFound) toast.error(data.message);
-    if (data?.id === types.respone.success) toast.success(data.message);
+    const { id, message } = await props.send(values);
+    if (id === types.respone.error) toast.error(message);
+    if (id === types.respone.notFound) toast.error(message);
+    if (id === types.respone.success) toast.success(message);
    }}
   >
    {(props) => {

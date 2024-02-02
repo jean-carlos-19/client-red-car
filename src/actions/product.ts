@@ -2,23 +2,23 @@ import { ServiceProduct } from '@/mvc/services';
 
 const service: ServiceProduct = ServiceProduct.getService();
 
-const getEnabled = async (): Promise<ResponseArraySA<ProductDto>> => {
+const getEnabled = async (): Promise<ProductDto[]> => {
  try {
   const result = await service.showEnable();
-  return { data: result.data.data, error: null };
+  return result.data.data;
  } catch (error) {
   console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
  }
- return { data: null, error: 'Ocurrio un error al obtener las productos' };
 };
-const getDisabled = async (): Promise<ResponseArraySA<ProductDto>> => {
+const getDisabled = async (): Promise<ProductDto[]> => {
  try {
   const result = await service.showDisable();
-  return { data: result.data.data, error: null };
+  return result.data.data;
  } catch (error) {
   console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
  }
- return { data: null, error: 'Ocurrio un error al obtener las productos desabilitadas' };
 };
 
 const create = async (category: ProductModel): Promise<ResponseDto> => {

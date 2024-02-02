@@ -17,11 +17,10 @@ const CustomLaboratoryForm = ({ type, send }: CustomLaboratoryFormProps) => {
    validationSchema={validate.laboratory}
    initialValues={laboratoryEntity}
    onSubmit={async (values: LaboratoryModel, formikHelpers: FormikHelpers<LaboratoryModel>) => {
-    const { data, error } = await send(values);
-    if (error) toast.error(error);
-    if (data?.id === types.respone.error) toast.error(data.message);
-    if (data?.id === types.respone.notFound) toast.error(data.message);
-    if (data?.id === types.respone.success) toast.success(data.message);
+    const { id, message } = await send(values);
+    if (id === types.respone.error) toast.error(message);
+    if (id === types.respone.notFound) toast.error(message);
+    if (id === types.respone.success) toast.success(message);
     formikHelpers.resetForm();
    }}
   >

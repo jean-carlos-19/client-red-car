@@ -1,12 +1,13 @@
 import { Actions } from '@/actions';
-import { CustomProductForm, CustomTabs } from '@/atomic/components';
+import { CustomLoading, CustomProductForm } from '@/atomic/components';
 import ListProduct from '@/atomic/components/product/list-product';
 import SearchProduct from '@/atomic/components/product/search-product';
+import TabProduct from '@/atomic/components/product/tab-product';
 import CustomViewDisabled from '@/atomic/components/shared/custom-view-disabled';
 import { data, types } from '@/constants';
+import { Suspense } from 'react';
 
 const { pages } = data.screens.dashboard;
-const { forms } = data.screens.dashboard;
 
 const ProductView = ({
  categories,
@@ -33,12 +34,9 @@ const ProductView = ({
 
    <div className="flex-col-start-stretch w-[50%] p-8">
     {/* Tabs */}
-    <CustomTabs
-     itemFocus={tab}
-     isLoading={isLoad}
-     items={categories.map((category) => category.name as string)}
-     returnItem={handlerTab}
-    />
+    <Suspense fallback={<CustomLoading variant="list-horizontal" />}>
+     <TabProduct />
+    </Suspense>
     {/* header Search */}
     <div className="flex-row-center-center flex-initial">
      {/* button refresh */}
@@ -64,7 +62,9 @@ const ProductView = ({
     </div>
 
     {/* list products  and detail one product */}
-    <ListProduct data={products} />
+    <Suspense fallback={<CustomLoading variant="list-vertical" />}>
+     <ListProduct />
+    </Suspense>
    </div>
   </div>
  );

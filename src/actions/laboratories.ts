@@ -2,23 +2,23 @@ import { ServiceLaboratory } from '@/mvc/services';
 
 const service: ServiceLaboratory = ServiceLaboratory.getService();
 
-const getEnabled = async (): Promise<ResponseArraySA<LaboratoryDto>> => {
+const getEnabled = async (): Promise<LaboratoryDto[]> => {
  try {
   const result = await service.showEnable();
-  return { data: result.data.data, error: null };
+  return result.data.data;
  } catch (error) {
   console.error('Ocurrio un error al obtener las laboratorios', error);
+  throw new Error('Ocurrio un error al obtener las laboratorios');
  }
- return { data: null, error: 'Ocurrio un error al obtener las laboratorios' };
 };
-const getDisabled = async (): Promise<ResponseArraySA<LaboratoryDto>> => {
+const getDisabled = async (): Promise<LaboratoryDto[]> => {
  try {
   const result = await service.showDisable();
-  return { data: result.data.data, error: null };
+  return result.data.data;
  } catch (error) {
   console.error('Ocurrio un error al obtener las laboratorios', error);
+  throw new Error('Ocurrio un error al obtener las laboratorios');
  }
- return { data: null, error: 'Ocurrio un error al obtener las laboratorios desabilitadas' };
 };
 
 const create = async (category: LaboratoryModel): Promise<ResponseDto> => {
