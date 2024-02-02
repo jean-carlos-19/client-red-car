@@ -7,13 +7,13 @@ export default async function Category() {
  const { data: categories, error } = await Actions.category.getDisabled();
  const { data: disabled, error: errorDisabled } = await Actions.category.getDisabled();
 
- if (error || categories === null ) {
+ if (error || categories === null) {
   return toast.error(error);
  }
 
- if (disabled === null || errorDisabled ) {
-    return toast.error(errorDisabled);
-   }
+ if (disabled === null || errorDisabled) {
+  return toast.error(errorDisabled);
+ }
 
  return (
   <main

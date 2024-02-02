@@ -1,36 +1,31 @@
-import {
- CustomDetailsProduct,
- CustomLoading,
- CustomProgressBar,
- CustomSelect,
-} from '@/atomic/components';
+import { CustomDetailsProduct, CustomProgressBar, CustomSelect } from '@/atomic/components';
 import { CustomButton, CustomInput, CustomPoster, CustomTextArea } from '@/atomic/elements';
 import { data, types } from '@/constants';
-import { useCategoryController, useLaboratoryController, usePoster, useProgressBar } from '@/hooks';
+import { usePoster, useProgressBar } from '@/hooks';
+import { useProduct } from '@/hooks/use-product';
 import { CustomProductFormProps } from '@/types';
+import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
+import toast from 'react-hot-toast';
 
 const { products } = data.screens.dashboard.forms;
 
-const CustomProductForm = (props: CustomProductFormProps) => {
- const { type } = props;
+const CustomProductForm = ({ send, type, categories, laboratories }: CustomProductFormProps) => {
  const { items, position, handlerPosition } = useProgressBar(4);
-
- const { categories } = useCategoryController();
- const { laboratories } = useLaboratoryController(undefined, undefined);
+ const { productEntity } = useProduct();
  const { urlImage, handlerPoster } = usePoster();
-
- if (props.isLoading && props.type === types.form.edit) {
-  return <CustomLoading variant={types.loading.normal} />;
- }
 
  return (
   <Formik
    enableReinitialize={true}
-   validationSchema={props.validationSchema}
-   initialValues={props.entity}
-   onSubmit={(values: ProductModel, formikHelpers: FormikHelpers<ProductModel>) => {
-    props.handlerSubmit(values);
+   validationSchema={validate.product}
+   initialValues={productEntity}
+   onSubmit={async (values: ProductModel, formikHelpers: FormikHelpers<ProductModel>) => {
+    const { data, error } = await send(values);
+    if (error) toast.error(error);
+    if (data?.id === types.respone.error) toast.error(data.message);
+    if (data?.id === types.respone.notFound) toast.error(data.message);
+    if (data?.id === types.respone.success) toast.success(data.message);
     formikHelpers.resetForm();
    }}
   >

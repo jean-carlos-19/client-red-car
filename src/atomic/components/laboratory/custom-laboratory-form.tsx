@@ -1,24 +1,27 @@
 'use client';
-import { CustomLoading } from '@/atomic/components';
 import { CustomButton, CustomInput } from '@/atomic/elements';
 import { data, types } from '@/constants';
+import { useLaboratory } from '@/hooks/use-laboratory';
 import { CustomLaboratoryFormProps } from '@/types';
+import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
+import toast from 'react-hot-toast';
 
 const { laboratory } = data.screens.dashboard.forms;
 
-const CustomLaboratoryForm = (props: CustomLaboratoryFormProps) => {
- const { type } = props;
- if (props.isLoading && props.type === types.form.edit) {
-  return <CustomLoading variant={types.loading.normal} />;
- }
+const CustomLaboratoryForm = ({ type, send }: CustomLaboratoryFormProps) => {
+ const { laboratoryEntity } = useLaboratory();
  return (
   <Formik
    enableReinitialize={true}
-   validationSchema={props.validationSchema}
-   initialValues={props.entity}
-   onSubmit={(values: LaboratoryModel, formikHelpers: FormikHelpers<LaboratoryModel>) => {
-    props.handlerSubmit(values);
+   validationSchema={validate.laboratory}
+   initialValues={laboratoryEntity}
+   onSubmit={async (values: LaboratoryModel, formikHelpers: FormikHelpers<LaboratoryModel>) => {
+    const { data, error } = await send(values);
+    if (error) toast.error(error);
+    if (data?.id === types.respone.error) toast.error(data.message);
+    if (data?.id === types.respone.notFound) toast.error(data.message);
+    if (data?.id === types.respone.success) toast.success(data.message);
     formikHelpers.resetForm();
    }}
   >

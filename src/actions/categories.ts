@@ -2,7 +2,7 @@ import { ServiceCategory } from '@/mvc/services';
 
 const service: ServiceCategory = ServiceCategory.getService();
 
-const getEnableds = async (): Promise<ResponseArraySA<CategoryDto>> => {
+const getEnabled = async (): Promise<ResponseArraySA<CategoryDto>> => {
  try {
   const result = await service.showEnable();
   return { data: result.data.data, error: null };
@@ -74,7 +74,7 @@ const find = async (id: string): Promise<ResponseSA<CategoryDto>> => {
  return { data: null, error: 'Ocurrio un error al obtener la categoria' };
 };
 const category = Object.freeze({
- getEnableds,
+ getEnabled,
  getDisabled,
  create,
  edit,

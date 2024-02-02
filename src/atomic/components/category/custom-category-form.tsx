@@ -1,3 +1,4 @@
+'use client';
 import { CustomButton, CustomInput, CustomPoster } from '@/atomic/elements';
 import { data, types } from '@/constants';
 import { usePoster } from '@/hooks';

@@ -1,14 +1,14 @@
 import { AnyObjectSchema } from 'yup';
 import {
-    Item,
-    ModalSetting,
-    Search,
-    dialogSetting,
-    statusButton,
-    statusForm,
-    statusIcon,
-    variantButton,
-    variantLoading,
+ Item,
+ ModalSetting,
+ Search,
+ dialogSetting,
+ statusButton,
+ statusForm,
+ statusIcon,
+ variantButton,
+ variantLoading,
 } from './common.types';
 
 /*  */
@@ -83,11 +83,10 @@ interface CustomCategoryFormProps {
  send: (values: CategoryModel) => Promise<ResponseSA<ResponseDto>>;
 }
 interface CustomProductFormProps {
- isLoading: boolean;
  type: statusForm;
- entity: ProductModel;
- validationSchema: AnyObjectSchema;
- handlerSubmit: (values: ProductModel) => void;
+ categories: CategoryDto[];
+ laboratories: LaboratoryDto[];
+ send: (values: ProductModel) => Promise<ResponseSA<ResponseDto>>;
 }
 interface CustomSearchFormProps {
  entity: Search;
@@ -97,11 +96,8 @@ interface CustomSearchFormProps {
 }
 
 interface CustomLaboratoryFormProps {
- isLoading: boolean;
- entity: LaboratoryModel;
  type: statusForm;
- handlerSubmit: (values: LaboratoryModel) => void;
- validationSchema: AnyObjectSchema;
+ send: (values: LaboratoryModel) => Promise<ResponseSA<ResponseDto>>;
 }
 
 interface CustomButtonIconProps {
@@ -140,14 +136,14 @@ interface CustomButtonProps {
 }
 
 interface CustomViewDisabledProps {
-    title: string;
-    text?: string;
-    icon?: statusIcon;
-    type: statusButton;
-    className?: string;
-    variant?: variantButton;
-    href: string;
-   }
+ title: string;
+ text?: string;
+ icon?: statusIcon;
+ type: statusButton;
+ className?: string;
+ variant?: variantButton;
+ href: string;
+}
 
 interface CustomTextAreaProps {
  id: string;
@@ -193,29 +189,30 @@ interface CustomLoadingProps {
  variant?: variantLoading;
 }
 export type {
-    CustomButtonIconProps,
-    CustomButtonProps,
-    CustomCategoryFormProps,
-    CustomDetailsCategoryProps,
-    CustomDetailsProductProps,
-    CustomDialogProps,
-    CustomHeaderProps,
-    CustomHeaderUserProps,
-    CustomInputProps,
-    CustomItemProps,
-    CustomItemTabsProps,
-    CustomLaboratoryFormProps,
-    CustomListProps,
-    CustomLoadingProps,
-    CustomMessageErrorProps,
-    CustomModalProps,
-    CustomPhotoProps,
-    CustomProductFormProps,
-    CustomProgressBarProps,
-    CustomSearchFormProps,
-    CustomSelectProps,
-    CustomTabsProps,
-    CustomTextAreaProps, CustomViewDisabledProps, IconProps,
-    PosterProps
+ CustomButtonIconProps,
+ CustomButtonProps,
+ CustomCategoryFormProps,
+ CustomDetailsCategoryProps,
+ CustomDetailsProductProps,
+ CustomDialogProps,
+ CustomHeaderProps,
+ CustomHeaderUserProps,
+ CustomInputProps,
+ CustomItemProps,
+ CustomItemTabsProps,
+ CustomLaboratoryFormProps,
+ CustomListProps,
+ CustomLoadingProps,
+ CustomMessageErrorProps,
+ CustomModalProps,
+ CustomPhotoProps,
+ CustomProductFormProps,
+ CustomProgressBarProps,
+ CustomSearchFormProps,
+ CustomSelectProps,
+ CustomTabsProps,
+ CustomTextAreaProps,
+ CustomViewDisabledProps,
+ IconProps,
+ PosterProps,
 };
-

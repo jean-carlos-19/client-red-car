@@ -2,7 +2,7 @@ import { ServiceLaboratory } from '@/mvc/services';
 
 const service: ServiceLaboratory = ServiceLaboratory.getService();
 
-const getEnableds = async (): Promise<ResponseArraySA<LaboratoryDto>> => {
+const getEnabled = async (): Promise<ResponseArraySA<LaboratoryDto>> => {
  try {
   const result = await service.showEnable();
   return { data: result.data.data, error: null };
@@ -21,12 +21,9 @@ const getDisabled = async (): Promise<ResponseArraySA<LaboratoryDto>> => {
  return { data: null, error: 'Ocurrio un error al obtener las laboratorios desabilitadas' };
 };
 
-const create = async (
- category: LaboratoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const create = async (category: LaboratoryModel): Promise<ResponseSA<ResponseDto>> => {
  try {
-  const result = await service.create(category, token);
+  const result = await service.create(category, '');
   return { data: result.data, error: null };
  } catch (error) {
   console.error('Ocurrio un error al obtener las laboratorios', error);
@@ -36,7 +33,7 @@ const create = async (
 
 const edit = async (category: LaboratoryModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
-  const result = await service.edit(category, token);
+  const result = await service.edit(category, '');
   return { data: result.data, error: null };
  } catch (error) {
   console.error('Ocurrio un error al obtener las laboratorios', error);
@@ -44,12 +41,9 @@ const edit = async (category: LaboratoryModel, token: string): Promise<ResponseS
  return { data: null, error: 'Ocurrio un error al editar las laboratorios' };
 };
 
-const enable = async (
- category: LaboratoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const enable = async (category: LaboratoryModel): Promise<ResponseSA<ResponseDto>> => {
  try {
-  const result = await service.enable(category, token);
+  const result = await service.enable(category, '');
   return { data: result.data, error: null };
  } catch (error) {
   console.error('Ocurrio un error al obtener las laboratorios', error);
@@ -57,12 +51,9 @@ const enable = async (
  return { data: null, error: 'Ocurrio un error al habilitar las laboratorios' };
 };
 
-const disable = async (
- category: LaboratoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const disable = async (category: LaboratoryModel): Promise<ResponseSA<ResponseDto>> => {
  try {
-  const result = await service.disable(category, token);
+  const result = await service.disable(category, '');
   return { data: result.data, error: null };
  } catch (error) {
   console.error('Ocurrio un error al obtener las laboratorios', error);
@@ -71,7 +62,7 @@ const disable = async (
 };
 
 const Laboratory = Object.freeze({
- getEnableds,
+ getEnabled,
  getDisabled,
  create,
  edit,

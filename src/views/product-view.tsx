@@ -1,116 +1,33 @@
-import {
- CustomDetailsProduct,
- CustomList,
- CustomMessageError,
- CustomProductForm,
- CustomSearch,
- CustomTabs,
-} from '@/atomic/components';
-import { CustomDialog } from '@/atomic/designs';
-import { CustomButton } from '@/atomic/elements';
+import { Actions } from '@/actions';
+import { CustomProductForm, CustomTabs } from '@/atomic/components';
+import ListProduct from '@/atomic/components/product/list-product';
+import SearchProduct from '@/atomic/components/product/search-product';
+import CustomViewDisabled from '@/atomic/components/shared/custom-view-disabled';
 import { data, types } from '@/constants';
-import { useCategoryController, useProductController, useSearch, useTab } from '@/hooks';
-import { validate } from '@/validations';
 
 const { pages } = data.screens.dashboard;
 const { forms } = data.screens.dashboard;
 
-const ProductView = () => {
- const { tab, handlerTab } = useTab('Todos');
- const { search, hanlderSearch } = useSearch();
- const {
-  dialog,
-  detail,
-  product,
-  products,
-  isEnable,
-  isEdition,
-  isLoading,
-  existError,
-  messageError,
-  isLoadingSearch,
-  disabledProducts,
-  handlerEdit,
-  handlerDetail,
-  handlerCreate,
-  handlerShowEdit,
-  handlerHiddeEdit,
-  handlerUpdateAll,
-  handlerCloseDetail,
-  handlerOpenEnable,
-  handlerCloseEnable,
-  handlerActionEnable,
-  handlerActionDisable,
- } = useProductController(tab, undefined, search);
- const { categories, isLoadingSearch: isLoad } = useCategoryController();
- /* dialog */
- if (dialog.isActivate)
-  return (
-   <div className="windowSecundary">
-    <div className="w-[50%]">
-     <CustomDialog setting={dialog} />
-    </div>
-   </div>
-  );
-
- /* enabling */
- if (isEnable) {
-  return (
-   <div className="windowSecundary ">
-    <CustomButton
-     title={pages.products.buttons.load}
-     type={types.button.icon}
-     className="self-center"
-     icon={types.icon.close}
-     handlerPress={handlerCloseEnable}
-    />
-    <div className="flex-1 w-[50%]">
-     <CustomList
-      data={disabledProducts}
-      handlerEnable={handlerActionEnable}
-      isLoading={isLoadingSearch}
-     />
-    </div>
-   </div>
-  );
- }
-
- /* editing  */
- if (isEdition) {
-  return (
-   <div className="windowSecundary">
-    <CustomButton
-     title={pages.products.buttons.load}
-     type={types.button.icon}
-     className="self-center"
-     icon={types.icon.close}
-     handlerPress={handlerHiddeEdit}
-    />
-    <div className="w-full">
-     <CustomProductForm
-      isLoading={isLoading}
-      entity={product}
-      type={types.form.edit}
-      handlerSubmit={handlerEdit}
-      validationSchema={validate.product}
-     />
-    </div>
-   </div>
-  );
- }
- /* error */
- if (existError) return <CustomMessageError message={messageError} />;
-
+const ProductView = ({
+ categories,
+ laboratories,
+ disabled,
+ products,
+}: {
+ categories: CategoryDto[];
+ laboratories: LaboratoryDto[];
+ products: ProductDto[];
+ disabled: ProductDto[];
+}) => {
  return (
   <div className=" flex-row-start-stretch overflow-y-auto">
    {/* product form */}
    <div className="flex-1 w-[50%] p-8">
     <CustomProductForm
-     isLoading={isLoading}
-     entity={product}
+     categories={categories}
+     laboratories={laboratories}
      type={types.form.create}
-     handlerSubmit={handlerCreate}
-     validationSchema={validate.product}
+     send={Actions.product.create}
     />
    </div>
 
@@ -125,47 +42,29 @@ const ProductView = () => {
     {/* header Search */}
     <div className="flex-row-center-center flex-initial">
      {/* button refresh */}
-     <CustomButton
+     <CustomViewDisabled
       variant={types.variant.button.secondary}
-      title={pages.products.buttons.load}
+      title={pages.category.buttons.load}
       type={types.button.icon}
-      icon={types.icon.refresh}
-      handlerPress={handlerUpdateAll}
+      href={'/dashboard/laboratory/disabled'}
+      icon={types.icon.elimited}
+      text={String(disabled.length)}
      />
      {/* input Search */}
-     <CustomSearch
-      placeholder={forms.products.search.placeholder}
-      validationSchema={validate.search}
-      handlerSubmit={hanlderSearch}
-      entity={search}
-     />
+     <SearchProduct />
      {/* button delete */}
-     <CustomButton
+     <CustomViewDisabled
       variant={types.variant.button.secondary}
-      title={pages.products.buttons.eliminate}
-      text={'' + disabledProducts.length}
-      type={types.button.iconText}
+      title={pages.category.buttons.load}
+      type={types.button.icon}
+      href={'/dashboard/laboratory/disabled'}
       icon={types.icon.elimited}
-      handlerPress={handlerOpenEnable}
+      text={String(disabled.length)}
      />
     </div>
 
     {/* list products  and detail one product */}
-    {!detail ? (
-     <CustomList
-      data={products}
-      handlerDelete={handlerActionDisable}
-      isLoading={isLoadingSearch}
-      handlerEdit={handlerShowEdit}
-      handlerDetail={handlerDetail}
-     />
-    ) : (
-     <CustomDetailsProduct
-      data={detail}
-      handlerClose={handlerCloseDetail}
-      isLoading={isLoadingSearch}
-     />
-    )}
+    <ListProduct data={products} />
    </div>
   </div>
  );

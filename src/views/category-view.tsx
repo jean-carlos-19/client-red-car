@@ -5,8 +5,14 @@ import SearchCategory from '@/atomic/components/category/search-category';
 import CustomViewDisabled from '@/atomic/components/shared/custom-view-disabled';
 import { data, types } from '@/constants';
 
-const {pages} = data.screens.dashboard;
-const CategoryView = async ({ categories, disabled }: { categories: CategoryDto[], disabled:CategoryDto[] }) => {
+const { pages } = data.screens.dashboard;
+const CategoryView = async ({
+ categories,
+ disabled,
+}: {
+ categories: CategoryDto[];
+ disabled: CategoryDto[];
+}) => {
  return (
   <div className="flex-row-start-stretch overflow-y-auto">
    {/* category form  */}
