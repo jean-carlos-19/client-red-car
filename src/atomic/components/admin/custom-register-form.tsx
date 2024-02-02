@@ -1,22 +1,26 @@
+import { Actions } from '@/actions';
 import { CustomButton, CustomInput, CustomPassword } from '@/atomic/elements';
 import { data, types } from '@/constants';
-import { CustomRegisterFormProps } from '@/types';
+import { useAuth } from '@/hooks';
+import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
-
 const { forms } = data.screens.register;
 
-const CustomRegisterForm = (props: CustomRegisterFormProps) => {
+
+const CustomRegisterForm = () => {
+    const {registerEntity} = useAuth()
  return (
   <Formik
    enableReinitialize={true}
-   validationSchema={props.validation}
-   initialValues={props.entity}
-   onSubmit={(
+   validationSchema={validate.register}
+   initialValues={registerEntity}
+   onSubmit={async (
     values: Omit<RegisterModel, 'token'>,
     formikHelpers: FormikHelpers<Omit<RegisterModel, 'token'>>,
    ) => {
     formikHelpers.resetForm();
-    props.hnalderSubmit(values);
+    await Actions.user.register(values);
+
    }}
   >
    {(props) => {

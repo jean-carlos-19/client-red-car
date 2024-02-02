@@ -1,25 +1,35 @@
+'use client';
+
+import { Actions } from '@/actions';
 import { CustomButton, CustomInput, CustomPassword } from '@/atomic/elements';
 import { data, images, types } from '@/constants';
-import { CustomLoginFormProps } from '@/types';
+import { useAuth } from '@/hooks';
+import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const { forms } = data.screens.login;
 
-const CustomLoginForm = (props: CustomLoginFormProps) => {
+const CustomLoginForm = () => {
+ const { loginEntity } = useAuth();
  const route = useRouter();
  const handlerPage = () => {
   route.push('/admin/register');
  };
+
  return (
   <Formik
    enableReinitialize={true}
-   validationSchema={props.validation}
-   initialValues={props.entity}
-   onSubmit={(values: LoginModel, formikHelpers: FormikHelpers<LoginModel>) => {
+   validationSchema={validate.login}
+   initialValues={loginEntity}
+   onSubmit={async (values: LoginModel, formikHelpers: FormikHelpers<LoginModel>) => {
     formikHelpers.resetForm();
-    props.hnalderSubmit(values);
+    const { data, error } = await Actions.user.login(values);
+    if (error) toast.error(error);
+    if (data?.id === types.respone.error) toast.error(data.message);
+    if (data?.id === types.respone.success) toast.success(data.message);
    }}
   >
    {(props) => {

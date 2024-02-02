@@ -1,14 +1,11 @@
-import { data, types } from '@/constants';
-import { useCategoryController } from '@/hooks';
-import Image from 'next/image';
-import Link from 'next/link';
-import { CustomEmpty, CustomLoading, CustomMessageError } from '..';
+import { data } from '@/constants';
+import { Suspense } from 'react';
+import { ProductCategories } from '.';
+import { CustomLoading } from '..';
 
 const { secctions } = data.screens.homepage;
 
-function Categories() {
- const { categories, isLoadingSearch, existError, messageError } = useCategoryController();
- if (existError) return <CustomMessageError message={messageError} />;
+async function Categories() {
  return (
   <article className="w-full mt-[10rem]bg-helper flex-col-stretch-center space-y-16">
    <h2 className="header-2"> {'Productos'}</h2>
@@ -25,23 +22,9 @@ function Categories() {
      justifyItems: 'center',
     }}
    >
-    {isLoadingSearch ? (
-     <CustomLoading variant={types.loading.grid} />
-    ) : categories.length === 0 ? (
-     <CustomEmpty />
-    ) : (
-     categories.map((category, i) => (
-      <Link key={i} href={`/category/${category.name}`} title={`categoria ${category.name}`}>
-       <Image
-        className="flex-row-center-center"
-        src={category.photo as string}
-        width={150}
-        height={300}
-        alt=""
-       />
-      </Link>
-     ))
-    )}
+    <Suspense fallback={<CustomLoading variant="list-horizontal" />}>
+     <ProductCategories />
+    </Suspense>
    </section>
   </article>
  );

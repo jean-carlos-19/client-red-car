@@ -3,7 +3,7 @@ import { data, types } from '@/constants';
 import { usePoster } from '@/hooks';
 import { CustomCategoryFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
-import { CustomDetailsCategory, CustomLoading } from '.';
+import { CustomDetailsCategory, CustomLoading } from '..';
 
 const { category } = data.screens.dashboard.forms;
 

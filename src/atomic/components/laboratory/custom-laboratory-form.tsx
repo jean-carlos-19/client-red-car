@@ -1,3 +1,4 @@
+'use client';
 import { CustomLoading } from '@/atomic/components';
 import { CustomButton, CustomInput } from '@/atomic/elements';
 import { data, types } from '@/constants';

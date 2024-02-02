@@ -1,7 +1,5 @@
-'use client';
 import { styles } from '@/atomic/theme';
 import { LaboratoryView } from '@/views';
-import React from 'react';
 
 export default function Laboratory() {
  return (

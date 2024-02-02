@@ -1,13 +1,12 @@
 'use client';
-import { signIn, useSession } from 'next-auth/react';
-import { CustomHeaderUser } from '@/atomic/designs';
 import { CustomLoading } from '@/atomic/components';
-import { data, images, types } from '@/constants';
-import { useRouter } from 'next/navigation';
+import { CustomHeaderUser } from '@/atomic/designs';
 import { styles } from '@/atomic/theme';
+import { data, images, types } from '@/constants';
 import { useHeader } from '@/hooks';
+import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
-import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const { header } = data.screens.dashboard;
 export default function Dashboard() {

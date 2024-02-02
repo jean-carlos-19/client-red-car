@@ -34,10 +34,7 @@ const create = async (
  return { data: null, error: 'Ocurrio un error al crear las laboratorios' };
 };
 
-const edit = async (
- category: LaboratoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const edit = async (category: LaboratoryModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
   const result = await service.edit(category, token);
   return { data: result.data, error: null };
@@ -74,11 +71,11 @@ const disable = async (
 };
 
 const Laboratory = Object.freeze({
-    getEnableds,
-    getDisabled,
-    create,
-    edit,
-    enable,
-    disable,
-})
+ getEnableds,
+ getDisabled,
+ create,
+ edit,
+ enable,
+ disable,
+});
 export { Laboratory };

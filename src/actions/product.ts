@@ -21,10 +21,7 @@ const getDisableds = async (): Promise<ResponseArraySA<ProductDto>> => {
  return { data: null, error: 'Ocurrio un error al obtener las productos desabilitadas' };
 };
 
-const create = async (
- category: ProductModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const create = async (category: ProductModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
   const result = await service.create(category, token);
   return { data: result.data, error: null };
@@ -34,10 +31,7 @@ const create = async (
  return { data: null, error: 'Ocurrio un error al crear las productos' };
 };
 
-const edit = async (
- category: ProductModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const edit = async (category: ProductModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
   const result = await service.edit(category, token);
   return { data: result.data, error: null };
@@ -84,11 +78,11 @@ const disable = async ({
 };
 
 const product = Object.freeze({
-        getEnableds,
-        getDisableds,
-        create,
-        edit,
-        enable,
-        disable,
+ getEnableds,
+ getDisableds,
+ create,
+ edit,
+ enable,
+ disable,
 });
 export { product };

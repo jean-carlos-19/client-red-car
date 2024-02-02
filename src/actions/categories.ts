@@ -21,10 +21,7 @@ const getDisabled = async (): Promise<ResponseArraySA<CategoryDto>> => {
  return { data: null, error: 'Ocurrio un error al obtener las categorias desabilitadas' };
 };
 
-const create = async (
- category: CategoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const create = async (category: CategoryModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
   const result = await service.create(category, token);
   return { data: result.data, error: null };
@@ -34,10 +31,7 @@ const create = async (
  return { data: null, error: 'Ocurrio un error al crear las categorias' };
 };
 
-const edit = async (
- category: CategoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const edit = async (category: CategoryModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
   const result = await service.edit(category, token);
   return { data: result.data, error: null };
@@ -47,10 +41,7 @@ const edit = async (
  return { data: null, error: 'Ocurrio un error al editar las categorias' };
 };
 
-const enable = async (
- category: CategoryModel,
- token: string,
-): Promise<ResponseSA<ResponseDto>> => {
+const enable = async (category: CategoryModel, token: string): Promise<ResponseSA<ResponseDto>> => {
  try {
   const result = await service.enable(category, token);
   return { data: result.data, error: null };
@@ -74,12 +65,11 @@ const disable = async (
 };
 
 const category = Object.freeze({
-    getEnableds,
-    getDisabled,
-    create,
-    edit,
-    enable,
-    disable,
-})
+ getEnableds,
+ getDisabled,
+ create,
+ edit,
+ enable,
+ disable,
+});
 export { category };
-

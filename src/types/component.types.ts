@@ -1,14 +1,14 @@
 import { AnyObjectSchema } from 'yup';
 import {
- Item,
- ModalSetting,
- Search,
- dialogSetting,
- statusButton,
- statusForm,
- statusIcon,
- variantButton,
- variantLoading,
+    Item,
+    ModalSetting,
+    Search,
+    dialogSetting,
+    statusButton,
+    statusForm,
+    statusIcon,
+    variantButton,
+    variantLoading,
 } from './common.types';
 
 /*  */
@@ -176,16 +176,6 @@ interface CustomPhotoProps {
 interface CustomModalProps {
  setting: ModalSetting;
 }
-interface CustomLoginFormProps {
- entity: LoginModel;
- validation: AnyObjectSchema;
- hnalderSubmit: (value: LoginModel) => void;
-}
-interface CustomRegisterFormProps {
- entity: Omit<RegisterModel, 'token'>;
- validation: AnyObjectSchema;
- hnalderSubmit: (value: Omit<RegisterModel, 'token'>) => void;
-}
 interface CustomMessageErrorProps {
  message: string;
 }
@@ -196,31 +186,30 @@ interface CustomLoadingProps {
  variant?: variantLoading;
 }
 export type {
- CustomButtonIconProps,
- CustomButtonProps,
- CustomCategoryFormProps,
- CustomDetailsCategoryProps,
- CustomDetailsProductProps,
- CustomDialogProps,
- CustomHeaderProps,
- CustomHeaderUserProps,
- CustomInputProps,
- CustomItemProps,
- CustomItemTabsProps,
- CustomLaboratoryFormProps,
- CustomListProps,
- CustomLoadingProps,
- CustomLoginFormProps,
- CustomMessageErrorProps,
- CustomModalProps,
- CustomPhotoProps,
- CustomProductFormProps,
- CustomProgressBarProps,
- CustomRegisterFormProps,
- CustomSearchFormProps,
- CustomSelectProps,
- CustomTabsProps,
- CustomTextAreaProps,
- IconProps,
- PosterProps,
+    CustomButtonIconProps,
+    CustomButtonProps,
+    CustomCategoryFormProps,
+    CustomDetailsCategoryProps,
+    CustomDetailsProductProps,
+    CustomDialogProps,
+    CustomHeaderProps,
+    CustomHeaderUserProps,
+    CustomInputProps,
+    CustomItemProps,
+    CustomItemTabsProps,
+    CustomLaboratoryFormProps,
+    CustomListProps,
+    CustomLoadingProps,
+    CustomMessageErrorProps,
+    CustomModalProps,
+    CustomPhotoProps,
+    CustomProductFormProps,
+    CustomProgressBarProps,
+    CustomSearchFormProps,
+    CustomSelectProps,
+    CustomTabsProps,
+    CustomTextAreaProps,
+    IconProps,
+    PosterProps
 };
+
