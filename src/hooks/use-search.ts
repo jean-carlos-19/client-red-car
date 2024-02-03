@@ -1,3 +1,4 @@
+'use client';
 import { Search } from '@/types';
 import { debounce } from 'lodash';
 import { useCallback, useState } from 'react';

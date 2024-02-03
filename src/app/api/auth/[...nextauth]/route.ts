@@ -1,47 +1,25 @@
+import { Actions } from '@/actions';
 import { ServiceUser } from '@/mvc/services';
 import NextAuth from 'next-auth';
-import { AdapterUser } from 'next-auth/adapters';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 const service: ServiceUser = ServiceUser.getService();
-
-// Example authentication logic (replace this with your actual logic)
-const yourAuthenticationLogic = async (credentials: {
- username: string;
- password: string;
-}): Promise<AdapterUser | null> => {
- const user: LoginModel = { user: credentials.username, password: credentials.password };
- try {
-  const rs = await service.login(user);
-  const { id_user, user_name, email, full_name } = rs.data.data;
-  return {
-   id: String(id_user),
-   email,
-   name: full_name,
-   user: user_name,
-   token: rs.data.token,
-  };
- } catch (error) {
-  console.error(error);
-  throw error;
- }
-};
 
 const handler = NextAuth({
  providers: [
   CredentialsProvider({
    name: 'Credentials',
    credentials: {
-    email: { label: 'Username', type: 'text', placeholder: 'jsmith' },
+    user: { label: 'Username', type: 'text', placeholder: 'jsmith' },
     password: { label: 'Password', type: 'password' },
    },
    async authorize(credentials) {
     try {
-     const data = await yourAuthenticationLogic({
-      username: credentials?.email as string,
+     const data = await Actions.user.login({
+      user: credentials?.user as string,
       password: credentials?.password as string,
      });
-     return data;
+     return data.data;
     } catch (error) {
      console.error(error);
      throw error;
@@ -50,17 +28,22 @@ const handler = NextAuth({
   }),
  ],
  callbacks: {
-  async session({ session, token }) {
-   /* eslint-disable */
-   session.user = token as any;
-   /* eslint-disable */
+  async session({ session, token }: SessionProps) {
+   if (token !== undefined && session.user !== undefined) {
+    session.user.id = token.accessToken;
+   } else {
+    throw new Error('Token is undefined');
+   }
    return session;
   },
-  async jwt({ token, user }) {
-   return { ...token, ...user };
+  async jwt({ token, account }: JWTProps) {
+   if (account !== null && account.type === 'credentials') {
+    token.id = account.providerAccountId;
+   }
+   return { ...token };
   },
  },
- session: { maxAge: 7200 },
+ session: { maxAge: 7200, strategy: 'jwt' },
  pages: {
   signIn: '/admin/login',
  },

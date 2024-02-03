@@ -1,3 +1,4 @@
+'use client';
 import { CustomPhotoProps } from '@/types';
 import Image from 'next/image';
 import { useState } from 'react';

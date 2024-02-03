@@ -1,3 +1,5 @@
+'use client';
+
 import {} from '@/constants';
 import { Message, statusAction } from '@/types';
 import { useState } from 'react';

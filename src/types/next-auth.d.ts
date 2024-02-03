@@ -1,32 +1,21 @@
 import 'next-auth';
+import { DefaultSession } from 'next-auth';
 
 declare module 'next-auth' {
- interface Session {
-  //   accessToken?: Account.accessToken;
+ interface Session extends DefaultSession {
+  accessToken?: Account.accessToken;
   user: {
-   id: number;
+   id: string;
    name: string;
    email: string;
    user: string;
    token: string;
-   emailVerified?: string;
-  };
+  } & DefaultSession['user'];
  }
 }
 
-// declare module 'next-auth/jwt' {
-//  interface JWT {
-//   accessToken?: Account.accessToken;
-//  }
-// }
-
-declare module 'next-auth/adapters' {
- interface AdapterUser {
-  id: number;
-  name: string;
-  email: string;
-  user: string;
-  token: string;
-  emailVerified?: string;
+declare module 'next-auth/jwt' {
+ interface JWT {
+  accessToken?: Account.accessToken;
  }
 }

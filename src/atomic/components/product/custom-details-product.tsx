@@ -1,3 +1,5 @@
+'use client';
+
 import { CustomButton } from '@/atomic/elements';
 import { styles } from '@/atomic/theme';
 import { data, types } from '@/constants';

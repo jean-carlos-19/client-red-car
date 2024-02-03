@@ -1,3 +1,5 @@
+'use client';
+
 import { CustomButton } from '@/atomic/elements';
 import { types } from '@/constants';
 import { CustomInputProps } from '@/types';

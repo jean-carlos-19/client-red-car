@@ -1,3 +1,4 @@
+'use client';
 import { ModalSetting, statusDialog } from '@/types';
 import { useState } from 'react';
 

@@ -1,4 +1,3 @@
-'use client';
 export { useAuth } from './use-auth';
 export { useDialog } from './use-dialog';
 export { useHeader } from './use-header';
