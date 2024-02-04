@@ -4,7 +4,7 @@ import { Combobox, Transition } from '@headlessui/react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { Fragment, useEffect, useState } from 'react';
 
-const CustomSelect = (props: CustomSelectProps) => {
+export default function CustomSelect(props: CustomSelectProps) {
  const [selected, setSelected] = useState<string>(props.value ? props.value : 'No seleccionado');
  const [query, setQuery] = useState('');
 
@@ -73,6 +73,4 @@ const CustomSelect = (props: CustomSelectProps) => {
    </div>
   </div>
  );
-};
-
-export { CustomSelect };
+}

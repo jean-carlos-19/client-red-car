@@ -1,11 +1,11 @@
 'use client';
 
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { types } from '@/constants';
 import { CustomInputProps } from '@/types';
 import { useState } from 'react';
 
-const CustomPassword = (props: CustomInputProps) => {
+export default function CustomPassword(props: CustomInputProps) {
  const [isVisible, setIsVisible] = useState<boolean>(false);
  return (
   <div className={'field-form'}>
@@ -36,6 +36,4 @@ const CustomPassword = (props: CustomInputProps) => {
    {props.validation && <p className="text-error-form">{props.messageError}</p>}
   </div>
  );
-};
-
-export { CustomPassword };
+}

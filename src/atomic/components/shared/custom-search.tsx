@@ -1,7 +1,7 @@
 import { CustomSearchFormProps } from '@/types';
 import { Formik, FormikHelpers } from 'formik';
 
-const CustomSearch = (props: CustomSearchFormProps) => {
+export default function CustomSearch(props: CustomSearchFormProps) {
  const { placeholder, handlerSubmit } = props;
  return (
   <Formik
@@ -31,6 +31,4 @@ const CustomSearch = (props: CustomSearchFormProps) => {
    }}
   </Formik>
  );
-};
-
-export { CustomSearch };
+}

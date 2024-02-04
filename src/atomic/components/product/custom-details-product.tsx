@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const { product } = data.screens.dashboard.details;
 
-const CustomDetailsProduct = (props: CustomDetailsProductProps) => {
+export default function CustomDetailsProduct(props: CustomDetailsProductProps) {
  const [position, setPosition] = useState<number>(0);
  const links = [props.data.features, props.data.summary, props.data.dosage];
  const handlerPosition = (i: number) => {
@@ -64,6 +64,4 @@ const CustomDetailsProduct = (props: CustomDetailsProductProps) => {
    </section>
   </section>
  );
-};
-
-export { CustomDetailsProduct };
+}

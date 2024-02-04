@@ -17,7 +17,7 @@ import {
  HiXCircle,
 } from 'react-icons/hi';
 
-const CustomIcon = (props: IconProps) => {
+export default function CustomIcon(props: IconProps) {
  if (props.type === types.icon.menu) return <HiMenu size={30} color={theme.gray} />;
  if (props.type === types.icon.edit) return <HiPencil size={30} color={theme.gray} />;
  if (props.type === types.icon.enable) return <HiCheck size={30} color={theme.gray} />;
@@ -33,6 +33,4 @@ const CustomIcon = (props: IconProps) => {
  if (props.type === types.icon.eye) return <HiEye size={30} color={theme.gray} />;
  if (props.type === types.icon.eyeOff) return <HiEyeOff size={30} color={theme.gray} />;
  return null;
-};
-
-export { CustomIcon };
+}

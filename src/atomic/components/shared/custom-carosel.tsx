@@ -15,7 +15,7 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 import { images } from '@/constants';
 
-const CustomCarousel = () => {
+export default function CustomCarousel() {
  const progressCircle = useRef<SVGSVGElement | null>(null);
  const progressContent = useRef<HTMLSpanElement | null>(null);
  const onAutoplayTimeLeft = (s: unknown, time: number, progress: number) => {
@@ -77,5 +77,4 @@ const CustomCarousel = () => {
    </Swiper>
   </>
  );
-};
-export { CustomCarousel };
+}

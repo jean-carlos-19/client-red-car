@@ -25,6 +25,7 @@ export type {
  CustomItemProps,
  CustomItemTabsProps,
  CustomLaboratoryFormProps,
+ CustomLinkProps,
  CustomListProps,
  CustomLoadingProps,
  CustomMessageErrorProps,

@@ -1,12 +1,15 @@
-import { Actions } from '@/actions';
-import { CustomButton } from '@/atomic/elements';
+import { findCategory } from '@/actions/categories';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { styles } from '@/atomic/theme';
 import { types } from '@/constants';
 import { CustomDetailsCategoryProps } from '@/types';
 import Image from 'next/image';
 
-const CustomDetailsCategory = async ({ id, handlerClose }: CustomDetailsCategoryProps) => {
- const {category,photo,} = await Actions.category.find(id);
+export default async function CustomDetailsCategory({
+ id,
+ handlerClose,
+}: CustomDetailsCategoryProps) {
+ const { category, photo } = await findCategory(id);
  return (
   <section className="flex-col-stretch-stretch">
    <CustomButton
@@ -29,6 +32,4 @@ const CustomDetailsCategory = async ({ id, handlerClose }: CustomDetailsCategory
    </div>
   </section>
  );
-};
-
-export { CustomDetailsCategory };
+}

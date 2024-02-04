@@ -1,5 +1,6 @@
 'use client';
-import { CustomButton, CustomInput } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomInput from '@/atomic/elements/custom-input';
 import { data, types } from '@/constants';
 import { useLaboratory } from '@/hooks/use-laboratory';
 import { CustomLaboratoryFormProps } from '@/types';
@@ -9,7 +10,7 @@ import toast from 'react-hot-toast';
 
 const { laboratory } = data.screens.dashboard.forms;
 
-const CustomLaboratoryForm = ({ type, send }: CustomLaboratoryFormProps) => {
+export default function CustomLaboratoryForm({ type, send }: CustomLaboratoryFormProps) {
  const { laboratoryEntity } = useLaboratory();
  return (
   <Formik
@@ -76,6 +77,4 @@ const CustomLaboratoryForm = ({ type, send }: CustomLaboratoryFormProps) => {
    }}
   </Formik>
  );
-};
-
-export { CustomLaboratoryForm };
+}

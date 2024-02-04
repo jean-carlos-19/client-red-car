@@ -1,4 +1,4 @@
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { images, types } from '@/constants';
 import { CustomModalProps } from '@/types';
 import Image from 'next/image';
@@ -6,7 +6,7 @@ import Image from 'next/image';
 {
  /* body modal */
 }
-const CustomModal = (props: CustomModalProps) => {
+export default function CustomModal(props: CustomModalProps) {
  return (
   <div className="bg-helper p-16 rounded-lg flex-col-start-stretch">
    {/* photo modal */}
@@ -40,6 +40,4 @@ const CustomModal = (props: CustomModalProps) => {
    )}
   </div>
  );
-};
-
-export { CustomModal };
+}

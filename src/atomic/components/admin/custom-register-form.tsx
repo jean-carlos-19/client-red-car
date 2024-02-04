@@ -1,12 +1,15 @@
-import { Actions } from '@/actions';
-import { CustomButton, CustomInput, CustomPassword } from '@/atomic/elements';
+'use client';
+import { register } from '@/actions/user';
+import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomInput from '@/atomic/elements/custom-input';
+import CustomPassword from '@/atomic/elements/custom-password';
 import { data, types } from '@/constants';
 import { useAuth } from '@/hooks';
 import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
 const { forms } = data.screens.register;
 
-const CustomRegisterForm = () => {
+export default function CustomRegisterForm() {
  const { registerEntity } = useAuth();
  return (
   <Formik
@@ -18,7 +21,7 @@ const CustomRegisterForm = () => {
     formikHelpers: FormikHelpers<Omit<RegisterModel, 'token'>>,
    ) => {
     formikHelpers.resetForm();
-    await Actions.user.register(values);
+    await register(values);
    }}
   >
    {(props) => {
@@ -117,6 +120,4 @@ const CustomRegisterForm = () => {
    }}
   </Formik>
  );
-};
-
-export { CustomRegisterForm };
+}

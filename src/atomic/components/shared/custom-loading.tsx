@@ -1,16 +1,15 @@
 import { types } from '@/constants';
 import { CustomLoadingProps } from '@/types';
-import { Oval } from 'react-loader-spinner';
 
 /*  */
 
-const CustomLoading = (props: CustomLoadingProps) => {
+export default function CustomLoading(props: CustomLoadingProps) {
  const items: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  return (
   <>
    {props.variant === types.loading.normal && (
     <section className="w-full h-screen flex-row-center-center skeleton">
-     <Oval
+     {/* <Oval
       height={80}
       width={80}
       color="gray"
@@ -20,7 +19,7 @@ const CustomLoading = (props: CustomLoadingProps) => {
       secondaryColor="#666"
       strokeWidth={5}
       strokeWidthSecondary={5}
-     />
+     /> */}
     </section>
    )}
    {props.variant === types.loading.listVertical &&
@@ -59,6 +58,4 @@ const CustomLoading = (props: CustomLoadingProps) => {
     ))}
   </>
  );
-};
-
-export { CustomLoading };
+}

@@ -1,4 +1,4 @@
-import { CustomRegisterForm } from '@/atomic/components';
+import CustomRegisterForm from '@/atomic/components/admin/custom-register-form';
 
 export default function Register() {
  return (

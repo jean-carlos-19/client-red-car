@@ -1,6 +1,6 @@
 'use client ';
 
-import { CustomSearch } from '@/atomic/components/shared/custom-search';
+import CustomSearch from '@/atomic/components/shared/custom-search';
 import { data } from '@/constants';
 import { useSearch } from '@/hooks';
 import { validate } from '@/validations';

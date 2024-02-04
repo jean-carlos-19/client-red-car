@@ -3,7 +3,7 @@ import { CustomPhotoProps } from '@/types';
 import Image from 'next/image';
 import { useState } from 'react';
 
-const CustomPhoto = (props: CustomPhotoProps) => {
+export default function CustomPhoto(props: CustomPhotoProps) {
  const [isLoading, setIsLoading] = useState<boolean>(true);
  return (
   <figure className={`${isLoading ? 'flex-1 bg-secondary rounded-lg' : props.className} `}>
@@ -20,6 +20,4 @@ const CustomPhoto = (props: CustomPhotoProps) => {
    />
   </figure>
  );
-};
-
-export { CustomPhoto };
+}

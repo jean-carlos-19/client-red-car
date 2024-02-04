@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const { footer } = data.screens.homepage;
 
-function Footer() {
+export default async function Footer() {
  return (
   <footer className="w-full py-16 flex-row-center-center" style={styles.backgrounds.secondary}>
    <Link
@@ -18,4 +18,3 @@ function Footer() {
   </footer>
  );
 }
-export { Footer };

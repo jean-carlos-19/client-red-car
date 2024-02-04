@@ -1,10 +1,10 @@
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { images, types } from '@/constants';
 import { CustomHeaderUserProps } from '@/types';
 import { signOut } from 'next-auth/react';
 import Image from 'next/image';
 
-const CustomHeaderUser = (props: CustomHeaderUserProps) => {
+export default function CustomHeaderUser(props: CustomHeaderUserProps) {
  return (
   <nav className="p-4 bg-helper flex-row-between-center flex-initial">
    <CustomButton
@@ -24,6 +24,4 @@ const CustomHeaderUser = (props: CustomHeaderUserProps) => {
    />
   </nav>
  );
-};
-
-export { CustomHeaderUser };
+}

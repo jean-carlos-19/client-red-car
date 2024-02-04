@@ -3,7 +3,7 @@ import { images } from '@/constants';
 import { CustomMessageErrorProps } from '@/types';
 import Image from 'next/image';
 
-const CustomMessageError = (props: CustomMessageErrorProps) => {
+export default function CustomMessageError(props: CustomMessageErrorProps) {
  return (
   <section
    className="flex-col-center-center h-screen px-4 py-8  rounded-lg"
@@ -20,6 +20,4 @@ const CustomMessageError = (props: CustomMessageErrorProps) => {
    </div>
   </section>
  );
-};
-
-export { CustomMessageError };
+}

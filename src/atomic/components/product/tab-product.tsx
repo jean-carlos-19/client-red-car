@@ -1,10 +1,8 @@
-import { Actions } from '@/actions';
-import { useTab } from '@/hooks';
-import { CustomTabs } from '..';
+import { getAllCategoriesEnabled } from '@/actions/categories';
+import CustomTabs from '@/atomic/components/shared/custom-tabs';
 
-export default async function TabProduct() {
- const categories = await Actions.category.getAllCategoriesEnabled();
- const { tab, handlerTab } = useTab('Todos');
+export default async function TabProduct({ query, product }: { query: string; product: string }) {
+ const categories = await getAllCategoriesEnabled();
  const items = categories.map((category) => category.category);
- return <CustomTabs focus={tab} items={items} returnItem={handlerTab} />;
+ return <CustomTabs query={query} tab={product} items={items} />;
 }

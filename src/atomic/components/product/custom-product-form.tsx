@@ -1,5 +1,9 @@
-import { CustomDetailsProduct, CustomProgressBar, CustomSelect } from '@/atomic/components';
-import { CustomButton, CustomInput, CustomPoster, CustomTextArea } from '@/atomic/elements';
+import CustomDetailsProduct from '@/atomic/components/product/custom-details-product';
+import CustomSelect from '@/atomic/components/shared/custom-select';
+import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomInput from '@/atomic/elements/custom-input';
+import CustomPoster from '@/atomic/elements/custom-poster';
+import CustomTextArea from '@/atomic/elements/custom-text-area';
 import { data, types } from '@/constants';
 import { usePoster, useProgressBar } from '@/hooks';
 import { useProduct } from '@/hooks/use-product';
@@ -7,10 +11,16 @@ import { CustomProductFormProps } from '@/types';
 import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
 import toast from 'react-hot-toast';
+import CustomProgressBar from '../shared/custom-progres-bar';
 
 const { products } = data.screens.dashboard.forms;
 
-const CustomProductForm = ({ send, type, categories, laboratories }: CustomProductFormProps) => {
+export default function CustomProductForm({
+ send,
+ type,
+ categories,
+ laboratories,
+}: CustomProductFormProps) {
  const { items, position, handlerPosition } = useProgressBar(4);
  const { productEntity } = useProduct();
  const { urlImage, handlerPoster } = usePoster();
@@ -240,6 +250,6 @@ const CustomProductForm = ({ send, type, categories, laboratories }: CustomProdu
    }}
   </Formik>
  );
-};
+}
 
 export { CustomProductForm };

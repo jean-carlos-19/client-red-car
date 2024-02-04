@@ -1,17 +1,19 @@
 'use client';
-import { CustomButton, CustomInput, CustomPoster } from '@/atomic/elements';
-import { types } from '@/constants';
+import CustomDetailsCategory from '@/atomic/components/category/custom-details-category';
+import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomInput from '@/atomic/elements/custom-input';
+import CustomPoster from '@/atomic/elements/custom-poster';
+import { data, types } from '@/constants';
 import { usePoster } from '@/hooks';
 import { useCategory } from '@/hooks/use-category';
 import { CustomCategoryFormProps } from '@/types';
 import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
 import toast from 'react-hot-toast';
-import { CustomDetailsCategory } from '..';
 
-const { category } = screens.dashboard.forms;
+const { category } = data.screens.dashboard.forms;
 
-const CustomCategoryForm = (props: CustomCategoryFormProps) => {
+export default function CustomCategoryForm(props: CustomCategoryFormProps) {
  const { type } = props;
  const { urlImage, handlerPoster } = usePoster();
  const { categoryEntity } = useCategory();
@@ -111,6 +113,4 @@ const CustomCategoryForm = (props: CustomCategoryFormProps) => {
    }}
   </Formik>
  );
-};
-
-export { CustomCategoryForm };
+}

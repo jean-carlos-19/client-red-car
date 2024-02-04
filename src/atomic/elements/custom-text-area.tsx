@@ -1,6 +1,6 @@
 import { CustomTextAreaProps } from '@/types';
 
-const CustomTextArea = (props: CustomTextAreaProps) => {
+export default function CustomTextArea(props: CustomTextAreaProps) {
  return (
   <div className={'field-form'}>
    {props.label && (
@@ -22,6 +22,4 @@ const CustomTextArea = (props: CustomTextAreaProps) => {
    {props.validation && <p className="text-error-form">{props.messageError}</p>}
   </div>
  );
-};
-
-export { CustomTextArea };
+}

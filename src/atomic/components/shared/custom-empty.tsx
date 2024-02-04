@@ -2,7 +2,7 @@ import { data, images } from '@/constants';
 import Image from 'next/image';
 
 const { globals } = data;
-const CustomEmpty = () => {
+export default function CustomEmpty() {
  return (
   <div className="flex-col-center-center bg-helper px-4 py-8  rounded-lg">
    <Image
@@ -16,6 +16,4 @@ const CustomEmpty = () => {
    <p className="default-text-bold"> {globals.empty.text} </p>
   </div>
  );
-};
-
-export { CustomEmpty };
+}

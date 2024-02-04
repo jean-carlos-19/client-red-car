@@ -1,18 +1,8 @@
-import { CustomList } from '@/atomic/components';
-import toast from 'react-hot-toast';
+import { getAllCategoriesDisabled } from '@/actions/categories';
+import CustomList from '@/atomic/components/laboratory/list-laboratory';
 
 export default async function PageDisabled() {
- const { data, error } = await Actions.category.getAllCategoriesDisabled();
- if (error || data === null) {
-  return toast.error(error);
- }
- return (
-  <CustomList
-   data={data}
-   handlerDelete={handlerActionDisable}
-   isLoading={isLoadingSearch}
-   handlerEdit={handlerShowEdit}
-   handlerDetail={handlerDeatil}
-  />
- );
+ const categoriesDiSabled = await getAllCategoriesDisabled();
+
+ return <CustomList />;
 }

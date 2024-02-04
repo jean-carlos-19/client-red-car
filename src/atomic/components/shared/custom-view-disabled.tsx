@@ -1,4 +1,4 @@
-import { CustomIcon } from '@/atomic/elements';
+import CustomIcon from '@/atomic/elements/custom-icon';
 import { types } from '@/constants';
 import { CustomViewDisabledProps, variantButton } from '@/types';
 import Link from 'next/link';

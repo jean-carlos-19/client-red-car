@@ -1,72 +1,103 @@
+'use server';
 import { ServiceProduct } from '@/mvc/services';
 
 const service: ServiceProduct = ServiceProduct.getService();
 
-const getAllProductsEnabled = async (): Promise<ProductDto[]> => {
-    try {
-        const result = await service.getAllProductsEnabled();
-        return result.data.data;
-    } catch (error) {
-        console.error('Ocurrio un error al obtener las productos', error);
-        throw new Error('Ocurrio un error al obtener las productos');
-    }
-};
-const getAllProductsDisabled = async (): Promise<ProductDto[]> => {
-    try {
-        const result = await service.getAllProductsDisabled();
-        return result.data.data;
-    } catch (error) {
-        console.error('Ocurrio un error al obtener las productos', error);
-        throw new Error('Ocurrio un error al obtener las productos');
-    }
-};
+export async function getAllProductsEnabled(): Promise<ProductDto[]> {
+ try {
+  const result = await service.getAllProductsEnabled();
+  return result.data.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
+export async function getAllProductsBytCategory({
+ category,
+}: {
+ category: string;
+}): Promise<ProductDto[]> {
+ try {
+  const result = await service.getAllProductsByCategory({ category });
+  return result.data.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
+export async function getAllProductsBytCategoryAndLaboratory({
+ category,
+ laboratory,
+}: {
+ category: string;
+ laboratory: string;
+}): Promise<ProductDto[]> {
+ try {
+  const result = await service.getAllProductsByCategoryAndLaboratory({ category, laboratory });
+  return result.data.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
+export async function getAllProductsDisabled(): Promise<ProductDto[]> {
+ try {
+  const result = await service.getAllProductsDisabled();
+  return result.data.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
 
-const create = async (product: ProductModel): Promise<ResponseDto> => {
-    try {
-        const result = await service.create({ product, token: '' });
-        return result.data;
-    } catch (error) {
-        console.error('Ocurrio un error al obtener las productos', error);
-        throw new Error('Ocurrio un error al obtener las productos');
-    }
-};
+export async function createProduct(product: ProductModel): Promise<ResponseDto> {
+ try {
+  const result = await service.create({ product, token: '' });
+  return result.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
 
-const edit = async (product: ProductModel): Promise<ResponseDto> => {
-    try {
-        const result = await service.edit({ product, token: '' });
-        return result.data;
-    } catch (error) {
-        console.error('Ocurrio un error al obtener las productos', error);
-        throw new Error('Ocurrio un error al obtener las productos');
-    }
-};
+export async function editProduct(product: ProductModel): Promise<ResponseDto> {
+ try {
+  const result = await service.edit({ product, token: '' });
+  return result.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
 
-const enable = async ({ id, product }: { id: string; product: string }): Promise<ResponseDto> => {
-    try {
-        const result = await service.enable({ id, product, token: '' });
-        return result.data;
-    } catch (error) {
-        console.error('Ocurrio un error al obtener las productos', error);
-        throw new Error('Ocurrio un error al obtener las productos');
-    }
-};
+export async function enableProduct({
+ id,
+ product,
+}: {
+ id: string;
+ product: string;
+}): Promise<ResponseDto> {
+ try {
+  const result = await service.enable({ id, product, token: '' });
+  return result.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}
 
-const disable = async ({ id, product }: { id: string; product: string }): Promise<ResponseDto> => {
-    try {
-        const result = await service.disable({ id, product, token: '' });
-        return result.data;
-    } catch (error) {
-        console.error('Ocurrio un error al obtener las productos', error);
-        throw new Error('Ocurrio un error al obtener las productos');
-    }
-};
-
-const product = Object.freeze({
-    getAllProductsEnabled,
-    getAllProductsDisabled,
-    create,
-    edit,
-    enable,
-    disable,
-});
-export { product };
+export async function disableProduct({
+ id,
+ product,
+}: {
+ id: string;
+ product: string;
+}): Promise<ResponseDto> {
+ try {
+  const result = await service.disable({ id, product, token: '' });
+  return result.data;
+ } catch (error) {
+  console.error('Ocurrio un error al obtener las productos', error);
+  throw new Error('Ocurrio un error al obtener las productos');
+ }
+}

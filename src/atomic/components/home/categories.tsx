@@ -1,11 +1,11 @@
+import ProductCategories from '@/atomic/components/home/product-categories';
 import { data } from '@/constants';
 import { Suspense } from 'react';
-import { ProductCategories } from '.';
-import { CustomLoading } from '..';
+import CustomLoading from '../shared/custom-loading';
 
 const { secctions } = data.screens.homepage;
 
-async function Categories() {
+export default function Categories() {
  return (
   <article className="w-full mt-[10rem]bg-helper flex-col-stretch-center space-y-16">
    <h2 className="header-2"> {'Productos'}</h2>
@@ -29,4 +29,3 @@ async function Categories() {
   </article>
  );
 }
-export { Categories };

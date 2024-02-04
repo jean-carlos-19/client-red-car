@@ -3,7 +3,7 @@ import { CustomItemProps } from '@/types';
 
 const { card } = data.screens.product;
 
-const CustomItem = (props: CustomItemProps) => {
+export default function CustomItem(props: CustomItemProps) {
  const data = props.text.split(',');
  return (
   <section className="w-full h-full bg-helper p-4 rounded-xl flex-col-start-strech">
@@ -21,6 +21,4 @@ const CustomItem = (props: CustomItemProps) => {
    </ul>
   </section>
  );
-};
-
-export { CustomItem };
+}

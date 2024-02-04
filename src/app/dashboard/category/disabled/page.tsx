@@ -1,16 +1,7 @@
-import { Actions } from '@/actions';
-import { CustomList } from '@/atomic/components';
+import { getAllCategoriesDisabled } from '@/actions/categories';
 
 export default async function PageEliminated() {
- const categoriesDisabled = await Actions.category.getAllCategoriesDisabled();
+ const categoriesDisabled = await getAllCategoriesDisabled();
 
- return (
-  <CustomList
-   data={categoriesDisabled}
-   handlerDelete={handlerActionDisable}
-   isLoading={isLoadingSearch}
-   handlerEdit={handlerShowEdit}
-   handlerDetail={handlerDeatil}
-  />
- );
+ return <getAllLaboratoriesByCategory />;
 }

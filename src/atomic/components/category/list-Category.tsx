@@ -1,9 +1,9 @@
-import { Actions } from '@/actions';
-import { CustomList } from '@/atomic/components/shared/custom-list';
+import { getAllCategoriesEnabled } from '@/actions/categories';
+import CustomList from '@/atomic/components/shared/custom-list';
 import { Item } from '@/types';
 
 export default async function ListCategory() {
- const categories = await Actions.category.getAllCategoriesEnabled();
+ const categories = await getAllCategoriesEnabled();
  const data: Item[] = categories.map((laboratory) => ({
   id: laboratory.id_category,
   name: laboratory.category,

@@ -1,5 +1,6 @@
-import { CustomHeader } from '@/atomic/designs';
-import { CustomButton } from '@/atomic/elements';
+'use client';
+import CustomHeader from '@/atomic/designs/custom-header';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { theme } from '@/atomic/theme';
 import { data, images, types } from '@/constants';
 import { useHeader } from '@/hooks';
@@ -8,7 +9,7 @@ import Image from 'next/image';
 const { header } = data.screens.dashboard;
 const { secctions } = data.screens.homepage;
 
-function Header() {
+export default function Header() {
  const { headers, target, handlerTarger } = useHeader(secctions.headers, true);
  return (
   <header
@@ -28,4 +29,3 @@ function Header() {
   </header>
  );
 }
-export { Header };

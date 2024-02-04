@@ -1,8 +1,8 @@
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { types } from '@/constants';
 import { CustomProgressBarProps } from '@/types';
 
-const CustomProgressBar = (props: CustomProgressBarProps) => {
+export default function CustomProgressBar(props: CustomProgressBarProps) {
  return (
   <nav>
    <ul className="flex-row-between-stretch space-x-5">
@@ -21,7 +21,4 @@ const CustomProgressBar = (props: CustomProgressBarProps) => {
    </ul>
   </nav>
  );
-};
-
-export { CustomProgressBar };
-/*   */
+}

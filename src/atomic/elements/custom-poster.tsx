@@ -2,7 +2,7 @@ import { types } from '@/constants';
 import { PosterProps } from '@/types';
 import Image from 'next/image';
 
-const CustomPoster = (props: PosterProps) => {
+export default function CustomPoster(props: PosterProps) {
  return (
   <div className=" p-4 flex-col-center-center border-4 border-dashed w-full min-h-[200px] relative">
    <label
@@ -26,6 +26,4 @@ const CustomPoster = (props: PosterProps) => {
    {props.validation && <p className="text-error-form">{props.messageError}</p>}
   </div>
  );
-};
-
-export { CustomPoster };
+}

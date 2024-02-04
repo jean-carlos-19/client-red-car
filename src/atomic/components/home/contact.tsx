@@ -1,10 +1,10 @@
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { data, types } from '@/constants';
 import Link from 'next/link';
 
 const { secctions } = data.screens.homepage;
 
-function Contact() {
+export default function Contact() {
  return (
   <section id={secctions.names.contact} className="w-full p-4 bg-helper space-y-16">
    <article className="space-y-8">
@@ -35,4 +35,3 @@ function Contact() {
   </section>
  );
 }
-export { Contact };

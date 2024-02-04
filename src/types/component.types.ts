@@ -49,14 +49,14 @@ interface CustomDetailsProductProps {
 }
 interface CustomTabsProps {
  items: string[];
+ tab: string;
+ query: string;
  className?: string;
- focus: string;
- returnItem: (item: string) => void;
 }
 interface CustomItemTabsProps {
  isActive: boolean;
  item: string;
- returnItem: (item: string) => void;
+ tab: string;
 }
 /*  */
 interface CustomItemProps {
@@ -124,6 +124,7 @@ interface CustomDialogProps {
 }
 
 interface CustomButtonProps {
+ url: string;
  title: string;
  text?: string;
  icon?: statusIcon;
@@ -132,6 +133,16 @@ interface CustomButtonProps {
  isDisable?: boolean;
  variant?: variantButton;
  handlerPress?: () => void;
+}
+
+interface CustomLinkProps {
+ title: string;
+ text?: string;
+ icon?: statusIcon;
+ type: statusButton;
+ className?: string;
+ isDisable?: boolean;
+ variant?: variantButton;
 }
 
 interface CustomViewDisabledProps {
@@ -200,6 +211,7 @@ export type {
  CustomItemProps,
  CustomItemTabsProps,
  CustomLaboratoryFormProps,
+ CustomLinkProps,
  CustomListProps,
  CustomLoadingProps,
  CustomMessageErrorProps,

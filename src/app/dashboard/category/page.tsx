@@ -1,11 +1,10 @@
-import { Actions } from '@/actions';
+import { getAllCategoriesDisabled, getAllCategoriesEnabled } from '@/actions/categories';
 import { styles } from '@/atomic/theme';
-import { CategoryView } from '@/views';
+import CategoryView from '@/views/category-view';
 
 export default async function Category() {
- const categoriesDisabled = await Actions.category.getAllCategoriesDisabled();
- const categoriesEnabled = await Actions.category.getAllCategoriesDisabled();
-
+ const categoriesDisabled = await getAllCategoriesDisabled();
+ const categoriesEnabled = await getAllCategoriesEnabled();
 
  return (
   <main

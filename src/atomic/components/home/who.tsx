@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const { secctions } = data.screens.homepage;
 
-function Who() {
+export default function Who() {
  return (
   <section
    id={secctions.names.whoUs}
@@ -21,4 +21,3 @@ function Who() {
   </section>
  );
 }
-export { Who };

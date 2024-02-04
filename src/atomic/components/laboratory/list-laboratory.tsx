@@ -1,9 +1,9 @@
-import { Actions } from '@/actions';
-import { CustomList } from '@/atomic/components/shared/custom-list';
+import { getAllLaboratoriesEnabled } from '@/actions/laboratories';
+import CustomList from '@/atomic/components/shared/custom-list';
 import { Item } from '@/types';
 
 export default async function ListLaboratory() {
- const laboratories = await Actions.Laboratory.getAllLaboratoriesEnabled();
+ const laboratories = await getAllLaboratoriesEnabled();
  const data: Item[] = laboratories.map((laboratory) => ({
   id: laboratory.id_laboratory,
   name: laboratory.laboratory,

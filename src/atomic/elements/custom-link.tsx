@@ -2,6 +2,7 @@
 import CustomIcon from '@/atomic/elements/custom-icon';
 import { types } from '@/constants';
 import { CustomButtonProps, variantButton } from '@/types';
+import Link from 'next/link';
 
 const getVariantButton = (
  variant: variantButton | undefined,
@@ -35,50 +36,46 @@ const getVariantButton = (
  return { styles };
 };
 
-export default function CustomButton(props: CustomButtonProps) {
+export default function CustomLink(props: CustomButtonProps) {
  const { styles } = getVariantButton(props.variant);
-
  /* default */
  if (props.type === types.button.default)
   return (
-   <button
-    type="button"
+   <Link
+    href={props.url}
     className={
      props.isDisable ? 'p-4 bg-gray-400 rounded-xl cursor-not-allowed' : `${styles.container}`
     }
-    disabled={props.isDisable}
-    onClick={props.handlerPress}
     title={props.title}
    >
     <p className={`${styles.button} ${props.className}`}>{props.text}</p>
-   </button>
+   </Link>
   );
  /* icon  */
  if (props.type === types.button.icon && props.icon)
   return (
-   <button
-    type="button"
+   <Link
+    href={props.url}
     title={props.title}
     className={`${styles.container} ${props.className} p-2`}
     onClick={props.handlerPress}
    >
     <CustomIcon type={props.icon} />
-   </button>
+   </Link>
   );
 
  /* icon and text */
  if (props.type === types.button.iconText && props.icon)
   return (
-   <button
+   <Link
+    href={props.url}
     className={`${styles.container} ${props.className} p-2`}
     onClick={props.handlerPress}
     title={props.title}
    >
     <p className={styles.button}>{props.text}</p>
     <CustomIcon type={props.icon} />
-   </button>
+   </Link>
   );
  return null;
 }
-
-export { CustomButton };

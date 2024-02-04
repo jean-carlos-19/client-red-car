@@ -1,10 +1,10 @@
-import { Actions } from '@/actions';
+import { getAllLaboratoriesDisabled, getAllLaboratoriesEnabled } from '@/actions/laboratories';
 import { styles } from '@/atomic/theme';
-import { LaboratoryView } from '@/views';
+import LaboratoryView from '@/views/laboratory-view';
 
 export default async function Laboratory() {
- const laboratoriesDisabled = await Actions.Laboratory.getAllLaboratoriesDisabled();
- const laboratoriesEnabled = await Actions.Laboratory.getAllLaboratoriesDisabled();
+ const laboratoriesDisabled = await getAllLaboratoriesDisabled();
+ const laboratoriesEnabled = await getAllLaboratoriesEnabled();
 
  return (
   <main

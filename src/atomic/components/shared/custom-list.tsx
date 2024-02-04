@@ -6,7 +6,7 @@ import { CustomListProps } from '@/types';
 
 const { list } = data.screens.dashboard;
 
-const CustomList = (props: CustomListProps) => {
+export default function CustomList(props: CustomListProps) {
  const { isOpen, photo, handlerHidde, handlerImage } = usePhoto();
 
  if (isOpen)
@@ -94,6 +94,4 @@ const CustomList = (props: CustomListProps) => {
    )}
   </ul>
  );
-};
-
-export { CustomList };
+}

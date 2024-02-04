@@ -1,8 +1,8 @@
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { types } from '@/constants';
 import { CustomHeaderProps } from '@/types';
 
-const CustomHeader = (props: CustomHeaderProps) => {
+export default function CustomHeader(props: CustomHeaderProps) {
  return (
   <nav className="p-4 flex-row-reverese-between-center flex-initial">
    <ul className="flex-row-end-center">
@@ -20,6 +20,4 @@ const CustomHeader = (props: CustomHeaderProps) => {
    </ul>
   </nav>
  );
-};
-
-export { CustomHeader };
+}

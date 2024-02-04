@@ -1,14 +1,18 @@
-import { Actions } from '@/actions';
+import { getAllCategoriesEnabled } from '@/actions/categories';
+import CustomEmpty from '@/atomic/components/shared/custom-empty';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CustomEmpty } from '..';
 
-async function ProductCategories() {
- const categories = await Actions.category.getAllCategoriesEnabled();
+export default async function ProductCategories() {
+ const categories = await getAllCategoriesEnabled();
  if (categories === null) return <CustomEmpty />;
  if (categories.length === 0) return <CustomEmpty />;
  return categories.map((category, i) => (
-  <Link key={i} href={`/category/${category.category}`} title={`categoria ${category.category}`}>
+  <Link
+   key={i}
+   href={`/category/${category.category}?query=Todos`}
+   title={`categoria ${category.category}`}
+  >
    <Image
     className="flex-row-center-center"
     src={category.photo as string}
@@ -19,4 +23,3 @@ async function ProductCategories() {
   </Link>
  ));
 }
-export { ProductCategories };

@@ -1,25 +1,23 @@
-import { CustomButton } from '@/atomic/elements';
 import { types } from '@/constants';
 import { CustomItemTabsProps } from '@/types';
+import CustomLink from './custom-link';
 
-const CustomItemTab = (props: CustomItemTabsProps) => {
+export default function CustomItemTab(props: CustomItemTabsProps) {
  return props.isActive ? (
-  <CustomButton
+  <CustomLink
+   url={`/category/${props.tab}?query=${props.item}`}
    text={props.item}
    type={types.button.default}
    title={`Laboratorio ${props.item}`}
    variant={types.variant.button.primary}
-   handlerPress={() => props.returnItem(props.item)}
   />
  ) : (
-  <CustomButton
+  <CustomLink
+   url={`/category/${props.tab}?query=${props.item}`}
    text={props.item}
    type={types.button.default}
    title={`Laboratorio ${props.item}`}
    variant={types.variant.button.secondary}
-   handlerPress={() => props.returnItem(props.item)}
   />
  );
-};
-
-export { CustomItemTab };
+}

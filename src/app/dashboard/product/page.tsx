@@ -1,12 +1,18 @@
-import { Actions } from '@/actions';
+import { getAllCategoriesEnabled } from '@/actions/categories';
+import { getAllLaboratoriesEnabled } from '@/actions/laboratories';
+import { getAllProductsDisabled, getAllProductsEnabled } from '@/actions/product';
 import { styles } from '@/atomic/theme';
-import { ProductView } from '@/views';
+import ProductView from '@/views/product-view';
 
-export default async function Product() {
- const laboratoriesEnabled = await Actions.Laboratory.getAllLaboratoriesEnabled();
- const categoriesEnabled = await Actions.category.getAllCategoriesEnabled();
- const productsEnabled = await Actions.product.getAllProductsEnabled();
- const productsDisabled = await Actions.product.getAllProductsDisabled();
+export default async function Product({
+ searchParams: { query },
+}: {
+ searchParams: { query: string };
+}) {
+ const laboratoriesEnabled = await getAllLaboratoriesEnabled();
+ const categoriesEnabled = await getAllCategoriesEnabled();
+ const productsEnabled = await getAllProductsEnabled();
+ const productsDisabled = await getAllProductsDisabled();
 
  return (
   <main
@@ -14,6 +20,7 @@ export default async function Product() {
    style={styles.backgrounds.secondary}
   >
    <ProductView
+    query={query}
     categories={categoriesEnabled}
     disabled={productsDisabled}
     laboratories={laboratoriesEnabled}

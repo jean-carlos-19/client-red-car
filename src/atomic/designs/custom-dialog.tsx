@@ -1,10 +1,10 @@
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/elements/custom-buttom';
 import { data, types } from '@/constants';
 import { CustomDialogProps } from '@/types';
 
 const { dialog } = data.screens.dashboard;
 
-const CustomDialog = (props: CustomDialogProps) => {
+export default function CustomDialog(props: CustomDialogProps) {
  return (
   <div className="p-4 flex-row-center-stretch">
    {/* body dialog */}
@@ -36,6 +36,4 @@ const CustomDialog = (props: CustomDialogProps) => {
    </div>
   </div>
  );
-};
-
-export { CustomDialog };
+}

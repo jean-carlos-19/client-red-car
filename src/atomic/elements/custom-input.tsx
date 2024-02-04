@@ -1,6 +1,6 @@
 import { CustomInputProps } from '@/types';
 
-const CustomInput = (props: CustomInputProps) => {
+export default function CustomInput(props: CustomInputProps) {
  return (
   <div className={'field-form'}>
    {props.label && (
@@ -22,6 +22,4 @@ const CustomInput = (props: CustomInputProps) => {
    {props.validation && <p className="text-error-form">{props.messageError}</p>}
   </div>
  );
-};
-
-export { CustomInput };
+}
