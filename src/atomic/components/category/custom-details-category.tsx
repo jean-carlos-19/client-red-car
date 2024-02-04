@@ -6,7 +6,7 @@ import { CustomDetailsCategoryProps } from '@/types';
 import Image from 'next/image';
 
 const CustomDetailsCategory = async ({ id, handlerClose }: CustomDetailsCategoryProps) => {
- const { data: category } = await Actions.category.find(id);
+ const {category,photo,} = await Actions.category.find(id);
  return (
   <section className="flex-col-stretch-stretch">
    <CustomButton
@@ -19,13 +19,13 @@ const CustomDetailsCategory = async ({ id, handlerClose }: CustomDetailsCategory
    <div className="flex-col-center-center">
     <Image
      className="rounded-full w-[15rem] h-[15rem] object-contain"
-     src={String(category?.photo)}
-     alt={String(category?.category)}
+     src={String(photo)}
+     alt={String(category)}
      width={150}
      height={150}
      style={styles.backgrounds.helper}
     />
-    <h2 className="title-form"> {category?.category} </h2>
+    <h2 className="title-form"> {category} </h2>
    </div>
   </section>
  );

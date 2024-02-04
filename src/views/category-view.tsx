@@ -43,7 +43,7 @@ const CategoryView = async ({
      />
     </div>
     {/* list categories and detail one category  */}
-    <ListCategory data={categories} />
+    <ListCategory />
    </div>
   </div>
  );

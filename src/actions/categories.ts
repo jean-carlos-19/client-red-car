@@ -2,18 +2,18 @@ import { ServiceCategory } from '@/mvc/services';
 
 const service: ServiceCategory = ServiceCategory.getService();
 
-const getEnabled = async (): Promise<CategoryDto[]> => {
+const getAllCategoriesEnabled = async (): Promise<CategoryDto[]> => {
     try {
-        const result = await service.showEnable();
+        const result = await service.getAllProductsEnabled();
         return result.data.data;
     } catch (error) {
         console.error('Ocurrio un error al obtener las categorias', error);
         throw new Error('Ocurrio un error al obtener las categorias');
     }
 };
-const getDisabled = async (): Promise<CategoryDto[]> => {
+const getAllCategoriesDisabled = async (): Promise<CategoryDto[]> => {
     try {
-        const result = await service.showDisable();
+        const result = await service.getAllProductsDisabled();
         return result.data.data;
     } catch (error) {
         console.error('Ocurrio un error al obtener las categorias', error);
@@ -71,8 +71,8 @@ const find = async (id: string): Promise<CategoryDto> => {
     }
 };
 const category = Object.freeze({
-    getEnabled,
-    getDisabled,
+    getAllCategoriesEnabled,
+    getAllCategoriesDisabled,
     create,
     edit,
     enable,

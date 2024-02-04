@@ -54,13 +54,13 @@ class ServiceCategory implements CategoryController {
         );
     };
 
-    public showDisable = async (): Promise<AxiosResponse<{ data: CategoryDto[] }>> => {
+    public getAllProductsDisabled = async (): Promise<AxiosResponse<{ data: CategoryDto[] }>> => {
         return await this.http.get<{ data: CategoryDto[] }>(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/disable/category`,
         );
     };
 
-    public showEnable = async (): Promise<AxiosResponse<{ data: CategoryDto[] }>> => {
+    public getAllProductsEnabled = async (): Promise<AxiosResponse<{ data: CategoryDto[] }>> => {
         return await this.http.get<{ data: CategoryDto[] }>(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/enable/category`,
         );

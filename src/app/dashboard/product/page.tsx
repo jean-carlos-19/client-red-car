@@ -1,29 +1,12 @@
 import { Actions } from '@/actions';
 import { styles } from '@/atomic/theme';
 import { ProductView } from '@/views';
-import toast from 'react-hot-toast';
 
 export default async function Product() {
- const { data: laboratories, error: errorLaboratory } = await Actions.Laboratory.getEnabled();
- const { data: categories, error: errorCategory } = await Actions.category.getEnabled();
- const { data: products, error: error } = await Actions.product.getEnabled();
- const { data: disabled, error: errorDisabled } = await Actions.product.getDisabled();
-
- if (errorCategory || categories === null) {
-  return toast.error(error);
- }
-
- if (errorLaboratory || laboratories === null) {
-  return toast.error(error);
- }
-
- if (error || products === null) {
-  return toast.error(error);
- }
-
- if (disabled === null || errorDisabled) {
-  return toast.error(errorDisabled);
- }
+ const laboratoriesEnabled = await Actions.Laboratory.getAllLaboratoriesEnabled();
+ const categoriesEnabled = await Actions.category.getAllCategoriesEnabled();
+ const productsEnabled = await Actions.product.getAllProductsEnabled();
+ const productsDisabled = await Actions.product.getAllProductsDisabled();
 
  return (
   <main
@@ -31,10 +14,10 @@ export default async function Product() {
    style={styles.backgrounds.secondary}
   >
    <ProductView
-    categories={categories}
-    disabled={disabled}
-    laboratories={laboratories}
-    products={products}
+    categories={categoriesEnabled}
+    disabled={productsDisabled}
+    laboratories={laboratoriesEnabled}
+    products={productsEnabled}
    />
   </main>
  );

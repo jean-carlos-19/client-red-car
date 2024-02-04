@@ -3,7 +3,7 @@ import { CustomList } from '@/atomic/components/shared/custom-list';
 import { Item } from '@/types';
 
 export default async function ListLaboratory() {
- const laboratories = await Actions.Laboratory.getEnabled();
+ const laboratories = await Actions.Laboratory.getAllLaboratoriesEnabled();
  const data: Item[] = laboratories.map((laboratory) => ({
   id: laboratory.id_laboratory,
   name: laboratory.laboratory,

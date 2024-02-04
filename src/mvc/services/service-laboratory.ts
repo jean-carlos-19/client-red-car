@@ -63,12 +63,12 @@ class ServiceLaboratory implements LaboratoryController {
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/find/laboratory?id=${id}`,
         );
     };
-    public showDisable = async (): Promise<AxiosResponse<{ data: LaboratoryDto[] }>> => {
+    public getAllProductsDisabled = async (): Promise<AxiosResponse<{ data: LaboratoryDto[] }>> => {
         return await this.http.get<{ data: LaboratoryDto[] }>(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/disable/laboratory`,
         );
     };
-    public showEnable = async (): Promise<AxiosResponse<{ data: LaboratoryDto[] }>> => {
+    public getAllProductsEnabled = async (): Promise<AxiosResponse<{ data: LaboratoryDto[] }>> => {
         return await this.http.get<{ data: LaboratoryDto[] }>(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/enable/laboratory`,
         );

@@ -2,18 +2,18 @@ import { ServiceLaboratory } from '@/mvc/services';
 
 const service: ServiceLaboratory = ServiceLaboratory.getService();
 
-const getEnabled = async (): Promise<LaboratoryDto[]> => {
+const getAllLaboratoriesEnabled = async (): Promise<LaboratoryDto[]> => {
     try {
-        const result = await service.showEnable();
+        const result = await service.getAllProductsEnabled();
         return result.data.data;
     } catch (error) {
         console.error('Ocurrio un error al obtener las laboratorios', error);
         throw new Error('Ocurrio un error al obtener las laboratorios');
     }
 };
-const getDisabled = async (): Promise<LaboratoryDto[]> => {
+const getAllLaboratoriesDisabled = async (): Promise<LaboratoryDto[]> => {
     try {
-        const result = await service.showDisable();
+        const result = await service.getAllProductsDisabled();
         return result.data.data;
     } catch (error) {
         console.error('Ocurrio un error al obtener las laboratorios', error);
@@ -62,8 +62,8 @@ const disable = async (laboratory: LaboratoryModel): Promise<ResponseDto> => {
 };
 
 const Laboratory = Object.freeze({
-    getEnabled,
-    getDisabled,
+    getAllLaboratoriesEnabled,
+    getAllLaboratoriesDisabled,
     create,
     edit,
     enable,

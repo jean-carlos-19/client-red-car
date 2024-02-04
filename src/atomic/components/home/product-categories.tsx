@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { CustomEmpty } from '..';
 
 async function ProductCategories() {
- const { data: categories } = await Actions.category.getEnabled();
+ const categories = await Actions.category.getAllCategoriesEnabled();
  if (categories === null) return <CustomEmpty />;
  if (categories.length === 0) return <CustomEmpty />;
  return categories.map((category, i) => (

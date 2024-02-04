@@ -2,18 +2,18 @@ import { ServiceProduct } from '@/mvc/services';
 
 const service: ServiceProduct = ServiceProduct.getService();
 
-const getEnabled = async (): Promise<ProductDto[]> => {
+const getAllProductsEnabled = async (): Promise<ProductDto[]> => {
     try {
-        const result = await service.showEnable();
+        const result = await service.getAllProductsEnabled();
         return result.data.data;
     } catch (error) {
         console.error('Ocurrio un error al obtener las productos', error);
         throw new Error('Ocurrio un error al obtener las productos');
     }
 };
-const getDisabled = async (): Promise<ProductDto[]> => {
+const getAllProductsDisabled = async (): Promise<ProductDto[]> => {
     try {
-        const result = await service.showDisable();
+        const result = await service.getAllProductsDisabled();
         return result.data.data;
     } catch (error) {
         console.error('Ocurrio un error al obtener las productos', error);
@@ -62,8 +62,8 @@ const disable = async ({ id, product }: { id: string; product: string }): Promis
 };
 
 const product = Object.freeze({
-    getEnabled,
-    getDisabled,
+    getAllProductsEnabled,
+    getAllProductsDisabled,
     create,
     edit,
     enable,

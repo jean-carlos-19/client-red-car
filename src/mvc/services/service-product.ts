@@ -71,13 +71,13 @@ class ServiceProduct implements ProductController {
         );
     };
 
-    public showDisable = async (): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
+    public getAllProductsDisabled = async (): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<{ data: ProductDto[] }>(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/disable/product`,
         );
     };
 
-    public showEnable = async (): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
+    public getAllProductsEnabled = async (): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<{ data: ProductDto[] }>(
             `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/enable/product`,
         );

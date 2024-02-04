@@ -1,12 +1,14 @@
 import { Actions } from '@/actions';
 import { CustomList } from '@/atomic/components';
-import toast from 'react-hot-toast';
+import { Item } from '@/types';
 
 export default async function PageDisabled() {
- const { data, error } = await Actions.product.getDisabled();
- if (error || data === null) {
-  return toast.error(error);
- }
+ const products = await Actions.product.getAllProductsDisabled();
+ const data: Item[] = products.map((product) => ({
+    id: product.id_product,
+    name: product.product,
+    photo: product.photo,
+   }));
  return (
   <CustomList
    data={data}
