@@ -1,4 +1,4 @@
-import CustomLoginForm from '@/atomic/components/admin/custom-login-form';
+import CustomLoginForm from "@/atomic/components/admin/custom-login-form";
 
 export default function Login() {
  return (

@@ -1,3 +1,4 @@
+import { SessionAuth } from '@/context';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import React from 'react';
@@ -13,8 +14,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
  return (
   <html lang="en">
-   <body className={ `${inter.className} bg-helper`}>
+   <body className={`${inter.className} bg-helper`}>
+   <SessionAuth>
     {children}
+   </SessionAuth>
     <Toaster />
    </body>
   </html>

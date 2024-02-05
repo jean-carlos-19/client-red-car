@@ -1,19 +1,18 @@
-import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomLink from '@/atomic/elements/custom-link';
 import { types } from '@/constants';
-import { CustomHeaderProps } from '@/types';
 
-export default function CustomHeader(props: CustomHeaderProps) {
+export default function CustomHeader({headers,focus}: {headers:string[], focus:string}) {
  return (
   <nav className="p-4 flex-row-reverese-between-center flex-initial">
    <ul className="flex-row-end-center">
-    {props.list.map((item, i) => (
+    {headers.map((head, i) => (
      <li key={i}>
-      <CustomButton
+      <CustomLink
        type={types.button.default}
-       text={item}
-       variant={props.target === i ? types.variant.button.primary : types.variant.button.secondary}
-       handlerPress={() => props.hanlderTarget(i)}
-       title={item}
+       text={head.toLocaleUpperCase()}
+       variant={head === focus ? types.variant.button.primary : types.variant.button.secondary}
+       title={head.toLocaleUpperCase()}
+       url={`/?query=${head}`}
       />
      </li>
     ))}

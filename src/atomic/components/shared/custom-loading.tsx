@@ -43,12 +43,12 @@ export default function CustomLoading(props: CustomLoadingProps) {
     ))}
    {props.variant === types.loading.grid &&
     items.map((item, i) => (
-      <ul>
-        <li
-         key={i}
-         className="bg-slate-200 w-[10rem] h-[20rem] p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer skeleton"
-        ></li>
-      </ul>
+     <ul>
+      <li
+       key={i}
+       className="bg-slate-200 w-[10rem] h-[20rem] p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer skeleton"
+      ></li>
+     </ul>
     ))}
 
    {props.variant === types.loading.image &&
