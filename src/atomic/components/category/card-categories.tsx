@@ -27,7 +27,7 @@ export default async function CardCategories({
     <Link
      key={product.id_product}
      title={product.product}
-     href={'/product/' + product.product}
+     href={'/category/product/' + product.id_product}
      style={{ height: '100%' }}
      className="bg-slate-200 p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer"
     >

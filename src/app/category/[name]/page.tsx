@@ -1,6 +1,7 @@
 import CardCategories from '@/atomic/components/category/card-categories';
 import TabLaboratory from '@/atomic/components/laboratory/tab-laboratory';
 import CustomLoading from '@/atomic/components/shared/custom-loading';
+import CustomLink from '@/atomic/elements/custom-link';
 import { theme } from '@/atomic/theme';
 import { images, types } from '@/constants';
 import Image from 'next/image';
@@ -20,12 +21,7 @@ export default function Category({
   <div className="w-full bg-helper flex flex-col justify-stretch items-stretch space-y-8">
    {/* header */}
    <header className="w-full p-4 bg-primary flex-row-between-center lg:px-[5rem]">
-    {/* <CustomButton
-     title={header.button}
-     type={types.button.icon}
-     icon={types.icon.goBack}
-     handlerPress={handlerGoBack}
-    /> */}
+    <CustomLink title={'regresar'} type={types.button.icon} icon={types.icon.goBack} url={'/'} />
     <h1 className="header-2 color-secondary" style={{ color: theme.white }}>
      {name}
     </h1>
@@ -46,7 +42,6 @@ export default function Category({
      entity={search}
     /> */}
    </div>
-   {/* products */}
    <Suspense fallback={<CustomLoading variant={types.loading.grid} />}>
     <CardCategories category={name} laboratory={query} />
    </Suspense>
