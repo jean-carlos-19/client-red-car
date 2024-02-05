@@ -18,7 +18,7 @@ export default function Category({
  searchParams: { query: string };
 }) {
  return (
-  <div className="w-full bg-helper flex flex-col justify-stretch items-stretch space-y-8">
+  <div className="w-full flex flex-col justify-stretch items-stretch space-y-8">
    {/* header */}
    <header className="w-full p-4 bg-primary flex-row-between-center lg:px-[5rem]">
     <CustomLink title={'regresar'} type={types.button.icon} icon={types.icon.goBack} url={'/'} />

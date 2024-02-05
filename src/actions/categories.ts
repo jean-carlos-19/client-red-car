@@ -1,4 +1,5 @@
 'use server';
+import { pinoLogger } from '@/lib/pino-logger';
 import { ServiceCategory } from '@/mvc/services';
 
 const service: ServiceCategory = ServiceCategory.getService();
@@ -8,7 +9,9 @@ export async function getAllCategoriesEnabled(): Promise<CategoryDto[]> {
   const result = await service.getAllProductsEnabled();
   return result.data.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }
@@ -17,7 +20,9 @@ export async function getAllCategoriesDisabled(): Promise<CategoryDto[]> {
   const result = await service.getAllProductsDisabled();
   return result.data.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }
@@ -27,7 +32,9 @@ export async function createCategory(category: CategoryModel): Promise<ResponseD
   const result = await service.create({ category, token: '' });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }
@@ -37,7 +44,9 @@ export async function editCategory(category: CategoryModel): Promise<ResponseDto
   const result = await service.edit({ category, token: '' });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }
@@ -47,7 +56,9 @@ export async function enableCategory(category: CategoryModel, token: string): Pr
   const result = await service.enable({ category, token });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }
@@ -60,7 +71,9 @@ export async function disableCategory(
   const result = await service.disable({ category, token });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }
@@ -70,7 +83,9 @@ export async function findCategory(id: string): Promise<CategoryDto> {
   const result = await service.find({ id });
   return result.data.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las categorias', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las categorias', error);
+  }
   throw new Error('Ocurrio un error al obtener las categorias');
  }
 }

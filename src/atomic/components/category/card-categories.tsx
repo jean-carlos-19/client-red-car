@@ -1,4 +1,4 @@
-import { getAllProductsBytCategoryAndLaboratory } from '@/actions/product';
+import { getAllProductsBytCategory, getAllProductsBytCategoryAndLaboratory } from '@/actions/product';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,10 +9,10 @@ export default async function CardCategories({
  category: string;
  laboratory: string;
 }) {
- const products = await getAllProductsBytCategoryAndLaboratory({ category, laboratory });
+ const products = laboratory === 'Todos' ? await getAllProductsBytCategory({category}) :  await getAllProductsBytCategoryAndLaboratory({ category, laboratory });
  return (
   <section
-   className="w-full self-center p-4 bg-helper lg:w-[80%]"
+   className="w-full self-center p-4 lg:w-[80%]"
    style={{
     gap: '2rem',
     display: 'grid',

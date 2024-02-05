@@ -124,7 +124,7 @@ interface CustomDialogProps {
 }
 
 interface CustomButtonProps {
- url: string;
+ url?: string;
  title: string;
  text?: string;
  icon?: statusIcon;

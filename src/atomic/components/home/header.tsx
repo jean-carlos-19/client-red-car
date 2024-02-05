@@ -21,7 +21,7 @@ export default function Header() {
     {header.title}
    </h1>
    <div className="lg:hidden">
-    <CustomButton title={header.button} type={types.button.icon} icon={types.icon.menu} />
+    <CustomButton title={header.button} type={types.button.icon} icon={types.icon.menu} url={''} />
    </div>
    <div className="hidden md:block lg:block flex-1">
     <CustomHeader list={headers} target={target} hanlderTarget={handlerTarger} />

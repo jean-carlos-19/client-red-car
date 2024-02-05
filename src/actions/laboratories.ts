@@ -1,4 +1,5 @@
 'use server';
+import { pinoLogger } from '@/lib/pino-logger';
 import { ServiceLaboratory } from '@/mvc/services';
 
 const service: ServiceLaboratory = ServiceLaboratory.getService();
@@ -8,7 +9,9 @@ export async function getAllLaboratoriesEnabled(): Promise<LaboratoryDto[]> {
   const result = await service.getAllProductsEnabled();
   return result.data.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al obtener las laboratorios');
  }
 }
@@ -21,7 +24,9 @@ export async function getAllLaboratoriesByCategory({
   const result = await service.getAllLaboratoriesByCategory({ category });
   return result.data.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al obtener las laboratorios');
  }
 }
@@ -30,7 +35,9 @@ export async function getAllLaboratoriesDisabled(): Promise<LaboratoryDto[]> {
   const result = await service.getAllProductsDisabled();
   return result.data.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al obtener las laboratorios');
  }
 }
@@ -40,7 +47,9 @@ export async function createLaboratory(laboratory: LaboratoryModel): Promise<Res
   const result = await service.create({ laboratory, token: '' });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al obtener las laboratorios');
  }
 }
@@ -53,7 +62,9 @@ export async function editLaboratory(
   const result = await service.edit({ laboratory, token: '' });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al editar las laboratorios');
  }
 }
@@ -63,7 +74,9 @@ export async function enableLaboratory(laboratory: LaboratoryModel): Promise<Res
   const result = await service.enable({ laboratory, token: '' });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al obtener las laboratorios');
  }
 }
@@ -73,7 +86,9 @@ export async function disableLaboratory(laboratory: LaboratoryModel): Promise<Re
   const result = await service.disable({ laboratory, token: '' });
   return result.data;
  } catch (error) {
-  console.error('Ocurrio un error al obtener las laboratorios', error);
+  if (error instanceof Error) {
+   pinoLogger.error('Ocurrio un error al obtener las laboratorios', error);
+  }
   throw new Error('Ocurrio un error al obtener las laboratorios');
  }
 }

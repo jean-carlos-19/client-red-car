@@ -21,7 +21,7 @@ const handler = NextAuth({
      });
      return data.data;
     } catch (error) {
-     console.error(error);
+     pinoLogger.error(error);
      throw error;
     }
    },
