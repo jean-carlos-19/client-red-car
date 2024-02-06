@@ -7,6 +7,7 @@ import { data, types } from '@/constants';
 import { useAuth } from '@/hooks';
 import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
+import toast from 'react-hot-toast';
 const { forms } = data.screens.register;
 
 export default function CustomRegisterForm() {
@@ -21,7 +22,10 @@ export default function CustomRegisterForm() {
     formikHelpers: FormikHelpers<Omit<RegisterModel, 'token'>>,
    ) => {
     formikHelpers.resetForm();
-    await register(values);
+    const {id,message} = await register(values);
+    if (id === types.respone.error) toast.error(message)
+    if (id === types.respone.notFound) toast.error(message)
+    if (id === types.respone.success) toast.success(message)
    }}
   >
    {(props) => {

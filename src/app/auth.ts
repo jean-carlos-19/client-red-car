@@ -1,51 +1,53 @@
 import { login } from '@/actions/user';
-import { ServiceUser } from '@/mvc/services';
-import NextAuth from 'next-auth';
+import { authConfig } from '@/app/auth.config';
+import { pinoLogger } from '@/lib/pino-logger';
+import NextAuth, { NextAuthConfig } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-const service: ServiceUser = ServiceUser.getService();
-
-const handler = NextAuth({
- providers: [
-  CredentialsProvider({
-   name: 'Credentials',
-   credentials: {
-    user: { label: 'Username', type: 'text', placeholder: 'jsmith' },
-    password: { label: 'Password', type: 'password' },
-   },
-   async authorize(credentials) {
-    try {
-     const data = await login({
-      user: credentials?.user as string,
-      password: credentials?.password as string,
-     });
-     return data.data;
-    } catch (error) {
-     pinoLogger.error(error);
-     throw error;
-    }
-   },
-  }),
- ],
- callbacks: {
-  async session({ session, token }: SessionProps) {
-   if (token !== undefined && session.user !== undefined) {
-    session.user.id = token.accessToken;
-   } else {
-    throw new Error('Token is undefined');
-   }
-   return session;
-  },
-  async jwt({ token, account }: JWTProps) {
-   if (account !== null && account.type === 'credentials') {
-    token.id = account.providerAccountId;
-   }
-   return { ...token };
-  },
- },
- session: { maxAge: 7200, strategy: 'jwt' },
- pages: {
-  signIn: '/admin/login',
- },
-});
-export { handler };
+const authOptions: NextAuthConfig = {
+    ...authConfig,
+    providers: [
+        CredentialsProvider({
+            name: 'Credentials',
+            credentials: {
+                user: { label: 'Username', type: 'text', placeholder: 'jsmith' },
+                password: { label: 'Password', type: 'password' },
+            },
+            async authorize(credentials) {
+                try {
+                    const data = await login({
+                        user: credentials?.user as string,
+                        password: credentials?.password as string,
+                    });
+                    console.log('data', data);
+                    return data.data;
+                } catch (error) {
+                    if (error instanceof Error) pinoLogger.error(error.message);
+                    throw error;
+                }
+            },
+        }),
+    ],
+    callbacks: {
+        async session({ session, token }: SessionProps) {
+            console.log('******************************');
+            console.log('session', session);
+            console.log('token', token);
+            console.log('******************************');
+            session.user = token as any;
+            return session
+        },
+        async jwt({ token, account, user }) {
+            if (account != null && account.type === 'credentials') {
+                token.userId = account.providerAccountId
+            }
+            return { ...token, ...user };
+        },
+    },
+    session: { maxAge: 7200, strategy: 'jwt' },
+    pages: {
+        signIn: '/admin/login',
+    },
+};
+export const nextAuthResult = NextAuth(authOptions)
+export const { auth } = nextAuthResult

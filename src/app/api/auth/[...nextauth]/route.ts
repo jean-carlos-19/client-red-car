@@ -1,2 +1,5 @@
-import { handler } from '@/app/auth';
-export { handler as GET, handler as POST };
+import { nextAuthResult } from '@/app/auth'
+
+export const {
+    handlers: { GET, POST }
+} = nextAuthResult

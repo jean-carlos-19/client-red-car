@@ -1,6 +1,6 @@
 'use client';
 
-import { login } from '@/actions/user';
+import { authentication } from '@/actions/user';
 import CustomButton from '@/atomic/elements/custom-buttom';
 import CustomInput from '@/atomic/elements/custom-input';
 import CustomPassword from '@/atomic/elements/custom-password';
@@ -10,6 +10,7 @@ import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 const { forms } = data.screens.login;
 
@@ -27,7 +28,8 @@ export default function CustomLoginForm() {
    initialValues={loginEntity}
    onSubmit={async (values: LoginModel, formikHelpers: FormikHelpers<LoginModel>) => {
     formikHelpers.resetForm();
-    await login(values);
+    const data = await authentication(values);
+    if(data) toast.error(data);
    }}
   >
    {(props) => {
