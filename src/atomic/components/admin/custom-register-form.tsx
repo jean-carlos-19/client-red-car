@@ -1,8 +1,8 @@
 'use client';
 import { register } from '@/actions/user';
-import CustomButton from '@/atomic/elements/custom-buttom';
-import CustomInput from '@/atomic/elements/custom-input';
-import CustomPassword from '@/atomic/elements/custom-password';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
+import CustomInput from '@/atomic/components/shared/custom-input';
+import CustomPassword from '@/atomic/components/shared/custom-password';
 import { data, types } from '@/constants';
 import { useAuth } from '@/hooks';
 import { validate } from '@/validations';

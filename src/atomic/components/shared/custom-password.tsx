@@ -1,6 +1,4 @@
-'use client';
-
-import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
 import { types } from '@/constants';
 import { CustomInputProps } from '@/types';
 import { useState } from 'react';

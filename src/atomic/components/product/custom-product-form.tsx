@@ -1,9 +1,9 @@
 import CustomDetailsProduct from '@/atomic/components/product/custom-details-product';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
+import CustomInput from '@/atomic/components/shared/custom-input';
+import CustomPoster from '@/atomic/components/shared/custom-poster';
 import CustomSelect from '@/atomic/components/shared/custom-select';
-import CustomButton from '@/atomic/elements/custom-buttom';
-import CustomInput from '@/atomic/elements/custom-input';
-import CustomPoster from '@/atomic/elements/custom-poster';
-import CustomTextArea from '@/atomic/elements/custom-text-area';
+import CustomTextArea from '@/atomic/components/shared/custom-text-area';
 import { data, types } from '@/constants';
 import { usePoster, useProgressBar } from '@/hooks';
 import { useProduct } from '@/hooks/use-product';

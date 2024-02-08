@@ -1,5 +1,5 @@
 import { findCategory } from '@/actions/categories';
-import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
 import { styles } from '@/atomic/theme';
 import { types } from '@/constants';
 import { CustomDetailsCategoryProps } from '@/types';

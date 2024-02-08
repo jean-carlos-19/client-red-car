@@ -1,7 +1,7 @@
 import CardCategories from '@/atomic/components/category/card-categories';
 import TabLaboratory from '@/atomic/components/laboratory/tab-laboratory';
+import CustomLink from '@/atomic/components/shared/custom-link';
 import CustomLoading from '@/atomic/components/shared/custom-loading';
-import CustomLink from '@/atomic/elements/custom-link';
 import { theme } from '@/atomic/theme';
 import { images, types } from '@/constants';
 import Image from 'next/image';

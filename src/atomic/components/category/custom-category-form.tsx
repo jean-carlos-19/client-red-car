@@ -1,8 +1,8 @@
 'use client';
 import CustomDetailsCategory from '@/atomic/components/category/custom-details-category';
-import CustomButton from '@/atomic/elements/custom-buttom';
-import CustomInput from '@/atomic/elements/custom-input';
-import CustomPoster from '@/atomic/elements/custom-poster';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
+import CustomInput from '@/atomic/components/shared/custom-input';
+import CustomPoster from '@/atomic/components/shared/custom-poster';
 import { data, types } from '@/constants';
 import { usePoster } from '@/hooks';
 import { useCategory } from '@/hooks/use-category';

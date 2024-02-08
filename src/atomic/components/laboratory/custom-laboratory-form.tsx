@@ -1,6 +1,6 @@
 'use client';
-import CustomButton from '@/atomic/elements/custom-buttom';
-import CustomInput from '@/atomic/elements/custom-input';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
+import CustomInput from '@/atomic/components/shared/custom-input';
 import { data, types } from '@/constants';
 import { useLaboratory } from '@/hooks/use-laboratory';
 import { CustomLaboratoryFormProps } from '@/types';

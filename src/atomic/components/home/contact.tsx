@@ -1,4 +1,4 @@
-import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
 import { data, types } from '@/constants';
 import Link from 'next/link';
 

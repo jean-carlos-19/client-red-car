@@ -1,6 +1,6 @@
+import CustomButton from '@/atomic/components/shared/custom-buttom';
+import CustomLink from '@/atomic/components/shared/custom-link';
 import CustomHeader from '@/atomic/designs/custom-header';
-import CustomButton from '@/atomic/elements/custom-buttom';
-import CustomLink from '@/atomic/elements/custom-link';
 import { theme } from '@/atomic/theme';
 import { data, images, types } from '@/constants';
 import Image from 'next/image';

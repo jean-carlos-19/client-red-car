@@ -1,4 +1,4 @@
-import CustomLink from '@/atomic/elements/custom-link';
+import CustomLink from '@/atomic/components/shared/custom-link';
 import { types } from '@/constants';
 
 export default function CustomHeader({ headers, focus }: { headers: string[]; focus: string }) {

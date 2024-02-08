@@ -1,4 +1,4 @@
-import CustomButton from '@/atomic/elements/custom-buttom';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
 import { images, types } from '@/constants';
 import { CustomModalProps } from '@/types';
 import Image from 'next/image';

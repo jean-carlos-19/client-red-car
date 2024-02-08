@@ -1,4 +1,4 @@
-import CustomItemTab from '@/atomic/elements/custom-item-tab';
+import CustomItemTab from '@/atomic/components/shared/custom-item-tab';
 import { CustomTabsProps } from '@/types';
 
 export default function CustomTabs({ items, tab, query }: CustomTabsProps) {
