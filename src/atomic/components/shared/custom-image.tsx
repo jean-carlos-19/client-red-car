@@ -12,12 +12,13 @@ export default function CustomImage({
 }: React.ComponentProps<'img'>) {
  return (
   <Image
-   className={cn('h-auto w-full', className)}
+   className={cn('h-auto w-full object-contain', className)}
    src={String(src)}
    alt={String(alt)}
    width={Number(width)}
    height={Number(height)}
    priority={true}
+   quality={100}
    title={title}
   />
  );
