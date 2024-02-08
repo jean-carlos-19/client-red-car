@@ -46,7 +46,7 @@ export default function CustomLoading(props: CustomLoadingProps) {
      <ul>
       <li
        key={i}
-       className="bg-slate-200 w-[10rem] h-[20rem] p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer skeleton"
+       className="bg-slate-200 w-full h-full p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer skeleton"
       ></li>
      </ul>
     ))}
