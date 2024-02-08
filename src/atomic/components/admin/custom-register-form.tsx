@@ -22,10 +22,10 @@ export default function CustomRegisterForm() {
     formikHelpers: FormikHelpers<Omit<RegisterModel, 'token'>>,
    ) => {
     formikHelpers.resetForm();
-    const {id,message} = await register(values);
-    if (id === types.respone.error) toast.error(message)
-    if (id === types.respone.notFound) toast.error(message)
-    if (id === types.respone.success) toast.success(message)
+    const { id, message } = await register(values);
+    if (id === types.respone.error) toast.error(message);
+    if (id === types.respone.notFound) toast.error(message);
+    if (id === types.respone.success) toast.success(message);
    }}
   >
    {(props) => {

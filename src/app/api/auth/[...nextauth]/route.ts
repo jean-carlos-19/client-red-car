@@ -1,5 +1,5 @@
-import { nextAuthResult } from '@/app/auth'
+import { nextAuthResult } from '@/app/auth';
 
 export const {
-    handlers: { GET, POST }
-} = nextAuthResult
+ handlers: { GET, POST },
+} = nextAuthResult;

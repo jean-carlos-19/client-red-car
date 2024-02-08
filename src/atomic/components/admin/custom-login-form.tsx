@@ -29,7 +29,7 @@ export default function CustomLoginForm() {
    onSubmit={async (values: LoginModel, formikHelpers: FormikHelpers<LoginModel>) => {
     formikHelpers.resetForm();
     const data = await authentication(values);
-    if(data) toast.error(data);
+    if (data) toast.error(data);
    }}
   >
    {(props) => {

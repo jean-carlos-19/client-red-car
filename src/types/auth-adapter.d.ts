@@ -1,13 +1,13 @@
 interface AuthAdapter {
-    id: string;
-    name: string;
-    email: string;
-    user: string;
+ id: string;
+ name: string;
+ email: string;
+ user: string;
 }
 
 interface SessionProps {
-    session: Session;
-    token?: JWT;
+ session: Session;
+ token?: JWT;
 }
 
 // interface JWTProps {

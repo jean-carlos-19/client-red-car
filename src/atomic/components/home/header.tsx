@@ -8,7 +8,7 @@ import Image from 'next/image';
 const { header } = data.screens.dashboard;
 const { secctions } = data.screens.homepage;
 
-export default function Header({focus}:{focus:string}) {
+export default function Header({ focus }: { focus: string }) {
  return (
   <header
    id={secctions.names.home}
@@ -22,8 +22,14 @@ export default function Header({focus}:{focus:string}) {
     <CustomButton title={header.button} type={types.button.icon} icon={types.icon.menu} url={''} />
    </div>
    <div className="hidden md:block lg:block flex-1 lg:flex">
-    <CustomHeader focus={focus} headers={['inicio','productos','quienes somos','contactanos']} />
-    <CustomLink title={'Entrar'} text='Entrar' type={types.button.default} variant={types.variant.button.primary} url='/admin/login'  />
+    <CustomHeader focus={focus} headers={['inicio', 'productos', 'quienes somos', 'contactanos']} />
+    <CustomLink
+     title={'Entrar'}
+     text="Entrar"
+     type={types.button.default}
+     variant={types.variant.button.primary}
+     url="/admin/login"
+    />
    </div>
   </header>
  );

@@ -11,16 +11,7 @@ export default function Categories() {
    <h2 className="header-2"> {'Productos'}</h2>
    <section
     id={secctions.names.product}
-    className="w-full lg:w-[80%]"
-    style={{
-     gap: '2rem',
-     display: 'grid',
-     gridTemplateColumns: 'repeat(auto-fill, minmax(10rem, 1fr))',
-     justifyContent: 'center',
-     alignItems: 'center',
-     alignContent: 'center',
-     justifyItems: 'center',
-    }}
+    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 justify-center items-center content-center place-items-center"
    >
     <Suspense fallback={<CustomLoading variant="list-horizontal" />}>
      <ProductCategories />

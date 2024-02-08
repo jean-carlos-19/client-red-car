@@ -1,7 +1,7 @@
 import CustomLink from '@/atomic/elements/custom-link';
 import { types } from '@/constants';
 
-export default function CustomHeader({headers,focus}: {headers:string[], focus:string}) {
+export default function CustomHeader({ headers, focus }: { headers: string[]; focus: string }) {
  return (
   <nav className="p-4 flex-row-reverese-between-center flex-initial">
    <ul className="flex-row-end-center">
