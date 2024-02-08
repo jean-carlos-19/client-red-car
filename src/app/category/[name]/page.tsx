@@ -1,10 +1,10 @@
 import CardCategories from '@/atomic/components/category/card-categories';
 import TabLaboratory from '@/atomic/components/laboratory/tab-laboratory';
+import CustomImage from '@/atomic/components/shared/custom-image';
 import CustomLink from '@/atomic/components/shared/custom-link';
 import CustomLoading from '@/atomic/components/shared/custom-loading';
 import { theme } from '@/atomic/theme';
 import { images, types } from '@/constants';
-import Image from 'next/image';
 import { Suspense } from 'react';
 
 // const { header } = data.screens.product;
@@ -25,7 +25,7 @@ export default function Category({
     <h1 className="header-2 color-secondary" style={{ color: theme.white }}>
      {name}
     </h1>
-    <Image src={images.redCar.src} width={50} height={50} alt="" />
+    <CustomImage src={images.redCar.src} width={images.redCar.width} height={images.redCar.height} alt={images.redCar.alt} title={images.redCar.title} />
    </header>
    <div className="flex-col-start-stretch">
     {/* Tabs */}

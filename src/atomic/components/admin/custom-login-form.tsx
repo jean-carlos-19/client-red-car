@@ -2,13 +2,13 @@
 
 import { authentication } from '@/actions/user';
 import CustomButton from '@/atomic/components/shared/custom-buttom';
+import CustomImage from '@/atomic/components/shared/custom-image';
 import CustomInput from '@/atomic/components/shared/custom-input';
 import CustomPassword from '@/atomic/components/shared/custom-password';
 import { data, images, types } from '@/constants';
 import { useAuth } from '@/hooks';
 import { validate } from '@/validations';
 import { Formik, FormikHelpers } from 'formik';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
 
@@ -40,14 +40,13 @@ export default function CustomLoginForm() {
         <h2 className="title-form"> {forms.login.titles.create} </h2>
        </header>
 
-       <Image
-        className="self-center"
-        src={images.avatar.src}
-        alt={images.avatar.alt}
-        title={images.avatar.title}
-        width={150}
-        height={150}
-       />
+       <CustomImage 
+         src={images.avatar.src}
+         alt={images.avatar.alt}
+         title={images.avatar.title}
+         width={150}
+         height={150}
+        />
 
        {/* user  */}
        <CustomInput

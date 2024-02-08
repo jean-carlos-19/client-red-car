@@ -1,5 +1,5 @@
 import { findProductById } from '@/actions/product';
-import Image from 'next/image';
+import CustomImage from '@/atomic/components/shared/custom-image';
 
 export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
  const product = await findProductById({ id });
@@ -13,14 +13,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
     </header>
     <div className="space-y-4 lg:flex lg:space-x-4">
      <figure className={'flex justify-center'}>
-      <Image
-       src={product.photo as string}
-       width={300}
-       height={600}
-       alt={product.product}
-       quality={100}
-       className="h-auto max-w-full object-contain"
-      />
+      <CustomImage src={String(product.photo)} width={300} height={600} alt={product.product} title={product.product} />
      </figure>
      <section className="p-2 bg-helper rounded-md">
       <h6 className="header-3">Componentes</h6>

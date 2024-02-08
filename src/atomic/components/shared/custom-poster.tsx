@@ -1,6 +1,6 @@
+import CustomImage from '@/atomic/components/shared/custom-image';
 import { types } from '@/constants';
 import { PosterProps } from '@/types';
-import Image from 'next/image';
 
 export default function CustomPoster(props: PosterProps) {
  return (
@@ -21,7 +21,7 @@ export default function CustomPoster(props: PosterProps) {
     onBlur={props.hanhandlerBlur}
    />
    {props.value && (
-    <Image className="object-contain z-20" src={props.urlImage || ''} alt={'Project poster'} fill />
+    <CustomImage className="object-contain z-20" src={String(props.urlImage)} alt={'Project poster'} />
    )}
    {props.validation && <p className="text-error-form">{props.messageError}</p>}
   </div>

@@ -1,9 +1,8 @@
 import { findCategory } from '@/actions/categories';
 import CustomButton from '@/atomic/components/shared/custom-buttom';
-import { styles } from '@/atomic/theme';
+import CustomImage from '@/atomic/components/shared/custom-image';
 import { types } from '@/constants';
 import { CustomDetailsCategoryProps } from '@/types';
-import Image from 'next/image';
 
 export default async function CustomDetailsCategory({
  id,
@@ -19,17 +18,17 @@ export default async function CustomDetailsCategory({
     icon={types.icon.close}
     handlerPress={handlerClose}
    />
-   <div className="flex-col-center-center">
-    <Image
-     className="rounded-full w-[15rem] h-[15rem] object-contain"
-     src={String(photo)}
-     alt={String(category)}
-     width={150}
-     height={150}
-     style={styles.backgrounds.helper}
-    />
-    <h2 className="title-form"> {category} </h2>
-   </div>
+<div className="flex-col-center-center">
+ <CustomImage
+  className="rounded-full w-[15rem] h-[15rem] object-contain"
+  src={String(photo)}
+  alt={String(category)}
+  title={String(category)}
+  width={150}
+  height={150}
+ />
+ <h2 className="title-form"> {category} </h2>
+</div>
   </section>
  );
 }
