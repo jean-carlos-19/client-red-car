@@ -40,13 +40,13 @@ export default function CustomLoginForm() {
         <h2 className="title-form"> {forms.login.titles.create} </h2>
        </header>
 
-       <CustomImage 
-         src={images.avatar.src}
-         alt={images.avatar.alt}
-         title={images.avatar.title}
-         width={150}
-         height={150}
-        />
+       <CustomImage
+        src={images.avatar.src}
+        alt={images.avatar.alt}
+        title={images.avatar.title}
+        width={150}
+        height={150}
+       />
 
        {/* user  */}
        <CustomInput

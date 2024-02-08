@@ -13,7 +13,13 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
     </header>
     <div className="space-y-4 lg:flex lg:space-x-4">
      <figure className={'flex justify-center'}>
-      <CustomImage src={String(product.photo)} width={300} height={600} alt={product.product} title={product.product} />
+      <CustomImage
+       src={String(product.photo)}
+       width={300}
+       height={600}
+       alt={product.product}
+       title={product.product}
+      />
      </figure>
      <section className="p-2 bg-helper rounded-md">
       <h6 className="header-3">Componentes</h6>

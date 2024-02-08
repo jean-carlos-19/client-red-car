@@ -21,7 +21,11 @@ export default function CustomPoster(props: PosterProps) {
     onBlur={props.hanhandlerBlur}
    />
    {props.value && (
-    <CustomImage className="object-contain z-20" src={String(props.urlImage)} alt={'Project poster'} />
+    <CustomImage
+     className="object-contain z-20"
+     src={String(props.urlImage)}
+     alt={'Project poster'}
+    />
    )}
    {props.validation && <p className="text-error-form">{props.messageError}</p>}
   </div>

@@ -34,14 +34,20 @@ export default function Dashboard() {
       className="flex-1 btn-secondary flex-col-center-center"
       onClick={() => handlerGoPage(header.items[i].url)}
      >
-        <CustomImage 
-         src={images.avatar.src}
-         alt={images.avatar.alt}
-         title={images.avatar.title}
-         width={150}
-         height={150}
-        />
-      <CustomImage src={String(images.avatar.src)} width={150} height={150} alt={images.avatar.alt} title={images.avatar.title} />
+      <CustomImage
+       src={images.avatar.src}
+       alt={images.avatar.alt}
+       title={images.avatar.title}
+       width={150}
+       height={150}
+      />
+      <CustomImage
+       src={String(images.avatar.src)}
+       width={150}
+       height={150}
+       alt={images.avatar.alt}
+       title={images.avatar.title}
+      />
       <p className=" btn-text-secondary"> {item} </p>
      </button>
     ))}

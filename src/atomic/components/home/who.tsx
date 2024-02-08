@@ -9,7 +9,14 @@ export default function Who() {
    id={secctions.names.whoUs}
    className="w-full py-12 px-4  bg-secondary flex-col-stretch-center space-y-8 lg:w-[80%] rounded-xl"
   >
-    <CustomImage src={images.redCar.src} width={images.redCar.width} height={images.redCar.height} alt={images.redCar.alt} title={images.redCar.title} />
+   <CustomImage
+    className="w-25 h-25"
+    src={images.redCar.src}
+    width={150}
+    height={150}
+    alt={images.redCar.alt}
+    title={images.redCar.title}
+   />
    <article className="space-y-4 flex-1">
     <header>
      <h2 className="header-2">{secctions.quienesSomos.title}</h2>

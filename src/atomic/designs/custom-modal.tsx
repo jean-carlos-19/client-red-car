@@ -15,9 +15,7 @@ export default function CustomModal(props: CustomModalProps) {
      width={300}
      height={300}
      alt=""
-     src={
-      props.setting.type === types.dialog.error ? images.warning.src : images.success.src
-     }
+     src={props.setting.type === types.dialog.error ? images.warning.src : images.success.src}
     />
    </div>
    {/* title and message modal */}

@@ -14,7 +14,14 @@ export default function Header({ focus }: { focus: string }) {
    id={secctions.names.home}
    className="w-full p-4 bg-secondary flex-row-between-center flex-initial sticky top-0 z-10"
   >
-    <CustomImage className='h-[50px] w-[50px]' src={images.redCar.src} width={images.redCar.width} height={images.redCar.height} alt={images.redCar.alt} title={images.redCar.title} />
+   <CustomImage
+    className="h-[50px] w-[50px]"
+    src={images.redCar.src}
+    width={images.redCar.width}
+    height={images.redCar.height}
+    alt={images.redCar.alt}
+    title={images.redCar.title}
+   />
    <h1 className="header-2" style={{ color: theme.gray }}>
     {header.title}
    </h1>

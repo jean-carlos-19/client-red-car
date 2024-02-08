@@ -12,7 +12,11 @@ export default function CustomMessageError(props: CustomMessageErrorProps) {
    <div className="p-8 rounded-xl flex-col-center-center" style={styles.backgrounds.secondary}>
     <h6 className="header-3 flex-initial"> Mensaje de error en el servidor </h6>
     <p className="default-text flex-initial text-left"> {props.message} </p>
-    <CustomImage className="max-w-[30%] rounded-xl" src={images.warning.src} alt={images.warning.alt} />
+    <CustomImage
+     className="max-w-[30%] rounded-xl"
+     src={images.warning.src}
+     alt={images.warning.alt}
+    />
     <p className="default-text flex-initial text-left">
      {' '}
      por favor recargue la pagina y vuelvalo a intentar{' '}

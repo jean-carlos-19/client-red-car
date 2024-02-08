@@ -18,17 +18,17 @@ export default async function CustomDetailsCategory({
     icon={types.icon.close}
     handlerPress={handlerClose}
    />
-<div className="flex-col-center-center">
- <CustomImage
-  className="rounded-full w-[15rem] h-[15rem] object-contain"
-  src={String(photo)}
-  alt={String(category)}
-  title={String(category)}
-  width={150}
-  height={150}
- />
- <h2 className="title-form"> {category} </h2>
-</div>
+   <div className="flex-col-center-center">
+    <CustomImage
+     className="rounded-full w-[15rem] h-[15rem] object-contain"
+     src={String(photo)}
+     alt={String(category)}
+     title={String(category)}
+     width={150}
+     height={150}
+    />
+    <h2 className="title-form"> {category} </h2>
+   </div>
   </section>
  );
 }
