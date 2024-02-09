@@ -1,21 +1,36 @@
 import {
   getAllProductsBytCategory,
   getAllProductsBytCategoryAndLaboratory,
+  searchProductByCategory,
+  searchProductByCategoryAndLaboratory,
 } from '@/actions/product';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default async function CardCategories({
+export default async function CardProducts({
  category,
  laboratory,
+ search
 }: {
  category: string;
  laboratory: string;
+ search?:string
 }) {
- const products =
-  laboratory === 'Todos'
-   ? await getAllProductsBytCategory({ category })
-   : await getAllProductsBytCategoryAndLaboratory({ category, laboratory });
+ let products:ProductDto[] | undefined = undefined;
+ if(laboratory === 'Todos' && search === undefined){
+  products = await getAllProductsBytCategory({ category })
+ }
+ if(laboratory !== 'Todos' && search === undefined){
+   products = await getAllProductsBytCategoryAndLaboratory({ category, laboratory });
+ }
+ if(laboratory === 'Todos' && search !== undefined){
+  products = await searchProductByCategory({ category, search });
+ }
+ if(laboratory !== 'Todos' && search !== undefined){
+  products = await searchProductByCategoryAndLaboratory({category, laboratory, search });
+ }
+ if(products === undefined) return ;
+   
  return (
   <section
    className="w-full self-center p-4 lg:w-[80%]"

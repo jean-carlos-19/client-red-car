@@ -1,54 +1,32 @@
-import CardCategories from '@/atomic/components/category/card-categories';
+import Search from '@/atomic/components/category/search';
 import TabLaboratory from '@/atomic/components/laboratory/tab-laboratory';
-import CustomLink from '@/atomic/components/shared/custom-link';
+import CardProducts from '@/atomic/components/product/card-categories';
+import CustomHeader from '@/atomic/components/shared/custom-header';
 import CustomLoading from '@/atomic/components/shared/custom-loading';
-import { theme } from '@/atomic/theme';
-import { images, types } from '@/constants';
+import { types } from '@/constants';
 import { Suspense } from 'react';
 
-// const { header } = data.screens.product;
-// const { forms, list } = data.screens.dashboard;
 
 export default function Category({
  params: { name },
- searchParams: { query },
+ searchParams: { query, search },
 }: {
  params: { name: string };
- searchParams: { query: string };
+ searchParams: { query: string, search?:string };
 }) {
  return (
   <div className="w-full flex flex-col justify-stretch items-stretch space-y-8">
-   {/* header */}
-   <header className="w-full p-4 bg-primary flex-row-between-center lg:px-[5rem]">
-    <CustomLink title={'regresar'} type={types.button.icon} icon={types.icon.goBack} url={'/'} />
-    <h1 className="header-2 color-secondary" style={{ color: theme.white }}>
-     {name}
-    </h1>
-    Image
-     src={images.redCar.src}
-     width={images.redCar.width}
-     height={images.redCar.height}
-     alt={images.redCar.alt}
-     title={images.redCar.title}
-    />
-   </header>
+   <CustomHeader title={name} />
    <div className="flex-col-start-stretch">
-    {/* Tabs */}
     <Suspense fallback={<CustomLoading variant={types.loading.grid} />}>
      <TabLaboratory category={name} query={query} />
     </Suspense>
    </div>
-   {/* input Search */}
    <div className="self-center">
-    {/* <CustomSearch
-     placeholder={forms.products.search.placeholder}
-     validationSchema={validate.search}
-     handlerSubmit={hanlderSearch}
-     entity={search}
-    /> */}
+    <Search />
    </div>
    <Suspense fallback={<CustomLoading variant={types.loading.grid} />}>
-    <CardCategories category={name} laboratory={query} />
+    <CardProducts search={search} category={name} laboratory={query} />
    </Suspense>
   </div>
  );
