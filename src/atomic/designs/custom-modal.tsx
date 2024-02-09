@@ -1,5 +1,4 @@
 import CustomButton from '@/atomic/components/shared/custom-buttom';
-import CustomImage from '@/atomic/components/shared/custom-image';
 import { images, types } from '@/constants';
 import { CustomModalProps } from '@/types';
 
@@ -11,7 +10,7 @@ export default function CustomModal(props: CustomModalProps) {
   <div className="bg-helper p-16 rounded-lg flex-col-start-stretch">
    {/* photo modal */}
    <div className="flex justify-center items-center">
-    <CustomImage
+    Image
      width={300}
      height={300}
      alt=""

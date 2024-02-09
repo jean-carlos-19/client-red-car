@@ -1,6 +1,6 @@
 'use client';
 
-import { CustomButton } from '@/atomic/elements';
+import CustomButton from '@/atomic/components/shared/custom-buttom';
 import { styles } from '@/atomic/theme';
 import { data, types } from '@/constants';
 import { CustomDetailsProductProps } from '@/types';

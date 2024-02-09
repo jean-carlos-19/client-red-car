@@ -1,7 +1,7 @@
-import CustomImage from '@/atomic/components/shared/custom-image';
 import { styles } from '@/atomic/theme';
 import { images } from '@/constants';
 import { CustomMessageErrorProps } from '@/types';
+import Image from 'next/image';
 
 export default function CustomMessageError(props: CustomMessageErrorProps) {
  return (
@@ -12,7 +12,7 @@ export default function CustomMessageError(props: CustomMessageErrorProps) {
    <div className="p-8 rounded-xl flex-col-center-center" style={styles.backgrounds.secondary}>
     <h6 className="header-3 flex-initial"> Mensaje de error en el servidor </h6>
     <p className="default-text flex-initial text-left"> {props.message} </p>
-    <CustomImage
+    <Image
      className="max-w-[30%] rounded-xl"
      src={images.warning.src}
      alt={images.warning.alt}

@@ -1,9 +1,9 @@
 import CustomButton from '@/atomic/components/shared/custom-buttom';
-import CustomImage from '@/atomic/components/shared/custom-image';
 import CustomLink from '@/atomic/components/shared/custom-link';
 import CustomHeader from '@/atomic/designs/custom-header';
 import { theme } from '@/atomic/theme';
 import { data, images, types } from '@/constants';
+import Image from 'next/image';
 
 const { header } = data.screens.dashboard;
 const { secctions } = data.screens.homepage;
@@ -14,7 +14,7 @@ export default function Header({ focus }: { focus: string }) {
    id={secctions.names.home}
    className="w-full p-4 bg-secondary flex-row-between-center flex-initial sticky top-0 z-10"
   >
-   <CustomImage
+   <Image
     className="h-[50px] w-[50px]"
     src={images.redCar.src}
     width={images.redCar.width}

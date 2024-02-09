@@ -1,11 +1,11 @@
 'use client';
-import CustomImage from '@/atomic/components/shared/custom-image';
 import CustomLoading from '@/atomic/components/shared/custom-loading';
 import CustomHeaderUser from '@/atomic/designs/custom-header-user';
 import { styles } from '@/atomic/theme';
 import { data, images, types } from '@/constants';
 import { useHeader } from '@/hooks';
 import { signIn, useSession } from 'next-auth/react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const { header } = data.screens.dashboard;
@@ -34,14 +34,14 @@ export default function Dashboard() {
       className="flex-1 btn-secondary flex-col-center-center"
       onClick={() => handlerGoPage(header.items[i].url)}
      >
-      <CustomImage
+      <Image
        src={images.avatar.src}
        alt={images.avatar.alt}
        title={images.avatar.title}
        width={150}
        height={150}
       />
-      <CustomImage
+      <Image
        src={String(images.avatar.src)}
        width={150}
        height={150}

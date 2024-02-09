@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
 import React from 'react';
 
 export default function CustomImage({
@@ -10,7 +11,7 @@ export default function CustomImage({
  title,
 }: React.ComponentProps<'img'>) {
  return (
-  <CustomImage
+  <Image
    className={cn('h-auto w-full object-contain', className)}
    src={String(src)}
    alt={String(alt)}

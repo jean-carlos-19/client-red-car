@@ -1,6 +1,6 @@
 import { getAllCategoriesEnabled } from '@/actions/categories';
 import CustomEmpty from '@/atomic/components/shared/custom-empty';
-import CustomImage from '@/atomic/components/shared/custom-image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function ProductCategories() {
@@ -13,7 +13,7 @@ export default async function ProductCategories() {
    href={`/category/${category.category}?query=Todos`}
    title={`categoria ${category.category}`}
   >
-   <CustomImage
+   <Image
     src={String(category.photo)}
     alt={category.category}
     width={150}

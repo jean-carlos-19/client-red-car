@@ -1,8 +1,8 @@
 import {
- getAllProductsBytCategory,
- getAllProductsBytCategoryAndLaboratory,
+  getAllProductsBytCategory,
+  getAllProductsBytCategoryAndLaboratory,
 } from '@/actions/product';
-import CustomImage from '@/atomic/components/shared/custom-image';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function CardCategories({
@@ -37,7 +37,7 @@ export default async function CardCategories({
      style={{ height: '100%' }}
      className="bg-slate-200 p-8 flex-col-stretch-stretch rounded-xl space-y-4 cursor-pointer"
     >
-     <CustomImage
+    <Image
       className="flex-row-center-center flex-1 h-auto max-w-full object-contain"
       width={150}
       height={350}

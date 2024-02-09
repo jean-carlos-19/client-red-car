@@ -1,6 +1,5 @@
 import CardCategories from '@/atomic/components/category/card-categories';
 import TabLaboratory from '@/atomic/components/laboratory/tab-laboratory';
-import CustomImage from '@/atomic/components/shared/custom-image';
 import CustomLink from '@/atomic/components/shared/custom-link';
 import CustomLoading from '@/atomic/components/shared/custom-loading';
 import { theme } from '@/atomic/theme';
@@ -25,7 +24,7 @@ export default function Category({
     <h1 className="header-2 color-secondary" style={{ color: theme.white }}>
      {name}
     </h1>
-    <CustomImage
+    Image
      src={images.redCar.src}
      width={images.redCar.width}
      height={images.redCar.height}

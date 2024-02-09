@@ -12,7 +12,7 @@ export default function Home({ searchParams: { query } }: { searchParams: { quer
    <CustomCarousel />
    <div className="flex flex-col items-center space-y-2 lg:w-[80%]">
     <Categories />
-    <Who />
+    <Who /> 
     <Contact />
    </div>
    <Footer />
