@@ -4,6 +4,7 @@ import {
   searchProductByCategory,
   searchProductByCategoryAndLaboratory,
 } from '@/actions/product';
+import CustomEmpty from '@/atomic/components/shared/custom-empty';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -29,7 +30,7 @@ export default async function CardProducts({
  if(laboratory !== 'Todos' && search !== undefined){
   products = await searchProductByCategoryAndLaboratory({category, laboratory, search });
  }
- if(products === undefined) return ;
+ if(products === undefined || products.length === 0 ) return <CustomEmpty />;
    
  return (
   <section
@@ -59,6 +60,7 @@ export default async function CardProducts({
       src={product.photo as string}
       alt={`${product.product}`}
       title={`${product.product}`}
+      loading='lazy'
      />
      <p className="default-text-bold">{product.product}</p>
     </Link>

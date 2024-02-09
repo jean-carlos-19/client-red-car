@@ -1,4 +1,5 @@
 import { findProductById } from '@/actions/product';
+import Image from 'next/image';
 
 export default async function ProductPage({ params: { id } }: { params: { id: string } }) {
  const product = await findProductById({ id });
@@ -12,7 +13,7 @@ export default async function ProductPage({ params: { id } }: { params: { id: st
     </header>
     <div className="space-y-4 lg:flex lg:space-x-4">
      <figure className={'flex justify-center'}>
-      Image
+      <Image
        src={String(product.photo)}
        width={300}
        height={600}

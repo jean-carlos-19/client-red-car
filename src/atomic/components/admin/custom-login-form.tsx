@@ -41,6 +41,7 @@ export default function CustomLoginForm() {
        </header>
 
        <Image
+        className='self-center'
         src={images.avatar.src}
         alt={images.avatar.alt}
         title={images.avatar.title}

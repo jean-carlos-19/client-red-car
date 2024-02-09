@@ -1,5 +1,6 @@
 import { ProductController } from '@/mvc/controllers';
 
+import { BACKEND_URL } from '@/constants/env.';
 import { Search } from '@/types';
 import { AxiosResponse } from 'axios';
 import { Http } from './http/http';
@@ -13,7 +14,7 @@ class ServiceProduct implements ProductController {
         token: string;
     }): Promise<AxiosResponse<ResponseDto>> => {
         return await this.http.post<ResponseDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/create/product`,
+            `${BACKEND_URL}/create/product`,
             this.getFormData(product),
             token,
         );
@@ -24,7 +25,7 @@ class ServiceProduct implements ProductController {
         category: string;
     }): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<ProductDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/category/product?category=${category}`,
+            `${BACKEND_URL}/show/category/product?category=${category}`,
         );
     };
     public getAllProductsByCategoryAndLaboratory = async ({
@@ -35,7 +36,7 @@ class ServiceProduct implements ProductController {
         laboratory: string;
     }): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<ProductDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/laboratory/product?category=${category}&laboratory=${laboratory}`,
+            `${BACKEND_URL}/show/laboratory/product?category=${category}&laboratory=${laboratory}`,
         );
     };
     public edit = async ({
@@ -46,7 +47,7 @@ class ServiceProduct implements ProductController {
         token: string;
     }): Promise<AxiosResponse<ResponseDto>> => {
         return await this.http.put<ResponseDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/edit/product`,
+            `${BACKEND_URL}/edit/product`,
             this.getFormData(product),
             token,
         );
@@ -61,7 +62,7 @@ class ServiceProduct implements ProductController {
         token: string;
     }): Promise<AxiosResponse<ResponseDto>> => {
         return await this.http.put<ResponseDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/enable/product`,
+            `${BACKEND_URL}/enable/product`,
             this.getSearchParams(id, product),
             token,
         );
@@ -76,7 +77,7 @@ class ServiceProduct implements ProductController {
         token: string;
     }): Promise<AxiosResponse<ResponseDto>> => {
         return await this.http.put<ResponseDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/disable/product`,
+            `${BACKEND_URL}/disable/product`,
             this.getSearchParams(id, product),
             token,
         );
@@ -84,13 +85,13 @@ class ServiceProduct implements ProductController {
 
     public getAllProductsDisabled = async (): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<{ data: ProductDto[] }>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/disable/product`,
+            `${BACKEND_URL}/show/disable/product`,
         );
     };
 
     public getAllProductsEnabled = async (): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<{ data: ProductDto[] }>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/show/enable/product`,
+            `${BACKEND_URL}/show/enable/product`,
         );
     };
 
@@ -102,7 +103,7 @@ class ServiceProduct implements ProductController {
         category: string;
     }): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<{ data: ProductDto[] }>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/search/category/product?product=${search}&category=${category}`,
+            `${BACKEND_URL}/search/category/product?product=${search}&category=${category}`,
         );
     };
 
@@ -112,7 +113,7 @@ class ServiceProduct implements ProductController {
         search: Search;
     }): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<ProductDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/search/product?search=${search.search}`,
+            `${BACKEND_URL}/search/product?search=${search.search}`,
         );
     };
     public searchByCategoryAndLaboratory = async ({
@@ -125,12 +126,12 @@ class ServiceProduct implements ProductController {
         search: string;
     }): Promise<AxiosResponse<{ data: ProductDto[] }>> => {
         return await this.http.get<ProductDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/search/laboratory/product?laboratory=${laboratory}&search=${search}&category=${category}`,
+            `${BACKEND_URL}/search/laboratory/product?laboratory=${laboratory}&search=${search}&category=${category}`,
         );
     };
     public find = async ({ id }: { id: string }): Promise<AxiosResponse<{ data: ProductDto }>> => {
         return await this.http.get<ProductDto>(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/find/product?id=${id}`,
+            `${BACKEND_URL}/find/product?id=${id}`,
         );
     };
 
