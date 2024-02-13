@@ -2,9 +2,15 @@ import { login } from '@/actions/user';
 import { authConfig } from '@/app/auth.config';
 import { NEXTAUTH_SECRET } from '@/constants/env.';
 import { pinoLogger } from '@/lib/pino-logger';
-import NextAuth, { NextAuthConfig } from 'next-auth';
+import jwt from 'jsonwebtoken';
+import NextAuth, { NextAuthConfig, Session } from 'next-auth';
+import { type JWT } from 'next-auth/jwt';
 import CredentialsProvider from 'next-auth/providers/credentials';
-
+interface SessionProps {
+    session: Session
+    token?: JWT
+  }
+  
 const authOptions: NextAuthConfig = {
     ...authConfig,
     secret: NEXTAUTH_SECRET,
@@ -17,12 +23,12 @@ const authOptions: NextAuthConfig = {
             },
             async authorize(credentials) {
                 try {
-                    const data = await login({
+                    const result = await login({
                         user: credentials?.user as string,
                         password: credentials?.password as string,
                     });
-                    console.log('data', data);
-                    return data.data;
+                    const payload = jwt.decode(result.token) as Payload
+                    return payload
                 } catch (error) {
                     if (error instanceof Error) pinoLogger.error(error.message);
                     throw error;
@@ -30,23 +36,23 @@ const authOptions: NextAuthConfig = {
             },
         }),
     ],
+    session: { maxAge: 7200, strategy: 'jwt' },
     callbacks: {
-        async session({ session, token }: SessionProps) {
+        async session({ session, token }:SessionProps) {
             console.log('******************************');
             console.log('session', session);
             console.log('token', token);
             console.log('******************************');
-            session.user = token as any;
             return session;
         },
         async jwt({ token, account, user }) {
+          
             if (account != null && account.type === 'credentials') {
                 token.userId = account.providerAccountId;
             }
-            return { ...token, ...user };
+            return { ...token, ...user }
         },
     },
-    session: { maxAge: 7200, strategy: 'jwt' },
     pages: {
         signIn: '/admin/login',
     },
